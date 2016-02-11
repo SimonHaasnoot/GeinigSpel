@@ -1,3 +1,5 @@
+package me.simonhaasnoot.geinigspel;
+
 import javax.swing.*;
 import java.awt.*;
 

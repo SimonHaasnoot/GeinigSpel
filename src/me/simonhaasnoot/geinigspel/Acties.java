@@ -1,4 +1,4 @@
-import jdk.internal.org.objectweb.asm.tree.analysis.Value;
+package me.simonhaasnoot.geinigspel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -43,7 +43,7 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
         // resuming the game
         if(!Values.isPauze){
             Values.pauseDifference = startTime - Values.pauseTime;
-        //    Values.difference - Values.pauseDifference;
+        //    me.simonhaasnoot.geinigspel.Values.difference - me.simonhaasnoot.geinigspel.Values.pauseDifference;
 
             Values.fireballValsnelheid = 2;
             Values.fireballValsnelheid2 = 3;

@@ -1,3 +1,5 @@
+package me.simonhaasnoot.geinigspel;
+
 public class Values {
 
     // the X and Y of the Player(character)
