@@ -1,6 +1,10 @@
 package me.simonhaasnoot.geinigspel;
 
+import me.simonhaasnoot.geinigspel.level.BaseLevel;
+
 public class Values {
+
+    public static BaseLevel level;
 
     // the X and Y of the Player(character)
     public static int playerXas =                       360;

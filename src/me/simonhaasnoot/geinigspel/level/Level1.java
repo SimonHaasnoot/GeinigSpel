@@ -4,6 +4,10 @@ import me.simonhaasnoot.geinigspel.Values;
 
 public class Level1 extends BaseLevel {
 
+    public Level1() {
+
+    }
+
     @Override
     public void update() {
         // First fireball comes down upon game start.
