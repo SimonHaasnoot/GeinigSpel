@@ -5,6 +5,10 @@ import java.util.Random;
  */
 public class DummyClass {
 
+    public static void main(String[] args) {
+        // Awesome main
+    }
+
     public static int getRandomNumber() {
         Random rand = new Random();
 
