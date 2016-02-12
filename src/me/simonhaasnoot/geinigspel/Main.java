@@ -22,7 +22,9 @@ public class Main {
 
             Values.level = new Level1();
 
+
             JFrame frame = new JFrame("Made by Simon Haasnoot");
+            frame.setResizable(false);
             frame.setPreferredSize(new Dimension(800, 600));
             frame.setVisible(true);
             frame.pack();

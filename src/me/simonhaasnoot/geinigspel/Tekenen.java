@@ -34,28 +34,28 @@ public class Tekenen extends JPanel {
         g.setColor(Color.BLACK);
 
         // draw the sky
-        g.drawImage(img, 10, 10, 765, 475, this);
+        g.drawImage(img, 0, 0, 800, 500, this);
 
         // draw game character
         g.drawImage(img2, Values.playerXas, Values.playerYas, Values.playerWidth, Values.playerHeight, this);
 
         // draw ground where the character is walking on
-        g.drawImage(img3, 10, 480, 765, 70, this);
+        g.drawImage(img3, 0, 480, 800, 100, this);
 
         // draw all the dropping fireballs[objects]
-        for(int i = 0; i < 15; i++){
+        for(int i = 0; i < 30; i++){
             g.drawImage(img4, Values.xArray[i], Values.yArray[i], 30, 35, this);
         }
 
         // draw life hearts and
         if(Values.lives >= 3) {
-            g.drawImage(img5, 615, 25, 40, 40, this);
+            g.drawImage(img5, 635, 20, 40, 40, this);
         }
         if(Values.lives >=2) {
-            g.drawImage(img6, 665, 25, 40, 40, this);
+            g.drawImage(img6, 685, 20, 40, 40, this);
         }
         if(Values.lives >=1) {
-            g.drawImage(img7, 715, 25, 40, 40, this);
+            g.drawImage(img7, 735, 20, 40, 40, this);
         }
 
 
@@ -63,6 +63,7 @@ public class Tekenen extends JPanel {
         Font font = new Font("Serif", Font.BOLD, 40);
         long seconden = Values.difference / 1000;
 
+        // keep pause time steady during the actual pause time.
         if(Values.isPauze) {
             seconden = Values.pauseTime / 1000;
         }
@@ -70,16 +71,6 @@ public class Tekenen extends JPanel {
         String verschil = String.valueOf(seconden);
         g.setFont(font);
         g.drawString(verschil, 30, 50);
-
-
-
-
-        //make borders
-        g.fillRect(0, 0, 800, 10); //boven
-        g.fillRect(0, 0, 10, 560); // links
-        g.fillRect(0, 550, 800, 20); // onder
-        g.fillRect(770, 0, 20, 780); // rechts
-
 
         // call methods, they both get filled once.
         createXarray();
@@ -101,7 +92,7 @@ public class Tekenen extends JPanel {
 
         if(Values.startGame == 1) {
             for (int i = 0; i < 30; i++) {
-                Values.xArray[i] = (int) (Math.random() * 765 + 10);
+                Values.xArray[i] = (int) (Math.random() * 770 + 1);
             }
         }
 
@@ -114,7 +105,7 @@ public class Tekenen extends JPanel {
 
         if(Values.startGame == 2) {
             for (int i = 0; i < 30; i++) {
-                Values.yArray[i] = -30;
+                Values.yArray[i] = -50;
             }
         }
 
@@ -126,12 +117,12 @@ public class Tekenen extends JPanel {
     public void playerBoundaryCheck(){
 
         // als de player verder dan 710px gaat kan hij niet meer verder
-        if(Values.playerXas >= 710){
-            Values.playerXas = 710;
+        if(Values.playerXas >= 730){
+            Values.playerXas = 730;
         }
         // als de player lager gaat dan 10px kan hij niet meer verder
-        if(Values.playerXas <= 10){
-            Values.playerXas = 10;
+        if(Values.playerXas <= 0){
+            Values.playerXas = 0;
         }
     }
 
