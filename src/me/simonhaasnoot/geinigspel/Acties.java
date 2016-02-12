@@ -9,7 +9,6 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
 
     public static long startTime;
 
-    @Override
     public void actionPerformed(ActionEvent e) {
 
         // run a timer upon game start
@@ -27,6 +26,8 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
 
         // Update the game level
         Values.level.update();
+        playerBoundaryCheck();
+        fireballCollisionCheck();
 
         // used for going left and right.
         if(Values.playerXleft){
@@ -37,13 +38,10 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
         }
     }
 
-
-    @Override
     public void keyTyped(KeyEvent e) {
 
     }
 
-    @Override
     public void keyPressed(KeyEvent e) {
 
         // if Left or A is pressed, you initiate playerXleft, what means that u'll go left.
@@ -82,7 +80,6 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
         }
     }
 
-    @Override
     public void keyReleased(KeyEvent e) {
 
         if(e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A){
@@ -93,5 +90,38 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
             Values.PlayerXright = false;
         }
 
+    }
+
+    public void playerBoundaryCheck(){
+
+        // als de player verder dan 710px gaat kan hij niet meer verder
+        if(Values.playerX >= 730){
+            Values.playerX = 730;
+        }
+        // als de player lager gaat dan 10px kan hij niet meer verder
+        if(Values.playerX <= 0){
+            Values.playerX = 0;
+        }
+    }
+
+    public void fireballCollisionCheck() {
+
+
+        for (int i = 0; i < Values.objects; i++) {
+            if (Values.yObject[i] > 610) {
+                Values.yObject[i] = (int)(Math.random() * -80 -30);
+                Values.xObject[i] = (int) (Math.random() * 765 + 10);
+            }
+        }
+
+        for (int i = 0; i < Values.objects; i++) {
+            if (Values.yObject[i] <= Values.playerY + 50 && Values.yObject[i] > Values.playerY - 30 &&
+                    (Values.xObject[i] <= Values.playerX + 50 && Values.xObject[i] >= Values.playerX - 15)) {
+
+                Values.yObject[i] =(int)(Math.random() * -80 -30);
+                Values.xObject[i] = (int) (Math.random() * 765 + 10);
+                Values.lives -= 1;
+            }
+        }
     }
 }

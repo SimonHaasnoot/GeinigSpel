@@ -10,8 +10,6 @@ public class Tekenen extends JPanel {
     private final Image img3;
     private final Image img4;
     private final Image img5;
-    private final Image img6;
-    private final Image img7;
 
     public Tekenen(){
 
@@ -21,10 +19,8 @@ public class Tekenen extends JPanel {
         img2 = Toolkit.getDefaultToolkit().createImage("Images/poppetje.png");
         img3 = Toolkit.getDefaultToolkit().createImage("Images/grond2.png");
         img4 = Toolkit.getDefaultToolkit().createImage("Images/Fireball.png");
-
         img5 = Toolkit.getDefaultToolkit().createImage("Images/gameHeart.png");
-        img6 = Toolkit.getDefaultToolkit().createImage("Images/gameHeart.png");
-        img7 = Toolkit.getDefaultToolkit().createImage("Images/gameHeart.png");
+
     }
 
 
@@ -47,17 +43,16 @@ public class Tekenen extends JPanel {
             g.drawImage(img4, Values.xObject[i], Values.yObject[i], 30, 35, this);
         }
 
-        // draw life hearts and
+        // draw life hearts
         if(Values.lives >= 3) {
             g.drawImage(img5, 635, 20, 40, 40, this);
         }
         if(Values.lives >=2) {
-            g.drawImage(img6, 685, 20, 40, 40, this);
+            g.drawImage(img5, 685, 20, 40, 40, this);
         }
         if(Values.lives >=1) {
-            g.drawImage(img7, 735, 20, 40, 40, this);
+            g.drawImage(img5, 735, 20, 40, 40, this);
         }
-
 
         // Show time in left corner and make a different font for it.
         Font font = new Font("Serif", Font.BOLD, 40);
@@ -75,12 +70,6 @@ public class Tekenen extends JPanel {
         // call methods, they both get filled once.
         createXarray();
         createYarray();
-
-        // check if objects surpass a certain point
-        playerBoundaryCheck();
-
-        // check if object hit the character
-        fireballCollisionCheck();
 
         repaint();
 
@@ -108,43 +97,6 @@ public class Tekenen extends JPanel {
                 Values.yObject[i] = -50;
             }
         }
-
         Values.startGame++;
-    }
-
-
-// used for checking if player leaves the actual game screen.
-    public void playerBoundaryCheck(){
-
-        // als de player verder dan 710px gaat kan hij niet meer verder
-        if(Values.playerX >= 730){
-            Values.playerX = 730;
-        }
-        // als de player lager gaat dan 10px kan hij niet meer verder
-        if(Values.playerX <= 0){
-            Values.playerX = 0;
-        }
-    }
-
-    // used for checking if any fireballs collide with the character, or have left the game window.
-    public void fireballCollisionCheck() {
-
-
-        for (int i = 0; i < Values.objects; i++) {
-            if (Values.yObject[i] > 610) {
-                Values.yObject[i] = (int)(Math.random() * -80 -30);
-                Values.xObject[i] = (int) (Math.random() * 765 + 10);
-            }
-        }
-
-        for (int i = 0; i < Values.objects; i++) {
-            if (Values.yObject[i] <= Values.playerY + 50 && Values.yObject[i] > Values.playerY - 30 &&
-                    (Values.xObject[i] <= Values.playerX + 50 && Values.xObject[i] >= Values.playerX - 15)) {
-
-                Values.yObject[i] =(int)(Math.random() * -80 -30);
-                Values.xObject[i] = (int) (Math.random() * 765 + 10);
-                Values.lives = Values.lives - 1;
-            }
-        }
     }
 }
