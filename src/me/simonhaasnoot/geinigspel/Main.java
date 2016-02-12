@@ -9,7 +9,7 @@ import java.awt.*;
 import java.io.File;
 
 
-public class Main {
+public class Main extends JFrame {
 
     public static void main(String[] args) {
 
@@ -21,20 +21,30 @@ public class Main {
 
             Values.level = new Level1();
 
-            JFrame frame = new JFrame("Made by Simon Haasnoot");
-            frame.setResizable(false);
-            frame.setPreferredSize(new Dimension(800, 600));
-            frame.setVisible(true);
-            frame.pack();
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setLocationRelativeTo(null);
+            this.setTitle("Made by Simon Haasnoot");
+            this.setResizable(false);
+            this.setPreferredSize(new Dimension(800, 600));
+            this.setVisible(true);
+            this.pack();
+            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.setLocationRelativeTo(null);
+
+            initiateGame(this);
+        }
+
+        public void startScreen(){
+
+
+        }
+
+        public void initiateGame(JFrame frame){
 
             Tekenen tekenen = new Tekenen();
             Acties acties = new Acties();
 
-            frame.addKeyListener(acties);
-            frame.add(tekenen);
-            frame.add(acties);
+            this.addKeyListener(acties);
+            this.add(tekenen);
+            this.add(acties);
 
             Timer timer = new Timer(Values.Delay, acties);
             timer.start();
