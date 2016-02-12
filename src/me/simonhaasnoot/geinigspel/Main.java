@@ -1,7 +1,6 @@
 package me.simonhaasnoot.geinigspel;
 
 import me.simonhaasnoot.geinigspel.level.Level1;
-
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
@@ -21,7 +20,6 @@ public class Main {
         public Main() {
 
             Values.level = new Level1();
-
 
             JFrame frame = new JFrame("Made by Simon Haasnoot");
             frame.setResizable(false);

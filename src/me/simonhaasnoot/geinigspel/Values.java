@@ -36,7 +36,7 @@ public class Values {
 
     // lets the game create the X and Y array once; lets the game start the timeDifference timer ONCE; create pauzeCounter
     public static int       startGame =                 1,
-                            uitLoop =                    0,
+                            uitLoop =                   0,
                             pauzeCount =                1;
 
     // calculates the time your playing the game; calculate time while pausing
