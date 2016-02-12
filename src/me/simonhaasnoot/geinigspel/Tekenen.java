@@ -54,6 +54,7 @@ public class Tekenen extends JPanel {
             g.drawImage(img5, 735, 20, 40, 40, this);
         }
 
+
         // Show time in left corner and make a different font for it.
         Font font = new Font("Serif", Font.BOLD, 40);
         long seconden = Values.timeDifference / 1000;

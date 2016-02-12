@@ -66,9 +66,9 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
             // this means that you need to calculate the time between the time you paused and the actual game time thats still running.
             // set the values of certain speeds to 0 so that nothing can move.
             if(Values.pauzeCount % 2 == 0){
-                Values.isPauze = true;
                 Values.pauseTime = System.currentTimeMillis() - startTime;
                 Values.ObjectFallSpeed = 0;     Values.ObjectFallSpeed2 = 0;    Values.playerSpeed = 0;
+                Values.isPauze = true;
 
                 //if P is pressed again, isPauze is false. The game continues. The actual time is getting calculated again and speeds are set to normal.
             }  else{
