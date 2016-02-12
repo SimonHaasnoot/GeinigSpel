@@ -43,8 +43,8 @@ public class Tekenen extends JPanel {
         g.drawImage(img3, 0, 480, 800, 100, this);
 
         // draw all the dropping fireballs[objects]
-        for(int i = 0; i < 30; i++){
-            g.drawImage(img4, Values.xArray[i], Values.yArray[i], 30, 35, this);
+        for(int i = 0; i < Values.objects; i++){
+            g.drawImage(img4, Values.xObject[i], Values.yObject[i], 30, 35, this);
         }
 
         // draw life hearts and
@@ -61,7 +61,7 @@ public class Tekenen extends JPanel {
 
         // Show time in left corner and make a different font for it.
         Font font = new Font("Serif", Font.BOLD, 40);
-        long seconden = Values.difference / 1000;
+        long seconden = Values.timeDifference / 1000;
 
         // keep pause time steady during the actual pause time.
         if(Values.isPauze) {
@@ -91,8 +91,8 @@ public class Tekenen extends JPanel {
     public void createXarray(){
 
         if(Values.startGame == 1) {
-            for (int i = 0; i < 30; i++) {
-                Values.xArray[i] = (int) (Math.random() * 770 + 1);
+            for (int i = 0; i < Values.objects; i++) {
+                Values.xObject[i] = (int) (Math.random() * 770 + 1);
             }
         }
 
@@ -104,8 +104,8 @@ public class Tekenen extends JPanel {
     public void createYarray(){
 
         if(Values.startGame == 2) {
-            for (int i = 0; i < 30; i++) {
-                Values.yArray[i] = -50;
+            for (int i = 0; i < Values.objects; i++) {
+                Values.yObject[i] = -50;
             }
         }
 
@@ -129,19 +129,20 @@ public class Tekenen extends JPanel {
     // used for checking if any fireballs collide with the character, or have left the game window.
     public void fireballCollisionCheck() {
 
-        for (int i = 0; i < 30; i++) {
-            if (Values.yArray[i] > 610) {
-                Values.yArray[i] = (int)(Math.random() * -80 -30);
-                Values.xArray[i] = (int) (Math.random() * 765 + 10);
+
+        for (int i = 0; i < Values.objects; i++) {
+            if (Values.yObject[i] > 610) {
+                Values.yObject[i] = (int)(Math.random() * -80 -30);
+                Values.xObject[i] = (int) (Math.random() * 765 + 10);
             }
         }
 
-        for (int i = 0; i < 30; i++) {
-            if (Values.yArray[i] <= Values.playerYas + 50 && Values.yArray[i] > Values.playerYas - 30 &&
-                    (Values.xArray[i] <= Values.playerXas + 50 && Values.xArray[i] >= Values.playerXas - 15)) {
+        for (int i = 0; i < Values.objects; i++) {
+            if (Values.yObject[i] <= Values.playerYas + 50 && Values.yObject[i] > Values.playerYas - 30 &&
+                    (Values.xObject[i] <= Values.playerXas + 50 && Values.xObject[i] >= Values.playerXas - 15)) {
 
-                Values.yArray[i] =(int)(Math.random() * -80 -30);
-                Values.xArray[i] = (int) (Math.random() * 765 + 10);
+                Values.yObject[i] =(int)(Math.random() * -80 -30);
+                Values.xObject[i] = (int) (Math.random() * 765 + 10);
                 Values.lives = Values.lives - 1;
             }
         }

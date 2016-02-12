@@ -24,28 +24,32 @@ public class Values {
     public static int Delay =                           10;
 
     // speed of the fireballs
-    public static int fireballValsnelheid =             2;
-    public static int fireballValsnelheid2 =            3;
+    public static int ObjectFallSpeed      =            2;
+    public static int ObjectFallSpeed2     =            3;
 
     // lives u have
     public static int lives =                           3;
 
     // create fireball object arrays
-    public static int [] xArray = new int[30];
-    public static int [] yArray = new int[30];
+    public static int objects =                         50;
+    public static int [] xObject = new int[objects];
+    public static int [] yObject = new int[objects];
 
     // lets the game create the X and Y array once
     public static int startGame =                       1;
 
-    // lets the game start the difference timer ONCE
+    // lets the game start the timeDifference timer ONCE
     public static int uitLoop =                         0;
 
-    // calculates the time your playing the game
-    public static long difference =                     0;
+    // calculates the time your playing the game, so the actual game time
+    public static long timeDifference =                     0;
+
+
     public static long pauseTime =                      0;
 
     public static boolean isPauze =                     false;
     public static int pauzeCount =                      1;
+
 
 }
 

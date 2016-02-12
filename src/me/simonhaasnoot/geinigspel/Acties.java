@@ -22,8 +22,8 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
             Values.uitLoop++;
         }
 
-        // calculate the difference between the start and the actual in game time. so that you can get the actual current time of playing.
-        Values.difference = currentTime - startTime;
+        // calculate the timeDifference between the start and the actual in game time. so that you can get the actual current time of playing.
+        Values.timeDifference = currentTime - startTime;
 
         // Update the game level
         Values.level.update();
@@ -34,6 +34,10 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
         }
         if(Values.PlayerXright){
             Values.playerXas = Values.playerXas + Values.playerSpeed;
+        }
+
+        if(Values.lives == 0){
+            System.out.println("You have failed, try again");
         }
     }
 
@@ -70,14 +74,14 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
             if(Values.pauzeCount % 2 == 0){
                 Values.isPauze = true;
                 Values.pauseTime = System.currentTimeMillis() - startTime;
-                Values.fireballValsnelheid = 0;     Values.fireballValsnelheid2 = 0;    Values.playerSpeed = 0;
+                Values.ObjectFallSpeed = 0;     Values.ObjectFallSpeed2 = 0;    Values.playerSpeed = 0;
 
                 //if P is pressed again, isPauze is false. The game continues. The actual time is getting calculated again and speeds are set to normal.
             }  else{
 
                 Values.isPauze = false;
                 startTime = System.currentTimeMillis() - Values.pauseTime;
-                Values.fireballValsnelheid = 2;     Values.fireballValsnelheid2 = 3;    Values.playerSpeed = 5;
+                Values.ObjectFallSpeed = 2;     Values.ObjectFallSpeed2 = 3;    Values.playerSpeed = 5;
             }
         }
     }
