@@ -37,7 +37,7 @@ public class Tekenen extends JPanel {
         g.drawImage(img, 0, 0, 800, 500, this);
 
         // draw game character
-        g.drawImage(img2, Values.playerXas, Values.playerYas, Values.playerWidth, Values.playerHeight, this);
+        g.drawImage(img2, Values.playerX, Values.playerY, Values.playerWidth, Values.playerHeight, this);
 
         // draw ground where the character is walking on
         g.drawImage(img3, 0, 480, 800, 100, this);
@@ -117,12 +117,12 @@ public class Tekenen extends JPanel {
     public void playerBoundaryCheck(){
 
         // als de player verder dan 710px gaat kan hij niet meer verder
-        if(Values.playerXas >= 730){
-            Values.playerXas = 730;
+        if(Values.playerX >= 730){
+            Values.playerX = 730;
         }
         // als de player lager gaat dan 10px kan hij niet meer verder
-        if(Values.playerXas <= 0){
-            Values.playerXas = 0;
+        if(Values.playerX <= 0){
+            Values.playerX = 0;
         }
     }
 
@@ -138,8 +138,8 @@ public class Tekenen extends JPanel {
         }
 
         for (int i = 0; i < Values.objects; i++) {
-            if (Values.yObject[i] <= Values.playerYas + 50 && Values.yObject[i] > Values.playerYas - 30 &&
-                    (Values.xObject[i] <= Values.playerXas + 50 && Values.xObject[i] >= Values.playerXas - 15)) {
+            if (Values.yObject[i] <= Values.playerY + 50 && Values.yObject[i] > Values.playerY - 30 &&
+                    (Values.xObject[i] <= Values.playerX + 50 && Values.xObject[i] >= Values.playerX - 15)) {
 
                 Values.yObject[i] =(int)(Math.random() * -80 -30);
                 Values.xObject[i] = (int) (Math.random() * 765 + 10);

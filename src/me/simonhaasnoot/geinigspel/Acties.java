@@ -30,14 +30,10 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
 
         // used for going left and right.
         if(Values.playerXleft){
-            Values.playerXas = Values.playerXas - Values.playerSpeed;
+            Values.playerX = Values.playerX - Values.playerSpeed;
         }
         if(Values.PlayerXright){
-            Values.playerXas = Values.playerXas + Values.playerSpeed;
-        }
-
-        if(Values.lives == 0){
-            System.out.println("You have failed, try again");
+            Values.playerX = Values.playerX + Values.playerSpeed;
         }
     }
 
