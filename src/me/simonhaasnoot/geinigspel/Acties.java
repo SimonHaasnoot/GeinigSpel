@@ -1,7 +1,5 @@
 package me.simonhaasnoot.geinigspel;
 
-import me.simonhaasnoot.geinigspel.level.Level1;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -9,18 +7,19 @@ import java.awt.event.KeyListener;
 
 public class Acties extends Tekenen implements KeyListener, ActionListener {
 
-    public static long currentTime;
+    public static long startTime;
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        long startTime = System.currentTimeMillis();
+        long currentTime = System.currentTimeMillis();
 
         if(Values.uitLoop == 0) {
-            currentTime = startTime;
+            startTime = currentTime;
             Values.uitLoop++;
         }
-        Values.difference = startTime - currentTime;
+
+        Values.difference = currentTime - startTime;
 
         // Update the game level
         Values.level.update();
@@ -32,27 +31,6 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
         if(Values.PlayerXright){
             Values.playerXas = Values.playerXas + Values.playerSpeed;
         }
-
-
-        // pausing the game
-        if(Values.isPauze){
-            Values.pauseTime = startTime;
-            Values.fireballValsnelheid = 0;
-            Values.fireballValsnelheid2 = 0;
-            Values.playerSpeed = 0;
-
-        }
-
-        // resuming the game
-        if(!Values.isPauze){
-            Values.pauseDifference = startTime - Values.pauseTime;
-        //    me.simonhaasnoot.geinigspel.Values.difference - me.simonhaasnoot.geinigspel.Values.pauseDifference;
-
-            Values.fireballValsnelheid = 2;
-            Values.fireballValsnelheid2 = 3;
-            Values.playerSpeed = 5;
-        }
-
     }
 
 
@@ -80,15 +58,23 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
         if (e.getKeyCode() == KeyEvent.VK_P) {
 
             Values.pauzeCount++;
+
             if(Values.pauzeCount % 2 == 0){
                 Values.isPauze = true;
-                System.out.println("true");
+                Values.pauseTime = System.currentTimeMillis() - startTime;
+                Values.fireballValsnelheid = 0;
+                Values.fireballValsnelheid2 = 0;
+                Values.playerSpeed = 0;
+
+            }  else{
+
+                Values.isPauze = false;
+                startTime = System.currentTimeMillis() - Values.pauseTime;
+                Values.fireballValsnelheid = 2;
+                Values.fireballValsnelheid2 = 3;
+                Values.playerSpeed = 5;
             }
-                else{
-                    Values.isPauze = false;
-                System.out.println("false");
-                }
-            }
+        }
     }
 
     @Override

@@ -42,7 +42,6 @@ public class Values {
 
     // calculates the time your playing the game
     public static long difference =                     0;
-    public static long pauseDifference =                0;
     public static long pauseTime =                      0;
 
     public static boolean isPauze =                     false;

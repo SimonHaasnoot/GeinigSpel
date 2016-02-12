@@ -62,6 +62,11 @@ public class Tekenen extends JPanel {
         // Show time in left corner and make a different font for it.
         Font font = new Font("Serif", Font.BOLD, 40);
         long seconden = Values.difference / 1000;
+
+        if(Values.isPauze) {
+            seconden = Values.pauseTime / 1000;
+        }
+
         String verschil = String.valueOf(seconden);
         g.setFont(font);
         g.drawString(verschil, 30, 50);
