@@ -12,6 +12,7 @@ public class Tekenen extends JPanel {
     private final Image img3;
     private final Image img4;
     private final Image img5;
+    private final Image img6;
 
     public Tekenen(){
 
@@ -23,6 +24,7 @@ public class Tekenen extends JPanel {
         img3 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/GrassGround.png");
         img4 = Toolkit.getDefaultToolkit().createImage("Images/Objects/FIREBALL.gif");
         img5 = Toolkit.getDefaultToolkit().createImage("Images/Objects/gameHeart.png");
+        img6 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/tree2.gif");
 
     }
 
@@ -35,11 +37,14 @@ public class Tekenen extends JPanel {
         // draw the sky
         g.drawImage(img, 0, 0, 800, 500, this);
 
+        // draw tree
+        g.drawImage(img6,0, 230, 200, 270, this);
         // draw game character
         g.drawImage(img2, Values.playerX, Values.playerY, Values.playerWidth, Values.playerHeight, this);
 
         // draw ground where the character is walking on
         g.drawImage(img3, 0, 480, 800, 100, this);
+
 
 
         // draw all the [objects]
