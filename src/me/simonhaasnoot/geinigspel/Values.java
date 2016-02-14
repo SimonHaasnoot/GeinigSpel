@@ -2,13 +2,10 @@ package me.simonhaasnoot.geinigspel;
 
 import me.simonhaasnoot.geinigspel.level.BaseLevel;
 
-import java.awt.*;
-
 public class Values {
 
     public static BaseLevel level;
 
-//    public static Image img6 = Toolkit.getDefaultToolkit().createImage("Images/lucht.jpg");
 
     // X and Y of the actual Frame
     public static int       frameX = 800,
@@ -31,6 +28,7 @@ public class Values {
 
     // speed of the objects and the player; define lives
     public static int playerSpeed =                     5,
+                        maxRandom =                     3,
                             lives =                     3;
 
     // create value that defines array size
@@ -52,8 +50,6 @@ public class Values {
 
     // create pause boolean
     public static boolean isPauze =                     false;
-    //public static int gameOrder =                       0;
-
     public static int [] cloneArray;
 }
 

@@ -2,6 +2,8 @@ package me.simonhaasnoot.geinigspel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class Tekenen extends JPanel {
 
@@ -15,10 +17,11 @@ public class Tekenen extends JPanel {
 
         // make an actual image object of the images, and rescale them.
         //setLayout(null);
+
         img = Toolkit.getDefaultToolkit().createImage("Images/Landscape/AirB.jpg");
         img2 = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
         img3 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/GrassGround.png");
-        img4 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Fireball.png");
+        img4 = Toolkit.getDefaultToolkit().createImage("Images/Objects/FIREBALL.gif");
         img5 = Toolkit.getDefaultToolkit().createImage("Images/Objects/gameHeart.png");
 
     }
@@ -37,6 +40,7 @@ public class Tekenen extends JPanel {
 
         // draw ground where the character is walking on
         g.drawImage(img3, 0, 480, 800, 100, this);
+
 
         // draw all the [objects]
         for(int i = 0; i < Values.objects; i++){
@@ -110,7 +114,7 @@ public class Tekenen extends JPanel {
     public void fallingSpeed(){
         if(Values.startGame == 3){
             for (int i = 0; i < Values.objects; i++) {
-                Values.fallingSpeed[i] = (int)(Math.random() * 5 + 1);
+                Values.fallingSpeed[i] = (int)(Math.random() * Values.maxRandom + 1);
 
             }
             Values.startGame++;

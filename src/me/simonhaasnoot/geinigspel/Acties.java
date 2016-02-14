@@ -33,7 +33,9 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
             Values.playerX = Values.playerX + Values.playerSpeed;
         }
 
+
     }
+
 
     public void keyTyped(KeyEvent e) {
 
@@ -113,23 +115,42 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
 
     public void fireballCollisionCheck() {
 
-
+        // if the object reaches the outers of the field, reset them to spawn from above again
         for (int i = 0; i < Values.objects; i++) {
             if (Values.yObject[i] > 610) {
-                Values.yObject[i] = (int)(Math.random() * -160 -50);
-                Values.xObject[i] = (int) (Math.random() * 765 + 10);
-                Values.fallingSpeed[i] = (int) (Math.random() * 5 + 1);
+                if(Values.timeDifference < 30000) {
+                    Values.yObject[i] = (int) (Math.random() * -160 - 50);
+                    Values.xObject[i] = (int) (Math.random() * 765 + 10);
+                    Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 1);
+                }
+                else if(Values.timeDifference >= 30000){
+                    Values.yObject[i] = (int) (Math.random() * -160 - 50);
+                    Values.xObject[i] = (int) (Math.random() * 765 + 10);
+                    Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 2);
+                }
             }
         }
 
+        // check if an object hits the character.
         for (int i = 0; i < Values.objects; i++) {
             if (Values.yObject[i] <= Values.playerY + 50 && Values.yObject[i] > Values.playerY - 30 &&
-                    (Values.xObject[i] <= Values.playerX + 50 && Values.xObject[i] >= Values.playerX - 15)) {
+                    (Values.xObject[i] <= Values.playerX + 50 && Values.xObject[i] >= Values.playerX - 15))
+            {
+                // resets the object that hit the character, you lose 1 life, falling speed randomised from 1 to 5 again. first 30secs.
+                if(Values.timeDifference < 30000) {
+                    Values.yObject[i] = (int) (Math.random() * -160 - 50);
+                    Values.xObject[i] = (int) (Math.random() * 765 + 10);
+                    Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 1);
+                    Values.lives -= 1;
+                }
 
-                Values.yObject[i] =(int)(Math.random() * -160 -50);
-                Values.xObject[i] = (int) (Math.random() * 765 + 10);
-                Values.fallingSpeed[i] = (int) (Math.random() * 5 + 1);
-                Values.lives -= 1;
+                // resets the object that hit the character, you lose 1 life, falling speed randomised from 2 to 5 again. after 30secs.
+                else if(Values.timeDifference >= 30000){
+                    Values.yObject[i] = (int) (Math.random() * -160 - 50);
+                    Values.xObject[i] = (int) (Math.random() * 765 + 10);
+                    Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 2);
+                    Values.lives -= 1;
+                }
             }
         }
     }

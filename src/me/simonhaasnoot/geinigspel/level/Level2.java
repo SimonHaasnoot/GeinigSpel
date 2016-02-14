@@ -5,6 +5,7 @@ public class Level2 extends BaseLevel {
 
     public void update(){
 
+
         Values.yObject[0] = Values.yObject[0] + Values.fallingSpeed[0];
 
         // After 15 seconds 1 fireball drops
@@ -30,6 +31,7 @@ public class Level2 extends BaseLevel {
             Values.yObject[7] = Values.yObject[7] + Values.fallingSpeed[7];
             Values.yObject[8] = Values.yObject[8] + Values.fallingSpeed[8];
         }
+
         // After 4- seconds 2 fireballs drop.
         if(Values.timeDifference > 10000){
             Values.yObject[9] = Values.yObject[9] + Values.fallingSpeed[9];
