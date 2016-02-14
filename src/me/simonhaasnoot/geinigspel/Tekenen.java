@@ -1,30 +1,18 @@
 package me.simonhaasnoot.geinigspel;
-
 import javax.swing.*;
 import java.awt.*;
-import java.net.MalformedURLException;
-import java.net.URL;
+
 
 public class Tekenen extends JPanel {
 
-    private final Image img;
-    private final Image img2;
-    private final Image img3;
-    private final Image img4;
-    private final Image img5;
-    private final Image img6;
+    private final Image img = Toolkit.getDefaultToolkit().createImage("Images/Landscape/AirB.jpg");
+    private final Image img2 = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
+    private final Image img3 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/GrassGround.png");
+    private final Image img4 = Toolkit.getDefaultToolkit().createImage("Images/Objects/FIREBALL.gif");
+    private final Image img5 = Toolkit.getDefaultToolkit().createImage("Images/Objects/gameHeart.png");
+    private final Image img6 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Tree01.png");
 
     public Tekenen(){
-
-        // make an actual image object of the images, and rescale them.
-        //setLayout(null);
-
-        img = Toolkit.getDefaultToolkit().createImage("Images/Landscape/AirB.jpg");
-        img2 = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
-        img3 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/GrassGround.png");
-        img4 = Toolkit.getDefaultToolkit().createImage("Images/Objects/FIREBALL.gif");
-        img5 = Toolkit.getDefaultToolkit().createImage("Images/Objects/gameHeart.png");
-        img6 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/eTMp6edxc.png");
 
     }
 
@@ -37,7 +25,7 @@ public class Tekenen extends JPanel {
         // draw the sky
         g.drawImage(img, 0, 0, 800, 500, this);
 
-        // draw tree
+        // draw trees
         g.drawImage(img6, 0, 195, 150, 300, this);
         g.drawImage(img6, 300, 195, 150, 300, this);
 
