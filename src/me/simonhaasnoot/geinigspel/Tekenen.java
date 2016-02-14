@@ -24,7 +24,7 @@ public class Tekenen extends JPanel {
         img3 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/GrassGround.png");
         img4 = Toolkit.getDefaultToolkit().createImage("Images/Objects/FIREBALL.gif");
         img5 = Toolkit.getDefaultToolkit().createImage("Images/Objects/gameHeart.png");
-        img6 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/tree2.gif");
+        img6 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/eTMp6edxc.png");
 
     }
 
@@ -38,7 +38,9 @@ public class Tekenen extends JPanel {
         g.drawImage(img, 0, 0, 800, 500, this);
 
         // draw tree
-        g.drawImage(img6,0, 230, 200, 270, this);
+        g.drawImage(img6, 0, 195, 150, 300, this);
+        g.drawImage(img6, 300, 195, 150, 300, this);
+
         // draw game character
         g.drawImage(img2, Values.playerX, Values.playerY, Values.playerWidth, Values.playerHeight, this);
 
