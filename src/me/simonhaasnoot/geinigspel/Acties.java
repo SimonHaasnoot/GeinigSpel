@@ -1,11 +1,7 @@
 package me.simonhaasnoot.geinigspel;
+import java.awt.event.*;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
-public class Acties extends Tekenen implements KeyListener, ActionListener {
+public class Acties extends Tekenen implements KeyListener, ActionListener{
 
     public static long startTime;
 
@@ -36,6 +32,7 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
         if(Values.PlayerXright){
             Values.playerX = Values.playerX + Values.playerSpeed;
         }
+
     }
 
     public void keyTyped(KeyEvent e) {
@@ -67,7 +64,13 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
             // set the values of certain speeds to 0 so that nothing can move.
             if(Values.pauzeCount % 2 == 0){
                 Values.pauseTime = System.currentTimeMillis() - startTime;
-                Values.ObjectFallSpeed = 0;     Values.ObjectFallSpeed2 = 0;    Values.playerSpeed = 0;
+
+                Values.cloneArray = Values.fallingSpeed.clone();
+                for (int i = 0; i < Values.fallingSpeed.length; i++) {
+                    Values.fallingSpeed[i] = 0;
+                }
+
+                Values.playerSpeed = 0;
                 Values.isPauze = true;
 
                 //if P is pressed again, isPauze is false. The game continues. The actual time is getting calculated again and speeds are set to normal.
@@ -75,7 +78,11 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
 
                 Values.isPauze = false;
                 startTime = System.currentTimeMillis() - Values.pauseTime;
-                Values.ObjectFallSpeed = 2;     Values.ObjectFallSpeed2 = 3;    Values.playerSpeed = 5;
+                for (int i = 0; i < Values.fallingSpeed.length; i++) {
+                    Values.fallingSpeed[i] = Values.cloneArray[i];
+
+                }
+                Values.playerSpeed = 5;
             }
         }
     }
@@ -109,8 +116,9 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
 
         for (int i = 0; i < Values.objects; i++) {
             if (Values.yObject[i] > 610) {
-                Values.yObject[i] = (int)(Math.random() * -80 -30);
+                Values.yObject[i] = (int)(Math.random() * -160 -50);
                 Values.xObject[i] = (int) (Math.random() * 765 + 10);
+                Values.fallingSpeed[i] = (int) (Math.random() * 5 + 1);
             }
         }
 
@@ -118,8 +126,9 @@ public class Acties extends Tekenen implements KeyListener, ActionListener {
             if (Values.yObject[i] <= Values.playerY + 50 && Values.yObject[i] > Values.playerY - 30 &&
                     (Values.xObject[i] <= Values.playerX + 50 && Values.xObject[i] >= Values.playerX - 15)) {
 
-                Values.yObject[i] =(int)(Math.random() * -80 -30);
+                Values.yObject[i] =(int)(Math.random() * -160 -50);
                 Values.xObject[i] = (int) (Math.random() * 765 + 10);
+                Values.fallingSpeed[i] = (int) (Math.random() * 5 + 1);
                 Values.lives -= 1;
             }
         }

@@ -15,11 +15,11 @@ public class Tekenen extends JPanel {
 
         // make an actual image object of the images, and rescale them.
         //setLayout(null);
-        img = Toolkit.getDefaultToolkit().createImage("Images/lucht.jpg");
-        img2 = Toolkit.getDefaultToolkit().createImage("Images/poppetje.png");
-        img3 = Toolkit.getDefaultToolkit().createImage("Images/grond2.png");
-        img4 = Toolkit.getDefaultToolkit().createImage("Images/Fireball.png");
-        img5 = Toolkit.getDefaultToolkit().createImage("Images/gameHeart.png");
+        img = Toolkit.getDefaultToolkit().createImage("Images/Landscape/AirB.jpg");
+        img2 = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
+        img3 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/GrassGround.png");
+        img4 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Fireball.png");
+        img5 = Toolkit.getDefaultToolkit().createImage("Images/Objects/gameHeart.png");
 
     }
 
@@ -75,11 +75,11 @@ public class Tekenen extends JPanel {
         // call methods, they both get filled once.
         createXarray();
         createYarray();
+        fallingSpeed();
 
         repaint();
 
     }
-
     // run this method once, Array is getting created once. then the game skips this after.
     // this creates all random X's for the Fireball Objects.
     public void createXarray(){
@@ -103,5 +103,17 @@ public class Tekenen extends JPanel {
             }
         }
         Values.startGame++;
+    }
+
+    // runs this method once, fallingSpeed array is getting created once. then the game skips this after.
+    // this creates all Fallspeeds from 1 to 5;
+    public void fallingSpeed(){
+        if(Values.startGame == 3){
+            for (int i = 0; i < Values.objects; i++) {
+                Values.fallingSpeed[i] = (int)(Math.random() * 5 + 1);
+
+            }
+            Values.startGame++;
+        }
     }
 }

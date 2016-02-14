@@ -2,9 +2,13 @@ package me.simonhaasnoot.geinigspel;
 
 import me.simonhaasnoot.geinigspel.level.BaseLevel;
 
+import java.awt.*;
+
 public class Values {
 
     public static BaseLevel level;
+
+//    public static Image img6 = Toolkit.getDefaultToolkit().createImage("Images/lucht.jpg");
 
     // X and Y of the actual Frame
     public static int       frameX = 800,
@@ -26,9 +30,7 @@ public class Values {
     public static int       Delay =                     10;
 
     // speed of the objects and the player; define lives
-    public static int       ObjectFallSpeed =           2,
-                            ObjectFallSpeed2 =          3,
-                            playerSpeed =               5,
+    public static int playerSpeed =                     5,
                             lives =                     3;
 
     // create value that defines array size
@@ -36,7 +38,8 @@ public class Values {
 
     // create 2 arrays, containing x and y of all objects.
     public static int []    xObject = new int[objects],
-                            yObject = new int[objects];
+                            yObject = new int[objects],
+                            fallingSpeed = new int[objects];
 
     // lets the game create the X and Y array once; lets the game start the timeDifference timer ONCE; create pauzeCounter
     public static int       startGame =                 1,
@@ -49,5 +52,8 @@ public class Values {
 
     // create pause boolean
     public static boolean isPauze =                     false;
+    //public static int gameOrder =                       0;
+
+    public static int [] cloneArray;
 }
 

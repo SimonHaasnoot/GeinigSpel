@@ -11,6 +11,8 @@ import java.io.File;
 
 public class Main extends JFrame {
 
+ //   public static JButton startKnop = new JButton("Start");
+
     public static void main(String[] args) {
 
         new Main();
@@ -30,10 +32,26 @@ public class Main extends JFrame {
             initiateGame(this);
         }
 
-        public void startScreen(){
-
-
-        }
+//        public void startScreen(JFrame frame){
+//
+//            JLabel jl = new JLabel();
+//
+//            jl.setIcon(new ImageIcon("Images/800x600.jpg"));
+//
+//            startKnop.setBounds(Values.frameX/2 - 50, Values.frameY/2 - 150, 120, 60);
+//
+//
+//            jl.add(startKnop);
+//            this.add(jl);
+//            validate();
+//
+//            startKnop.addActionListener(e -> {
+//                if(e.getSource() == Main.startKnop){
+//                    getContentPane().removeAll();
+//                    getContentPane().repaint();
+//
+//                }});
+//        }
 
         public void initiateGame(JFrame frame){
 
