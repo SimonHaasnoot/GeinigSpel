@@ -6,6 +6,10 @@ public class Values {
 
     public static BaseLevel level;
 
+    // X and Y of the actual Frame
+    public static int       frameX = 800,
+                            frameY = 600;
+
     // the X and Y of the Player(character)
     public static int       playerX =                   360,
                             playerY =                   410;

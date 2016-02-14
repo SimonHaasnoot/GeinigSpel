@@ -14,7 +14,7 @@ public class Tekenen extends JPanel {
     public Tekenen(){
 
         // make an actual image object of the images, and rescale them.
-        setLayout(null);
+        //setLayout(null);
         img = Toolkit.getDefaultToolkit().createImage("Images/lucht.jpg");
         img2 = Toolkit.getDefaultToolkit().createImage("Images/poppetje.png");
         img3 = Toolkit.getDefaultToolkit().createImage("Images/grond2.png");
@@ -38,7 +38,7 @@ public class Tekenen extends JPanel {
         // draw ground where the character is walking on
         g.drawImage(img3, 0, 480, 800, 100, this);
 
-        // draw all the dropping fireballs[objects]
+        // draw all the [objects]
         for(int i = 0; i < Values.objects; i++){
             g.drawImage(img4, Values.xObject[i], Values.yObject[i], 30, 35, this);
         }
@@ -57,11 +57,15 @@ public class Tekenen extends JPanel {
 
         // Show time in left corner and make a different font for it.
         Font font = new Font("Serif", Font.BOLD, 40);
+        Font font2= new Font("Times New Roman", Font.PLAIN, 72);
         long seconden = Values.timeDifference / 1000;
 
         // keep pause time steady during the actual pause time.
         if(Values.isPauze) {
             seconden = Values.pauseTime / 1000;
+            g.setFont(font2);
+            g.drawRect(Values.frameX/2 - 100, Values.frameY/2 - 100, 190, 80);
+            g.drawString("Pause", Values.frameX /2 - 90, Values.frameY/2 - 40);
         }
 
         String verschil = String.valueOf(seconden);

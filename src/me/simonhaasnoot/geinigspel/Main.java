@@ -19,11 +19,9 @@ public class Main extends JFrame {
 
         public Main() {
 
-            Values.level = new Level1();
-
             this.setTitle("Made by Simon Haasnoot");
             this.setResizable(false);
-            this.setPreferredSize(new Dimension(800, 600));
+            this.setPreferredSize(new Dimension(Values.frameX, Values.frameY));
             this.setVisible(true);
             this.pack();
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,6 +36,8 @@ public class Main extends JFrame {
         }
 
         public void initiateGame(JFrame frame){
+
+            Values.level = new Level1();
 
             Tekenen tekenen = new Tekenen();
             Acties acties = new Acties();
