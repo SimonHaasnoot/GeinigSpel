@@ -62,6 +62,7 @@ public class Tekenen extends JPanel {
 
         //draw shield
         if(Values.shieldActive){
+            Values.dropShield = false;
             g.drawImage(img7, 590, 20, 35, 40, this);
         }
 

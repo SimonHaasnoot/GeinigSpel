@@ -116,7 +116,7 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
 
     public void powerupCollision(){
 
-        if(Values.playerX == Values.RandomX && Values.dropShield){
+        if(Values.playerX + 25 >= Values.RandomX && Values.playerX + 25 <= Values.RandomX +30 && Values.dropShield){
             Values.shieldActive = true;
         }
     }
