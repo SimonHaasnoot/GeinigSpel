@@ -116,7 +116,7 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
 
     public void powerupCollision(){
 
-        if(Values.playerX + 25 >= Values.RandomX && Values.playerX + 25 <= Values.RandomX +30 && Values.dropShield){
+        if(Values.playerX + 25 >= Values.RandomX -30 && Values.playerX + 25 <= Values.RandomX +30 && Values.dropShield){
             Values.shieldActive = true;
         }
     }
@@ -144,11 +144,16 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
             if (Values.yObject[i] <= Values.playerY + 50 && Values.yObject[i] > Values.playerY - 30 &&
                     (Values.xObject[i] <= Values.playerX + 50 && Values.xObject[i] >= Values.playerX - 15))
             {
+
                 // resets the object that hit the character, you lose 1 life, falling speed randomised from 1 to 5 again. first 30secs.
                 if(Values.timeDifference < 30000) {
                     Values.yObject[i] = (int) (Math.random() * -160 - 50);
                     Values.xObject[i] = (int) (Math.random() * 765 + 10);
                     Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 1);
+                    if(Values.shieldActive){
+                        Values.shieldActive = false;
+                        break;
+                    }
                     Values.lives -= 1;
                 }
 
@@ -157,6 +162,10 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
                     Values.yObject[i] = (int) (Math.random() * -160 - 50);
                     Values.xObject[i] = (int) (Math.random() * 765 + 10);
                     Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 2);
+                    if(Values.shieldActive){
+                        Values.shieldActive = false;
+                        break;
+                    }
                     Values.lives -= 1;
                 }
             }

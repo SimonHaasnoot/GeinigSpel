@@ -6,7 +6,7 @@ import java.awt.*;
 public class Tekenen extends JPanel {
 
     private final Image img = Toolkit.getDefaultToolkit().createImage("Images/Landscape/AirB.jpg");
-    private final Image img2 = Toolkit.getDefaultToolkit().createImage("Images/Characters/poppetje.png");
+    private final Image img2 = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
     private final Image img3 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/GrassGround.png");
     private final Image img4 = Toolkit.getDefaultToolkit().createImage("Images/Objects/FIREBALL.gif");
     private final Image img5 = Toolkit.getDefaultToolkit().createImage("Images/Objects/gameHeart.png");
@@ -63,7 +63,7 @@ public class Tekenen extends JPanel {
         //draw shield
         if(Values.shieldActive){
             Values.dropShield = false;
-            g.drawImage(img7, 590, 20, 35, 40, this);
+            g.drawImage(img7, 580, 20, 35, 40, this);
         }
 
 
