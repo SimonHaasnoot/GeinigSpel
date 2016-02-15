@@ -13,6 +13,7 @@ public class Tekenen extends JPanel {
     private final Image img6 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Tree01.png");
     private final Image img7 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Shield03.png");
     private final Image img8 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Shield01.png");
+    private final Image img9 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Volcano.png");
 
     public Tekenen(){
 
@@ -26,6 +27,9 @@ public class Tekenen extends JPanel {
 
         // draw the sky
         g.drawImage(img, 0, 0, 800, 500, this);
+
+        // draw the vulcano
+        g.drawImage(img9, 200, 200, 700, 300, this);
 
         // draw trees
         g.drawImage(img6, 0, 195, 150, 300, this);
