@@ -24,6 +24,7 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
         Values.level.update();
         playerBoundaryCheck();
         fireballCollisionCheck();
+        powerupCollision();
 
         // used for going left and right.
         if(Values.playerXleft){
@@ -110,6 +111,13 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
         // als de player lager gaat dan 10px kan hij niet meer verder
         if(Values.playerX <= 0){
             Values.playerX = 0;
+        }
+    }
+
+    public void powerupCollision(){
+
+        if(Values.playerX == Values.RandomX && Values.dropShield){
+            Values.shieldActive = true;
         }
     }
 

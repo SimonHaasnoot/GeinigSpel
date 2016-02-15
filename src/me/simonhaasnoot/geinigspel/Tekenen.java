@@ -6,11 +6,13 @@ import java.awt.*;
 public class Tekenen extends JPanel {
 
     private final Image img = Toolkit.getDefaultToolkit().createImage("Images/Landscape/AirB.jpg");
-    private final Image img2 = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
+    private final Image img2 = Toolkit.getDefaultToolkit().createImage("Images/Characters/poppetje.png");
     private final Image img3 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/GrassGround.png");
     private final Image img4 = Toolkit.getDefaultToolkit().createImage("Images/Objects/FIREBALL.gif");
     private final Image img5 = Toolkit.getDefaultToolkit().createImage("Images/Objects/gameHeart.png");
     private final Image img6 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Tree01.png");
+    private final Image img7 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Shield03.png");
+    private final Image img8 = Toolkit.getDefaultToolkit().createImage("Images/Objects/bal.png");
 
     public Tekenen(){
 
@@ -52,6 +54,18 @@ public class Tekenen extends JPanel {
         if(Values.lives >=1) {
             g.drawImage(img5, 735, 20, 40, 40, this);
         }
+
+        //draw shield drop
+        if(Values.dropShield) {
+            g.drawImage(img8, Values.RandomX, 450, 30, 30, this);
+        }
+
+        //draw shield
+        if(Values.shieldActive){
+            g.drawImage(img7, 590, 20, 35, 40, this);
+        }
+
+
 
 
         // Show time in left corner and make a different font for it.

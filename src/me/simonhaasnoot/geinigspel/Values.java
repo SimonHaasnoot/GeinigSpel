@@ -49,7 +49,12 @@ public class Values {
                             pauseTime =                 0;
 
     // create pause boolean
-    public static boolean isPauze =                     false;
+    public static boolean   isPauze =                     false,
+                            dropShield =                  false,
+                            shieldActive =                false;
+
+    public static int RandomX = (int)(Math.random()*800 + 1);
+
     public static int [] cloneArray;
 }
 

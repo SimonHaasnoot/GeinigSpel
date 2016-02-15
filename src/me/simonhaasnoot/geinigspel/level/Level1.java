@@ -4,6 +4,8 @@ import me.simonhaasnoot.geinigspel.Values;
 
 public class Level1 extends BaseLevel {
 
+    public static int random = (int)(Math.random()*30000 + 1);
+    public static int randomMinus = random - 50;
     public Level1() {
 
     }
@@ -12,6 +14,9 @@ public class Level1 extends BaseLevel {
         // First fireball comes down upon game start.
         Values.yObject[0] = Values.yObject[0] + Values.fallingSpeed[0];
 
+        if(Values.timeDifference >= randomMinus && Values.timeDifference <= random){
+            Values.dropShield = true;
+        }
         // After 15 seconds 1 fireball drops
         if(Values.timeDifference > 15000){
             Values.yObject[1] = Values.yObject[1] + Values.fallingSpeed[1];
