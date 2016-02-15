@@ -4,7 +4,7 @@ import me.simonhaasnoot.geinigspel.Values;
 
 public class Level1 extends BaseLevel {
 
-    public static int random = (int)(Math.random()*10000 + 1);
+    public static int random = (int)(Math.random()*40000 + 30000);
     public static int randomMinus = random - 50;
     public Level1() {
 

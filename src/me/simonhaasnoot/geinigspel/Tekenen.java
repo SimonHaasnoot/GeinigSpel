@@ -12,7 +12,7 @@ public class Tekenen extends JPanel {
     private final Image img5 = Toolkit.getDefaultToolkit().createImage("Images/Objects/gameHeart.png");
     private final Image img6 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Tree01.png");
     private final Image img7 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Shield03.png");
-    private final Image img8 = Toolkit.getDefaultToolkit().createImage("Images/Objects/bal.png");
+    private final Image img8 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Shield01.png");
 
     public Tekenen(){
 
@@ -57,7 +57,7 @@ public class Tekenen extends JPanel {
 
         //draw shield drop
         if(Values.dropShield) {
-            g.drawImage(img8, Values.RandomX, 450, 30, 30, this);
+            g.drawImage(img8, Values.RandomX, 440, 44, 48, this);
         }
 
         //draw shield

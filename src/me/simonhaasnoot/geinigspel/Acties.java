@@ -26,6 +26,10 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
         fireballCollisionCheck();
         powerupCollision();
 
+        if(Values.lives == 0){
+            Values.deadChar = true;
+        }
+
         // used for going left and right.
         if(Values.playerXleft){
             Values.playerX = Values.playerX - Values.playerSpeed;
@@ -148,26 +152,32 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
                 // resets the object that hit the character, you lose 1 life, falling speed randomised from 1 to 5 again. first 30secs.
                 if(Values.timeDifference < 30000) {
                     Values.yObject[i] = (int) (Math.random() * -160 - 50);
-                    Values.xObject[i] = (int) (Math.random() * 765 + 10);
-                    Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 1);
-                    if(Values.shieldActive){
-                        Values.shieldActive = false;
-                        break;
-                    }
-                    Values.lives -= 1;
+                        Values.xObject[i] = (int) (Math.random() * 765 + 10);
+                            Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 1);
+
+                                // if you have a shield up, break the shield first.
+                                if(Values.shieldActive){
+                                    Values.shieldActive = false;
+                                        break;
+                                }
+                                // lose a life if you dont have shield.
+                                            Values.lives -= 1;
                 }
 
                 // resets the object that hit the character, you lose 1 life, falling speed randomised from 2 to 5 again. after 30secs.
-                else if(Values.timeDifference >= 30000){
-                    Values.yObject[i] = (int) (Math.random() * -160 - 50);
-                    Values.xObject[i] = (int) (Math.random() * 765 + 10);
-                    Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 2);
-                    if(Values.shieldActive){
-                        Values.shieldActive = false;
-                        break;
+                     else if(Values.timeDifference >= 30000){
+                         Values.yObject[i] = (int) (Math.random() * -160 - 50);
+                            Values.xObject[i] = (int) (Math.random() * 765 + 10);
+                                Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 2);
+
+                                // if you have a shield up, break the shield first.
+                                if(Values.shieldActive){
+                                    Values.shieldActive = false;
+                                        break;
+                                }
+                                // lose a life if you dont have shield.
+                                        Values.lives -= 1;
                     }
-                    Values.lives -= 1;
-                }
             }
         }
     }

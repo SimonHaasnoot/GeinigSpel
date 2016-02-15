@@ -17,7 +17,8 @@ public class Values {
 
     // player Left and Right button press boolean
     public static boolean   playerXleft =               false,
-                            PlayerXright =              false;
+                            PlayerXright =              false,
+                            deadChar =                  false;
 
     // Player Height and Width
     public static int       playerWidth =               70,
@@ -55,9 +56,11 @@ public class Values {
     public static boolean dropShield =                  false,
     shieldActive =                                      false;
 
+    // random X for Shield drop
     public static int RandomX = (int)(Math.random()*800 + 1);
 
-
+    // make a clone array for the speeds, for if you pause.
     public static int [] cloneArray;
+
 }
 
