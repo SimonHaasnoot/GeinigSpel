@@ -8,7 +8,7 @@ public class Level2 extends BaseLevel {
 
         Values.yObject[0] = Values.yObject[0] + Values.fallingSpeed[0];
 
-        // After 15 seconds 1 fireball drops//
+        // After 15 seconds 1 fireball drops
         if(Values.timeDifference > 5000){
             Values.yObject[1] = Values.yObject[1] + Values.fallingSpeed[1];
         }

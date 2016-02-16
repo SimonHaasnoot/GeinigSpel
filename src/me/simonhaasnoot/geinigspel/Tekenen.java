@@ -5,16 +5,23 @@ import java.awt.*;
 
 public class Tekenen extends JPanel {
 
-    private final Image img = Toolkit.getDefaultToolkit().createImage("Images/Landscape/AirB.jpg");
     private final Image img2 = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
-    private final Image img3 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/GrassGround.png");
-    private final Image img4 = Toolkit.getDefaultToolkit().createImage("Images/Objects/FIREBALL.gif");
-    private final Image img5 = Toolkit.getDefaultToolkit().createImage("Images/Objects/gameHeart.png");
-    private final Image img6 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Tree01.png");
-    private final Image img7 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Shield03.png");
-    private final Image img8 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Shield01.png");
-    private final Image img9 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Volcano.png");
 
+    private final Image img4 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Gifs/FIREBALL.gif");
+
+    private final Image img5 = Toolkit.getDefaultToolkit().createImage("Images/Objects/gameHeart.png");
+    private final Image img7 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Shield04.png");
+    private final Image img8 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Shield01.png");
+
+    private final Image img = Toolkit.getDefaultToolkit().createImage("Images/Landscape/AirB.jpg");
+    private final Image img3 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/GrassGround.png");
+    private final Image img6 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Tree01.png");
+    private final Image img9 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Volcano.png");
+    private final Image img10 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Cloud01.png");
+
+    private final Image img11 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Gifs/Thunder25.gif");
+
+    private long currentTime = 0;
     public Tekenen(){
 
     }
@@ -29,11 +36,11 @@ public class Tekenen extends JPanel {
         g.drawImage(img, 0, 0, 800, 500, this);
 
         // draw the vulcano
-        g.drawImage(img9, 200, 200, 700, 300, this);
+        g.drawImage(img9, 300, 300, 600, 200, this);
 
         // draw trees
         g.drawImage(img6, 0, 195, 150, 300, this);
-        g.drawImage(img6, 300, 195, 150, 300, this);
+        g.drawImage(img6, 300, 195, 150, 325, this);
 
         // draw game character
         g.drawImage(img2, Values.playerX, Values.playerY, Values.playerWidth, Values.playerHeight, this);
@@ -41,11 +48,33 @@ public class Tekenen extends JPanel {
         // draw ground where the character is walking on
         g.drawImage(img3, 0, 480, 800, 100, this);
 
-
-
         // draw all the [objects]
         for(int i = 0; i < Values.objects; i++){
             g.drawImage(img4, Values.xObject[i], Values.yObject[i], 30, 35, this);
+        }
+
+        //draw thunder
+
+
+        // draw cloud
+        if(Values.spawnThunder) {
+
+            long startTime = System.currentTimeMillis();
+
+            if(Values.uitLoop2 == 0){
+                currentTime = startTime;
+                Values.uitLoop2++;
+
+            }
+            g.drawImage(img10, 280, 0, 200, 160, this);
+
+            if((startTime - currentTime) > 1500 && (startTime - currentTime) < 2400){
+                g.drawImage(img11, 330, 70, 100, 415, this);
+            }
+            if((startTime - currentTime) >3900){
+                Values.spawnThunder = false;
+            }
+
         }
 
         // draw life hearts
@@ -60,13 +89,13 @@ public class Tekenen extends JPanel {
         }
 
         //draw shield drop
-        if(Values.dropShield) {
+        if(Values.spawnShield) {
             g.drawImage(img8, Values.RandomX, 440, 44, 48, this);
         }
 
         //draw shield
-        if(Values.shieldActive){
-            Values.dropShield = false;
+        if(Values.activateShield){
+            Values.spawnShield = false;
             g.drawImage(img7, 580, 20, 35, 40, this);
         }
 
@@ -99,7 +128,7 @@ public class Tekenen extends JPanel {
 
     }
     // run this method once, Array is getting created once. then the game skips this after.
-    // this creates all random X's for the Fireball Objects.
+    // this creates all shieldDropSpawntime X's for the Fireball Objects.
     public void createXarray(){
 
         if(Values.startGame == 1) {

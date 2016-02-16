@@ -43,6 +43,7 @@ public class Values {
     // lets the game create the X and Y array once; lets the game start the timeDifference timer ONCE; create pauzeCounter
     public static int       startGame =                 1,
                             uitLoop =                   0,
+                            uitLoop2 =                  0,
                             pauzeCount =                1;
 
     // calculates the time your playing the game; calculate time while pausing
@@ -53,10 +54,11 @@ public class Values {
     public static boolean   isPauze =                    false;
 
     // drops
-    public static boolean dropShield =                  false,
-    shieldActive =                                      false;
+    public static boolean   spawnShield =                  false,
+                            activateShield =               false,
+                            spawnThunder =                 false;
 
-    // random X for Shield drop
+    // shieldDropSpawntime X for Shield drop
     public static int RandomX = (int)(Math.random()*800 + 1);
 
     // make a clone array for the speeds, for if you pause.

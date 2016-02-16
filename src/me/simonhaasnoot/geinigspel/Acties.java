@@ -120,8 +120,8 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
 
     public void powerupCollision(){
 
-        if(Values.playerX + 25 >= Values.RandomX -30 && Values.playerX + 25 <= Values.RandomX +30 && Values.dropShield){
-            Values.shieldActive = true;
+        if(Values.playerX + 25 >= Values.RandomX -30 && Values.playerX + 25 <= Values.RandomX +30 && Values.spawnShield){
+            Values.activateShield = true;
         }
     }
 
@@ -156,8 +156,8 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
                             Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 1);
 
                                 // if you have a shield up, break the shield first.
-                                if(Values.shieldActive){
-                                    Values.shieldActive = false;
+                                if(Values.activateShield){
+                                    Values.activateShield = false;
                                         break;
                                 }
                                 // lose a life if you dont have shield.
@@ -171,8 +171,8 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
                                 Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 2);
 
                                 // if you have a shield up, break the shield first.
-                                if(Values.shieldActive){
-                                    Values.shieldActive = false;
+                                if(Values.activateShield){
+                                    Values.activateShield = false;
                                         break;
                                 }
                                 // lose a life if you dont have shield.
