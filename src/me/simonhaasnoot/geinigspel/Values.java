@@ -38,7 +38,8 @@ public class Values {
     // create 2 arrays, containing x and y of all objects.
     public static int []    xObject = new int[objects],
                             yObject = new int[objects],
-                            fallingSpeed = new int[objects];
+                            fallingSpeed = new int[objects],
+                            thunderRandomTime = new int[objects];
 
     // lets the game create the X and Y array once; lets the game start the timeDifference timer ONCE; create pauzeCounter
     public static int       startGame =                 1,

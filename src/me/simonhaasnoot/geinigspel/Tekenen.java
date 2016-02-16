@@ -71,6 +71,7 @@ public class Tekenen extends JPanel {
             }
                 if(Values.timeDifferenceThunder > 2500){
                     Values.spawnThunder = false;
+                    Values.uitLoop2 = 0;
                 }
         }
 
@@ -117,6 +118,7 @@ public class Tekenen extends JPanel {
         createXarray();
         createYarray();
         fallingSpeed();
+        createThunderRandoms();
 
         repaint();
 
@@ -155,6 +157,19 @@ public class Tekenen extends JPanel {
 
             }
             Values.startGame++;
+        }
+    }
+
+    public void createThunderRandoms(){
+
+        int R1 = 30000;
+        int R2 = 1;
+        if(Values.startGame == 4){
+            for (int i = 0; i < Values.objects; i++) {
+                Values.thunderRandomTime[i] = (int)(Math.random() * R1) + R2;
+                R1 = R1 + 30000;
+                R2 = R2 + 20000;
+            }
         }
     }
 }

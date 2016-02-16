@@ -5,8 +5,8 @@ import me.simonhaasnoot.geinigspel.Values;
 public class Level1 extends BaseLevel {
 
     private int count;
-    private int spawntime = 2000;
-    private int minSpawntime = 1;
+    private boolean ThundercountBool = true;
+    private int shieldDropSpawntime = (int)(Math.random()*40000 + 30000);
 
     public void update() {
 
@@ -17,19 +17,32 @@ public class Level1 extends BaseLevel {
 
     public void spawnThunder(){
 
-
-        int thunderSpawntime = (int)(Math.random()* spawntime + minSpawntime);
-
-
-        if(Values.timeDifference >= thunderSpawntime - 50 && Values.timeDifference <= thunderSpawntime){
+        if(Values.timeDifference >= Values.thunderRandomTime[0] - 50 && Values.timeDifference <= Values.thunderRandomTime[0]){
             Values.spawnThunder = true;
             Values.thunderCollide = true;
+
+            if(ThundercountBool){
+                ThundercountBool = false;
+                count++;
+            }
+        }
+
+        System.out.println(Values.thunderRandomTime[1]);
+        if(count == 1){
+            if(Values.timeDifference >= Values.thunderRandomTime[1] - 50 && Values.timeDifference <= Values.thunderRandomTime[1]){
+                Values.spawnThunder = true;
+                Values.thunderCollide = true;
+
+                if(ThundercountBool) {
+                    ThundercountBool = false;
+                    count++;
+                     }
+            }
         }
     }
 
     public void dropShield() {
 
-        int shieldDropSpawntime = (int)(Math.random()*40000 + 30000);
         if (Values.timeDifference >= shieldDropSpawntime - 50 && Values.timeDifference <= shieldDropSpawntime) {
             Values.spawnShield = true;
         }
