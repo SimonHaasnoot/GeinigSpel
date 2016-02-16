@@ -25,6 +25,7 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
         playerBoundaryCheck();
         fireballCollisionCheck();
         powerupCollision();
+        thunderCollision();
 
         if(Values.lives == 0){
             Values.deadChar = true;
@@ -120,8 +121,18 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
 
     public void powerupCollision(){
 
-        if(Values.playerX + 25 >= Values.RandomX -30 && Values.playerX + 25 <= Values.RandomX +30 && Values.spawnShield){
+        if(Values.playerX + 25 >= Values.randomXshieldSpawn -30 && Values.playerX + 25 <= Values.randomXshieldSpawn +30 && Values.spawnShield){
             Values.activateShield = true;
+        }
+    }
+
+    public void thunderCollision(){
+        if(Values.thunderCollide == true){
+            if((Values.playerX + 30 > Values.randomXthunderSpawn && Values.playerX < Values.randomXthunderSpawn + 150) && Values.spawnThunder && (Values.timeDifferenceThunder > 2000 && Values.timeDifferenceThunder < 2400)) {
+
+            Values.lives -= 1;
+            Values.thunderCollide = false;
+            }
         }
     }
 

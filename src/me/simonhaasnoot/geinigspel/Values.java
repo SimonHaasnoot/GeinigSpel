@@ -48,6 +48,7 @@ public class Values {
 
     // calculates the time your playing the game; calculate time while pausing
     public static long      timeDifference =            0,
+                            timeDifferenceThunder =     0,
                             pauseTime =                 0;
 
     // create pause boolean
@@ -56,10 +57,12 @@ public class Values {
     // drops
     public static boolean   spawnShield =                  false,
                             activateShield =               false,
-                            spawnThunder =                 false;
+                            spawnThunder =                 false,
+                            thunderCollide =               false;
 
     // shieldDropSpawntime X for Shield drop
-    public static int RandomX = (int)(Math.random()*800 + 1);
+    public static int randomXshieldSpawn = (int)(Math.random()*800 + 1);
+    public static int randomXthunderSpawn = (int)(Math.random()*600 + 1);
 
     // make a clone array for the speeds, for if you pause.
     public static int [] cloneArray;

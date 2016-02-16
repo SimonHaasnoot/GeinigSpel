@@ -53,10 +53,7 @@ public class Tekenen extends JPanel {
             g.drawImage(img4, Values.xObject[i], Values.yObject[i], 30, 35, this);
         }
 
-        //draw thunder
-
-
-        // draw cloud
+        // draw cloud + thunder +  use counter
         if(Values.spawnThunder) {
 
             long startTime = System.currentTimeMillis();
@@ -66,15 +63,15 @@ public class Tekenen extends JPanel {
                 Values.uitLoop2++;
 
             }
-            g.drawImage(img10, 280, 0, 200, 160, this);
+            Values.timeDifferenceThunder =  startTime - currentTime;
+            g.drawImage(img10, Values.randomXthunderSpawn, 0, 200, 160, this);
 
-            if((startTime - currentTime) > 1500 && (startTime - currentTime) < 2400){
-                g.drawImage(img11, 330, 70, 100, 415, this);
+            if(Values.timeDifferenceThunder > 1500 && Values.timeDifferenceThunder < 2400){
+                g.drawImage(img11, Values.randomXthunderSpawn + 50, 70, 100, 415, this);
             }
-            if((startTime - currentTime) >3900){
-                Values.spawnThunder = false;
-            }
-
+                if(Values.timeDifferenceThunder > 2500){
+                    Values.spawnThunder = false;
+                }
         }
 
         // draw life hearts
@@ -90,7 +87,7 @@ public class Tekenen extends JPanel {
 
         //draw shield drop
         if(Values.spawnShield) {
-            g.drawImage(img8, Values.RandomX, 440, 44, 48, this);
+            g.drawImage(img8, Values.randomXshieldSpawn, 440, 44, 48, this);
         }
 
         //draw shield
@@ -98,9 +95,6 @@ public class Tekenen extends JPanel {
             Values.spawnShield = false;
             g.drawImage(img7, 580, 20, 35, 40, this);
         }
-
-
-
 
         // Show time in left corner and make a different font for it.
         Font font = new Font("Serif", Font.BOLD, 40);
