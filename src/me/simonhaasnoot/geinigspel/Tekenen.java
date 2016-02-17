@@ -23,6 +23,7 @@ public class Tekenen extends JPanel {
 
     private final Image img11 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Gifs/Thunder25.gif");
     private final Image img13 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Meteorite02.png");
+    private final Image img14 = Toolkit.getDefaultToolkit().createImage("Images/Texts/MeteorAlert2.png");
 
     private long currentTime = 0;
 
@@ -126,9 +127,13 @@ public class Tekenen extends JPanel {
         g.setFont(font);
         g.drawString(verschil, 30, 50);
 
-        // call methods, they both get filled once.
+
+        if(Values.spawnMeteoriteWarning){
+            g.drawImage(img14, getWidth()/2 - 300, 150, 600, 150, this);
+        }
 
 
+        // call methods, they all get filled once.
         createXarray();
         createYarray();
         fallingSpeed();

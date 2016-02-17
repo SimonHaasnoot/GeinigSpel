@@ -140,7 +140,7 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
     public void meteoriteCollision(){
 
         if((Values.playerX + 45 > Values.meteoriteX && Values.playerX < Values.meteoriteX + 230) &&(Values.playerY + 50 > Values.meteoriteY && Values.playerY - 30 < Values.meteoriteY + 250)){
-            System.out.println("kokjoch");
+            Values.lives -= 3;
         }
     }
 

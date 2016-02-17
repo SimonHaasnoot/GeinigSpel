@@ -28,10 +28,10 @@ public class Level1 extends BaseLevel {
             Values.spawnMeteorite = true;
 
         }
-
         if(Values.spawnMeteorite ){
-            Values.meteoriteX = Values.meteoriteX - 4;
-            Values.meteoriteY = Values.meteoriteY + 3;
+            Values.spawnMeteoriteWarning = false;
+            Values.meteoriteX = Values.meteoriteX - 6;
+            Values.meteoriteY = Values.meteoriteY + 5;
         }
 
     }
