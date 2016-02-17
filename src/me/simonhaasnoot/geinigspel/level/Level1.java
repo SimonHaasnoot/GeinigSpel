@@ -6,7 +6,7 @@ public class Level1 extends BaseLevel {
 
     private int                 count;
     private boolean             ThundercountBool = true;
-    private int                 shieldDropSpawntime = (int)(Math.random()*2000 + 1000);
+    private int                 shieldDropSpawntime = (int)(Math.random()*50000 + 1000);
     private int                 meteoriteSpawntime = (int)(Math.random()*1000 + 8000);
 
 
