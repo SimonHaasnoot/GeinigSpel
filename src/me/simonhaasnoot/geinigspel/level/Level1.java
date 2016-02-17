@@ -24,6 +24,10 @@ public class Level1 extends BaseLevel {
             Values.spawnMeteoriteWarning = true;
         }
 
+        // objectives:
+        // make meteorite array[i] for random spawn -300 - 150 or 0.
+        // make meteorite come from the left side too.
+
         if(Values.timeDifference >= meteoriteSpawntime - 50 && Values.timeDifference <= meteoriteSpawntime){
             Values.spawnMeteorite = true;
 
@@ -63,30 +67,30 @@ public class Level1 extends BaseLevel {
         Values.yObject[0] = Values.yObject[0] + Values.fallingSpeed[0];
 
         // After 15 seconds 1 fireball drops
-        if(Values.timeDifference > 15000){
+        if(Values.timeDifference > 5000){
             Values.yObject[1] = Values.yObject[1] + Values.fallingSpeed[1];
         }
         // After 20 seconds 1 fireball drops
-        if(Values.timeDifference > 25000){
+        if(Values.timeDifference > 10000){
             Values.yObject[2] = Values.yObject[2] + Values.fallingSpeed[2];
         }
         // After 25 seconds 2 fireball drops
-        if(Values.timeDifference > 35000){
+        if(Values.timeDifference > 15000){
             Values.yObject[3] = Values.yObject[3] + Values.fallingSpeed[3];
             Values.yObject[4] = Values.yObject[4] + Values.fallingSpeed[4];
         }
         // After 30 seconds 2 fireball drops
-        if(Values.timeDifference > 40000){
+        if(Values.timeDifference > 25000){
             Values.yObject[5] = Values.yObject[5] + Values.fallingSpeed[5];
             Values.yObject[6] = Values.yObject[6] + Values.fallingSpeed[6];
         }
         // After 35 seconds 2 fireballs drop.
-        if(Values.timeDifference > 50000){
+        if(Values.timeDifference > 35000){
             Values.yObject[7] = Values.yObject[7] + Values.fallingSpeed[7];
             Values.yObject[8] = Values.yObject[8] + Values.fallingSpeed[8];
         }
         // After 40 seconds 2 fireballs drop.
-        if(Values.timeDifference > 55000){
+        if(Values.timeDifference > 50000){
             Values.yObject[9] = Values.yObject[9] + Values.fallingSpeed[9];
             Values.yObject[10] = Values.yObject[10] + Values.fallingSpeed[10];
         }
