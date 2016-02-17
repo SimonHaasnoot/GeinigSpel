@@ -4,9 +4,9 @@ import me.simonhaasnoot.geinigspel.Values;
 
 public class Level1 extends BaseLevel {
 
-    private int count;
-    private boolean ThundercountBool = true;
-    private int shieldDropSpawntime = (int)(Math.random()*40000 + 30000);
+    private int                 count;
+    private boolean             ThundercountBool = true;
+    private int                 shieldDropSpawntime = (int)(Math.random()*2000 + 1000);
 
     public void update() {
 
@@ -27,7 +27,6 @@ public class Level1 extends BaseLevel {
             }
         }
 
-        System.out.println(Values.thunderRandomTime[1]);
         if(count == 1){
             if(Values.timeDifference >= Values.thunderRandomTime[1] - 50 && Values.timeDifference <= Values.thunderRandomTime[1]){
                 Values.spawnThunder = true;

@@ -8,12 +8,12 @@ public class Values {
 
 
     // X and Y of the actual Frame
-    public static int       frameX = 800,
-                            frameY = 600;
+    public static int       frameX = 1024,
+                            frameY = 768;
 
     // the X and Y of the Player(character)
-    public static int       playerX =                   360,
-                            playerY =                   410;
+    public static int       playerX =                   frameX/2 - 50,
+                            playerY =                   frameY - 188;
 
     // player Left and Right button press boolean
     public static boolean   playerXleft =               false,

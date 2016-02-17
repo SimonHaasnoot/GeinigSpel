@@ -33,20 +33,20 @@ public class Tekenen extends JPanel {
         g.setColor(Color.BLACK);
 
         // draw the sky
-        g.drawImage(img, 0, 0, 800, 500, this);
+        g.drawImage(img, 0, 0, getWidth(), getHeight() - 60, this);
 
         // draw the vulcano
-        g.drawImage(img9, 300, 300, 600, 200, this);
+        //g.drawImage(img9, 300, 400, getWidth()/2 + 200, 200, this);
 
         // draw trees
-        g.drawImage(img6, 0, 195, 150, 300, this);
-        g.drawImage(img6, 300, 195, 150, 325, this);
+        g.drawImage(img6, 0, 360, 150, 300, this);
+        g.drawImage(img6, 300, 340, 150, 325, this);
 
         // draw game character
         g.drawImage(img2, Values.playerX, Values.playerY, Values.playerWidth, Values.playerHeight, this);
 
         // draw ground where the character is walking on
-        g.drawImage(img3, 0, 480, 800, 100, this);
+        g.drawImage(img3, 0, Values.frameY - 120, getWidth(), 100, this);
 
         // draw all the [objects]
         for(int i = 0; i < Values.objects; i++){
@@ -64,10 +64,10 @@ public class Tekenen extends JPanel {
 
             }
             Values.timeDifferenceThunder =  startTime - currentTime;
-            g.drawImage(img10, Values.randomXthunderSpawn, 0, 200, 160, this);
+            g.drawImage(img10, Values.randomXthunderSpawn, 180, 200, 160, this);
 
             if(Values.timeDifferenceThunder > 1500 && Values.timeDifferenceThunder < 2400){
-                g.drawImage(img11, Values.randomXthunderSpawn + 50, 70, 100, 415, this);
+                g.drawImage(img11, Values.randomXthunderSpawn + 50, 250, 100, 415, this);
             }
                 if(Values.timeDifferenceThunder > 2500){
                     Values.spawnThunder = false;
@@ -77,24 +77,25 @@ public class Tekenen extends JPanel {
 
         // draw life hearts
         if(Values.lives >= 3) {
-            g.drawImage(img5, 635, 20, 40, 40, this);
+            g.drawImage(img5, getWidth() - 165, 20, 40, 40, this);
         }
         if(Values.lives >=2) {
-            g.drawImage(img5, 685, 20, 40, 40, this);
+            g.drawImage(img5, getWidth() - 115, 20, 40, 40, this);
         }
         if(Values.lives >=1) {
-            g.drawImage(img5, 735, 20, 40, 40, this);
+            g.drawImage(img5, getWidth() - 65, 20, 40, 40, this);
         }
 
         //draw shield drop
         if(Values.spawnShield) {
-            g.drawImage(img8, Values.randomXshieldSpawn, 440, 44, 48, this);
+            g.drawImage(img8, Values.randomXshieldSpawn, getHeight() - 126, 44, 48, this);
         }
 
         //draw shield
+
         if(Values.activateShield){
             Values.spawnShield = false;
-            g.drawImage(img7, 580, 20, 35, 40, this);
+            g.drawImage(img7, getWidth() - 65, 70, 35, 40, this);
         }
 
         // Show time in left corner and make a different font for it.
@@ -129,7 +130,7 @@ public class Tekenen extends JPanel {
 
         if(Values.startGame == 1) {
             for (int i = 0; i < Values.objects; i++) {
-                Values.xObject[i] = (int) (Math.random() * 770 + 1);
+                Values.xObject[i] = (int) (Math.random() * getWidth() - 35 + 1);
             }
         }
 

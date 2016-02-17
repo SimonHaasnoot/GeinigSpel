@@ -110,8 +110,8 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
     public void playerBoundaryCheck(){
 
         // als de player verder dan 710px gaat kan hij niet meer verder
-        if(Values.playerX >= 730){
-            Values.playerX = 730;
+        if(Values.playerX >= getWidth() -  65){
+            Values.playerX = getWidth() - 65;
         }
         // als de player lager gaat dan 10px kan hij niet meer verder
         if(Values.playerX <= 0){
@@ -140,17 +140,17 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
 
         // if the object reaches the outers of the field, reset them to spawn from above again
         for (int i = 0; i < Values.objects; i++) {
-            if (Values.yObject[i] > 610) {
-                if(Values.timeDifference < 30000) {
-                    Values.yObject[i] = (int) (Math.random() * -160 - 50);
-                    Values.xObject[i] = (int) (Math.random() * 765 + 10);
+
+            if (Values.yObject[i] > 810) {
+                Values.yObject[i] = (int) (Math.random() * -160 - 50);
+                Values.xObject[i] = (int) (Math.random() * getWidth() - 35 + 10);
+
+                    if(Values.timeDifference < 30000) {
                     Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 1);
-                }
-                else if(Values.timeDifference >= 30000){
-                    Values.yObject[i] = (int) (Math.random() * -160 - 50);
-                    Values.xObject[i] = (int) (Math.random() * 765 + 10);
-                    Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 2);
-                }
+                    }
+                        if(Values.timeDifference >= 30000){
+                        Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 2);
+                        }
             }
         }
 
@@ -161,34 +161,25 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
             {
 
                 // resets the object that hit the character, you lose 1 life, falling speed randomised from 1 to 5 again. first 30secs.
-                if(Values.timeDifference < 30000) {
                     Values.yObject[i] = (int) (Math.random() * -160 - 50);
-                        Values.xObject[i] = (int) (Math.random() * 765 + 10);
-                            Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 1);
+                    Values.xObject[i] = (int) (Math.random() * getWidth() - 35 + 10);
 
-                                // if you have a shield up, break the shield first.
-                                if(Values.activateShield){
-                                    Values.activateShield = false;
-                                        break;
+                            if(Values.timeDifference < 30000) {
+                                Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 1);
+                            }
+
+                                if(Values.timeDifference >= 30000) {
+                                    Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 2);
                                 }
+                                // if you have a shield up, break the shield first.
+
+                                        if(Values.activateShield){
+                                        Values.activateShield = false;
+                                            break;
+                                    }
                                 // lose a life if you dont have shield.
                                             Values.lives -= 1;
-                }
 
-                // resets the object that hit the character, you lose 1 life, falling speed randomised from 2 to 5 again. after 30secs.
-                     else if(Values.timeDifference >= 30000){
-                         Values.yObject[i] = (int) (Math.random() * -160 - 50);
-                            Values.xObject[i] = (int) (Math.random() * 765 + 10);
-                                Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 2);
-
-                                // if you have a shield up, break the shield first.
-                                if(Values.activateShield){
-                                    Values.activateShield = false;
-                                        break;
-                                }
-                                // lose a life if you dont have shield.
-                                        Values.lives -= 1;
-                    }
             }
         }
     }

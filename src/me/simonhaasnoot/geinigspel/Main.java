@@ -21,7 +21,7 @@ public class Main extends JFrame {
         public Main() {
 
             this.setTitle("Made by Simon Haasnoot");
-            this.setResizable(false);
+            this.setResizable(true);
             this.setPreferredSize(new Dimension(Values.frameX, Values.frameY));
             this.setVisible(true);
             this.pack();
@@ -50,7 +50,7 @@ public class Main extends JFrame {
 
          public void play() {
         try {
-            File file = new File("Songs/sound2.wav");
+            File file = new File("Songs/sound22.wav");
             Clip clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
