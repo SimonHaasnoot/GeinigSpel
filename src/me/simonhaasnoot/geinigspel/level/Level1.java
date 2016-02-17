@@ -29,36 +29,24 @@ public class Level1 extends BaseLevel {
 
         }
 
-        if(Values.spawnMeteorite && Values.meteoriteY < 440){
+        if(Values.spawnMeteorite ){
             Values.meteoriteX = Values.meteoriteX - 4;
             Values.meteoriteY = Values.meteoriteY + 3;
         }
-
-
 
     }
 
     public void spawnThunder(){
 
-        if(Values.timeDifference >= Values.thunderRandomTime[0] - 50 && Values.timeDifference <= Values.thunderRandomTime[0]){
-            Values.spawnThunder = true;
-            Values.thunderCollide = true;
+        for (int i = 0; i < Values.thunderRandomTime.length; i++) {
 
-            if(ThundercountBool){
-                ThundercountBool = false;
-                count++;
-            }
-        }
-
-        if(count == 1){
-            if(Values.timeDifference >= Values.thunderRandomTime[1] - 50 && Values.timeDifference <= Values.thunderRandomTime[1]){
+            if(Values.timeDifference >= Values.thunderRandomTime[i] - 50 && Values.timeDifference <= Values.thunderRandomTime[i]){
                 Values.spawnThunder = true;
                 Values.thunderCollide = true;
 
-                if(ThundercountBool) {
+                if(ThundercountBool){
                     ThundercountBool = false;
-                    count++;
-                     }
+                }
             }
         }
     }

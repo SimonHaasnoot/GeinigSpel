@@ -175,13 +175,15 @@ public class Tekenen extends JPanel {
 
     public void createThunderRandoms(){
 
-        int R1 = 30000;
-        int R2 = 1;
+        int R1 = 20000;
+        int R2 = 10000;
         if(Values.startGame == 4){
             for (int i = 0; i < Values.objects; i++) {
                 Values.thunderRandomTime[i] = (int)(Math.random() * R1) + R2;
-                R1 = R1 + 30000;
-                R2 = R2 + 20000;
+                R1 = (int)((R1 + 30000)*0.90);
+                int R3 = (int) (R1 * 0.9);
+                R2 = R2 + R3;
+               System.out.println(Values.thunderRandomTime[i]);
             }
         }
     }

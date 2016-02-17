@@ -73,5 +73,6 @@ public class Values {
 
     public static boolean   spawnMeteoriteWarning =         false;
     public static boolean   spawnMeteorite =                false;
+
 }
 
