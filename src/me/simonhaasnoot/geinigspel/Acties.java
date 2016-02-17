@@ -121,7 +121,7 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
 
     public void shieldCollision(){
 
-        if(Values.playerX + 25 >= Values.randomXshieldSpawn -30 && Values.playerX + 25 <= Values.randomXshieldSpawn +30 && Values.spawnShield){
+        if(Values.playerX + 30 >= Values.randomXshieldSpawn - 10 && Values.playerX  <= Values.randomXshieldSpawn +35 && Values.spawnShield){
             Values.activateShield = true;
         }
     }

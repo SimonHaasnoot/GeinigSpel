@@ -62,8 +62,8 @@ public class Values {
                             thunderCollide =               false;
 
     // shieldDropSpawntime X for Shield drop
-    public static int randomXshieldSpawn = (int)(Math.random()*800 + 1);
-    public static int randomXthunderSpawn = (int)(Math.random()*600 + 1);
+    public static int randomXshieldSpawn = (int)(Math.random()* frameX - 50 + 1);
+    public static int randomXthunderSpawn = (int)(Math.random()*frameX - 214 + 150);
 
     // make a clone array for the speeds, for if you pause.
     public static int [] cloneArray;

@@ -14,18 +14,18 @@ public class Tekenen extends JPanel {
     private final Image img8 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Shield01.png");
 
     private final Image img = Toolkit.getDefaultToolkit().createImage("Images/Landscape/AirB.jpg");
-    private final Image img3 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/GrassGround.png");
+    private final Image img3 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/GrassGround2.png");
     private final Image img6 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Tree01.png");
-    private final Image img9 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Volcano.png");
+    private final Image img9 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Volcano2.png");
     private final Image img10 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Cloud01.png");
 
     private final Image img11 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Gifs/Thunder25.gif");
 
     private long currentTime = 0;
+
     public Tekenen(){
 
     }
-
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -33,10 +33,11 @@ public class Tekenen extends JPanel {
         g.setColor(Color.BLACK);
 
         // draw the sky
-        g.drawImage(img, 0, 0, getWidth(), getHeight() - 60, this);
+        g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
 
-        // draw the vulcano
-        //g.drawImage(img9, 300, 400, getWidth()/2 + 200, 200, this);
+        // draw the volcano
+        g.drawImage(img9, 350, 360, getWidth()/2 + 200, 300, this);
+
 
         // draw trees
         g.drawImage(img6, 0, 360, 150, 300, this);
@@ -130,7 +131,7 @@ public class Tekenen extends JPanel {
 
         if(Values.startGame == 1) {
             for (int i = 0; i < Values.objects; i++) {
-                Values.xObject[i] = (int) (Math.random() * getWidth() - 35 + 1);
+                Values.xObject[i] = (int) (Math.random() * getWidth() - 30 + 1);
             }
         }
 
