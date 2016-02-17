@@ -26,6 +26,7 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
         fireballCollisionCheck();
         shieldCollision();
         thunderCollision();
+        meteoriteCollision();
 
         if(Values.lives == 0){
             Values.deadChar = true;
@@ -133,6 +134,13 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
             Values.lives -= 1;
             Values.thunderCollide = false;
             }
+        }
+    }
+
+    public void meteoriteCollision(){
+
+        if((Values.playerX + 45 > Values.meteoriteX && Values.playerX < Values.meteoriteX + 230) &&(Values.playerY + 50 > Values.meteoriteY && Values.playerY - 30 < Values.meteoriteY + 250)){
+            System.out.println("kokjoch");
         }
     }
 

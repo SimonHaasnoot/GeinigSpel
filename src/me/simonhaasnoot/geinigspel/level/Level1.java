@@ -7,13 +7,36 @@ public class Level1 extends BaseLevel {
     private int                 count;
     private boolean             ThundercountBool = true;
     private int                 shieldDropSpawntime = (int)(Math.random()*2000 + 1000);
+    private int                 meteoriteSpawntime = (int)(Math.random()*1000 + 8000);
+
+
 
     public void update() {
 
             dropShield();
             spawnThunder();
             spawnFireballs();
+            spawnMeteorite();
         }
+
+    public void spawnMeteorite(){
+        if((meteoriteSpawntime - Values.timeDifference) < 5000){
+            Values.spawnMeteoriteWarning = true;
+        }
+
+        if(Values.timeDifference >= meteoriteSpawntime - 50 && Values.timeDifference <= meteoriteSpawntime){
+            Values.spawnMeteorite = true;
+
+        }
+
+        if(Values.spawnMeteorite && Values.meteoriteY < 440){
+            Values.meteoriteX = Values.meteoriteX - 4;
+            Values.meteoriteY = Values.meteoriteY + 3;
+        }
+
+
+
+    }
 
     public void spawnThunder(){
 

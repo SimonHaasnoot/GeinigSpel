@@ -1,4 +1,5 @@
 package me.simonhaasnoot.geinigspel;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -18,8 +19,10 @@ public class Tekenen extends JPanel {
     private final Image img6 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Tree01.png");
     private final Image img9 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Volcano2.png");
     private final Image img10 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Cloud01.png");
+    private final Image img12 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/flower01.png");
 
     private final Image img11 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Gifs/Thunder25.gif");
+    private final Image img13 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Meteorite02.png");
 
     private long currentTime = 0;
 
@@ -54,6 +57,10 @@ public class Tekenen extends JPanel {
             g.drawImage(img4, Values.xObject[i], Values.yObject[i], 30, 35, this);
         }
 
+        // draw flowers
+        g.drawImage(img12, 150, 618, 30, 40, this);
+        g.drawImage(img12, 250, 615, 30, 40, this);
+
         // draw cloud + thunder +  use counter
         if(Values.spawnThunder) {
 
@@ -75,6 +82,9 @@ public class Tekenen extends JPanel {
                     Values.uitLoop2 = 0;
                 }
         }
+
+        // draw meteorite
+        g.drawImage(img13, Values.meteoriteX, Values.meteoriteY, 300, 300, this);
 
         // draw life hearts
         if(Values.lives >= 3) {
@@ -117,6 +127,8 @@ public class Tekenen extends JPanel {
         g.drawString(verschil, 30, 50);
 
         // call methods, they both get filled once.
+
+
         createXarray();
         createYarray();
         fallingSpeed();
@@ -125,8 +137,9 @@ public class Tekenen extends JPanel {
         repaint();
 
     }
+
+
     // run this method once, Array is getting created once. then the game skips this after.
-    // this creates all shieldDropSpawntime X's for the Fireball Objects.
     public void createXarray(){
 
         if(Values.startGame == 1) {
@@ -138,7 +151,6 @@ public class Tekenen extends JPanel {
         Values.startGame++;
     }
 
-    // run this method once, Array is getting created once. then the game skips this after.
     // this creates all Y's for the Fireball Objects. (all the same)
     public void createYarray(){
 
@@ -150,7 +162,6 @@ public class Tekenen extends JPanel {
         Values.startGame++;
     }
 
-    // runs this method once, fallingSpeed array is getting created once. then the game skips this after.
     // this creates all Fallspeeds from 1 to 5;
     public void fallingSpeed(){
         if(Values.startGame == 3){
