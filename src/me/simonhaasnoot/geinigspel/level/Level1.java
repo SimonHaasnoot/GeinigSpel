@@ -3,9 +3,7 @@ import me.simonhaasnoot.geinigspel.Values;
 
 public class Level1 extends BaseLevel {
 
-    private boolean             ThundercountBool = true;
-    private int                 shieldDropSpawntime = (int)(Math.random()*50000 + 1000);
-    private int                 meteoriteSpawntime = (int)(Math.random()*1000 + 8000);
+
 
     public void update() {
 
@@ -16,6 +14,9 @@ public class Level1 extends BaseLevel {
         }
 
     public void spawnMeteorite(){
+
+        int meteoriteSpawntime = (int)(Math.random()*1000 + 8000);
+
         if((meteoriteSpawntime - Values.timeDifference) < 5000){
             Values.spawnMeteoriteWarning = true;
         }
@@ -35,6 +36,7 @@ public class Level1 extends BaseLevel {
 
     public void spawnThunder(){
 
+        boolean ThundercountBool = true;
         for (int i = 0; i < Values.thunderRandomTime.length; i++) {
 
             if(Values.timeDifference >= Values.thunderRandomTime[i] - 50 && Values.timeDifference <= Values.thunderRandomTime[i]){
@@ -49,6 +51,8 @@ public class Level1 extends BaseLevel {
     }
 
     public void dropShield() {
+
+        int shieldDropSpawntime = (int)(Math.random()*50000 + 1000);
 
         if (Values.timeDifference >= shieldDropSpawntime - 50 && Values.timeDifference <= shieldDropSpawntime) {
             Values.spawnShield = true;

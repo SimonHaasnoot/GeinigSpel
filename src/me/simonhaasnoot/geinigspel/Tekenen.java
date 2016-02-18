@@ -6,23 +6,18 @@ import java.awt.*;
 
 public class Tekenen extends JPanel {
 
-
+    private final Image img = Toolkit.getDefaultToolkit().createImage("Images/Landscape/AirB.jpg");
     private final Image img2 = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
-
+    private final Image img3 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/GrassGround2.png");
     private final Image img4 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Gifs/FIREBALL.gif");
-
     private final Image img5 = Toolkit.getDefaultToolkit().createImage("Images/Objects/gameHeart.png");
+    private final Image img6 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Tree01.png");
     private final Image img7 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Shield04.png");
     private final Image img8 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Shield01.png");
-
-    private final Image img = Toolkit.getDefaultToolkit().createImage("Images/Landscape/AirB.jpg");
-    private final Image img3 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/GrassGround2.png");
-    private final Image img6 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Tree01.png");
     private final Image img9 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Volcano2.png");
     private final Image img10 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/Cloud01.png");
-    private final Image img12 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/flower01.png");
-
     private final Image img11 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Gifs/Thunder25.gif");
+    private final Image img12 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/flower01.png");
     public  final Image img13 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Meteorite02.png");
     private final Image img14 = Toolkit.getDefaultToolkit().createImage("Images/Texts/MeteorAlert2.png");
 
