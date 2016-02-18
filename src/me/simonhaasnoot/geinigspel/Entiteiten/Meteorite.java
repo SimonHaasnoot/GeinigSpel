@@ -6,9 +6,6 @@ import me.simonhaasnoot.geinigspel.Values;
  */
 public class Meteorite {
 
-    private int x = 1050;
-    private int y = -300;
-
     public Meteorite(){
 
 
@@ -16,28 +13,8 @@ public class Meteorite {
 
     public void collision(){
 
-        if((Values.playerX + 45 > x && Values.playerX < x + 230) &&(Values.playerY + 50 > y && Values.playerY - 30 < y + 250)){
+        if((Values.playerX + 45 > Values.meteoriteX && Values.playerX < Values.meteoriteX + 230) &&(Values.playerY + 50 > Values.meteoriteY  && Values.playerY - 30 < Values.meteoriteY + 250)){
             Values.lives -= 3;
         }
-    }
-
-    public int getMeteoriteX(){
-        return x;
-    }
-
-    public int getMeteoriteY(){
-        return y;
-    }
-
-    public int decrementMeteoriteX(int xx){
-
-        this.x = this.x - xx;
-        return this.x;
-    }
-
-    public int incrementMeteoriteY(int yy){
-
-        this.y = this.y + yy;
-        return this.y;
     }
 }

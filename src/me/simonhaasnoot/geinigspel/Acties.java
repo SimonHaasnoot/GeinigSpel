@@ -8,11 +8,11 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
 
     public static long startTime;
 
-    private Fireball    fireball    = new Fireball();
-    private Shield      shield      = new Shield();
-    private Character   character   = new Character();
-    private Thunder     thunder     = new Thunder();
-    private Meteorite   meteorite   = new Meteorite();
+            Fireball    fireball    = new Fireball();
+            Shield      shield      = new Shield();
+            Character   character   = new Character();
+            Thunder     thunder     = new Thunder();
+            Meteorite   meteorite   = new Meteorite();
 
     public void actionPerformed(ActionEvent e) {
 
@@ -22,17 +22,12 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
 
         // call level + objects.
         Values.level.update();
-
         fireball.collision();
-
         shield.collision();
-
         character.collision();
         character.move();
         character.isDead();
-
         thunder.collision();
-
         meteorite.collision();
     }
 
@@ -50,7 +45,6 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
     }
 
     public void keyTyped(KeyEvent e) {
-
     }
 
     public void keyPressed(KeyEvent e) {
