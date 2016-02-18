@@ -1,48 +1,53 @@
 package me.simonhaasnoot.geinigspel;
+import me.simonhaasnoot.geinigspel.Entiteiten.*;
+import me.simonhaasnoot.geinigspel.Entiteiten.Character;
+
 import java.awt.event.*;
 
 public class Acties extends Tekenen implements KeyListener, ActionListener{
 
     public static long startTime;
 
+    private Fireball    fireball    = new Fireball();
+    private Shield      shield      = new Shield();
+    private Character   character   = new Character();
+    private Thunder     thunder     = new Thunder();
+    private Meteorite   meteorite   = new Meteorite();
+
     public void actionPerformed(ActionEvent e) {
+
+        // start game loop
+        gameLoop();
+
+
+        // call level + objects.
+        Values.level.update();
+
+        fireball.collision();
+
+        shield.collision();
+
+        character.collision();
+        character.move();
+        character.isDead();
+
+        thunder.collision();
+
+        meteorite.collision();
+    }
+
+    public void gameLoop(){
 
         // run a timer upon game start
         long currentTime = System.currentTimeMillis();
 
-
-        // save this time once, so you get the starting time =: startTime;
         if(Values.uitLoop == 0) {
             startTime = currentTime;
             Values.uitLoop++;
         }
-
-        // calculate the timeDifference between the start and the actual in game time. so that you can get the actual current time of playing.
+        //calculate time diff
         Values.timeDifference = currentTime - startTime;
-
-        // Update the game level
-        Values.level.update();
-        playerBoundaryCheck();
-        fireballCollisionCheck();
-        shieldCollision();
-        thunderCollision();
-        meteoriteCollision();
-
-        if(Values.lives == 0){
-            Values.deadChar = true;
-        }
-
-        // used for going left and right.
-        if(Values.playerXleft){
-            Values.playerX = Values.playerX - Values.playerSpeed;
-        }
-        if(Values.PlayerXright){
-            Values.playerX = Values.playerX + Values.playerSpeed;
-        }
-
-
     }
-
 
     public void keyTyped(KeyEvent e) {
 
@@ -108,87 +113,5 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
 
     }
 
-    public void playerBoundaryCheck(){
 
-        // als de player verder dan 710px gaat kan hij niet meer verder
-        if(Values.playerX >= getWidth() -  65){
-            Values.playerX = getWidth() - 65;
-        }
-        // als de player lager gaat dan 10px kan hij niet meer verder
-        if(Values.playerX <= 0){
-            Values.playerX = 0;
-        }
-    }
-
-    public void shieldCollision(){
-
-        if(Values.playerX + 30 >= Values.randomXshieldSpawn - 10 && Values.playerX  <= Values.randomXshieldSpawn +35 && Values.spawnShield){
-            Values.activateShield = true;
-        }
-    }
-
-    public void thunderCollision(){
-        if(Values.thunderCollide == true){
-            if((Values.playerX + 30 > Values.randomXthunderSpawn && Values.playerX < Values.randomXthunderSpawn + 150) && Values.spawnThunder && (Values.timeDifferenceThunder > 2000 && Values.timeDifferenceThunder < 2400)) {
-
-            Values.lives -= 1;
-            Values.thunderCollide = false;
-            }
-        }
-    }
-
-    public void meteoriteCollision(){
-
-        if((Values.playerX + 45 > Values.meteoriteX && Values.playerX < Values.meteoriteX + 230) &&(Values.playerY + 50 > Values.meteoriteY && Values.playerY - 30 < Values.meteoriteY + 250)){
-            Values.lives -= 3;
-        }
-    }
-
-    public void fireballCollisionCheck() {
-
-        // if the object reaches the outers of the field, reset them to spawn from above again
-        for (int i = 0; i < Values.objects; i++) {
-
-            if (Values.yObject[i] > 810) {
-                Values.yObject[i] = (int) (Math.random() * -160 - 50);
-                Values.xObject[i] = (int) (Math.random() * getWidth() - 35 + 10);
-
-                    if(Values.timeDifference < 30000) {
-                    Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 1);
-                    }
-                        if(Values.timeDifference >= 30000){
-                        Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 2);
-                        }
-            }
-        }
-
-        // check if an object hits the character.
-        for (int i = 0; i < Values.objects; i++) {
-            if (Values.yObject[i] <= Values.playerY + 50 && Values.yObject[i] > Values.playerY - 30 &&
-                    (Values.xObject[i] <= Values.playerX + 50 && Values.xObject[i] >= Values.playerX - 15))
-            {
-
-                // resets the object that hit the character, you lose 1 life, falling speed randomised from 1 to 5 again. first 30secs.
-                    Values.yObject[i] = (int) (Math.random() * -160 - 50);
-                    Values.xObject[i] = (int) (Math.random() * getWidth() - 35 + 10);
-
-                            if(Values.timeDifference < 30000) {
-                                Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 1);
-                            }
-
-                                if(Values.timeDifference >= 30000) {
-                                    Values.fallingSpeed[i] = (int) (Math.random() * Values.maxRandom + 2);
-                                }
-                                // if you have a shield up, break the shield first.
-
-                                        if(Values.activateShield){
-                                        Values.activateShield = false;
-                                            break;
-                                    }
-                                // lose a life if you dont have shield.
-                                            Values.lives -= 1;
-
-            }
-        }
-    }
 }

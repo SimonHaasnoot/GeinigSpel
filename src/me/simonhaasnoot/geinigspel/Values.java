@@ -68,6 +68,7 @@ public class Values {
     // make a clone array for the speeds, for if you pause.
     public static int [] cloneArray;
 
+
     public static int       meteoriteX =                    1050;
     public static int       meteoriteY =                    -300;
 

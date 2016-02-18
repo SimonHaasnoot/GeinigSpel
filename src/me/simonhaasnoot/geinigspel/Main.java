@@ -1,5 +1,4 @@
 package me.simonhaasnoot.geinigspel;
-
 import me.simonhaasnoot.geinigspel.level.Level1;
 
 import javax.sound.sampled.AudioSystem;
@@ -15,9 +14,6 @@ import java.io.File;
 public class Main{
 
 
-    public JFrame SelectFrame = new JFrame("Made by Simon Haasnoot");
-    public  static JFrame GameFrame = new JFrame("Made by Simon Haasnoot");
-
     public static void main(String[] args) {
 
         new Main();
@@ -25,16 +21,17 @@ public class Main{
 
         public Main() {
 
+            JFrame frame = new JFrame();
+            frame.setTitle("Made by Simon Haasnoot");
+            frame.setResizable(false);
+            frame.setPreferredSize(new Dimension(Values.frameX, Values.frameY));
+            frame.setVisible(true);
+            frame.pack();
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setLocationRelativeTo(null);
 
-            SelectFrame.setTitle("Made by Simon Haasnoot");
-            SelectFrame.setResizable(false);
-            SelectFrame.setPreferredSize(new Dimension(Values.frameX, Values.frameY));
-            SelectFrame.setVisible(true);
-            SelectFrame.pack();
-            SelectFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            SelectFrame.setLocationRelativeTo(null);
+            initiateGame(frame);
 
-            initiateGame(SelectFrame);
         }
 
 //        public void startScreen(JFrame frame){

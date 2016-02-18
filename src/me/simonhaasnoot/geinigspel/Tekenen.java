@@ -1,10 +1,14 @@
 package me.simonhaasnoot.geinigspel;
 
+import me.simonhaasnoot.geinigspel.Entiteiten.Meteorite;
+import me.simonhaasnoot.geinigspel.level.Level1;
+
 import javax.swing.*;
 import java.awt.*;
 
 
 public class Tekenen extends JPanel {
+
 
     private final Image img2 = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
 
@@ -22,7 +26,7 @@ public class Tekenen extends JPanel {
     private final Image img12 = Toolkit.getDefaultToolkit().createImage("Images/Landscape/flower01.png");
 
     private final Image img11 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Gifs/Thunder25.gif");
-    private final Image img13 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Meteorite02.png");
+    public  final static Image img13 = Toolkit.getDefaultToolkit().createImage("Images/Objects/Meteorite02.png");
     private final Image img14 = Toolkit.getDefaultToolkit().createImage("Images/Texts/MeteorAlert2.png");
 
     private long currentTime = 0;
@@ -78,14 +82,16 @@ public class Tekenen extends JPanel {
             if(Values.timeDifferenceThunder > 1500 && Values.timeDifferenceThunder < 2400){
                 g.drawImage(img11, Values.randomXthunderSpawn + 50, 250, 100, 415, this);
             }
-                if(Values.timeDifferenceThunder > 2500){
-                    Values.spawnThunder = false;
-                    Values.uitLoop2 = 0;
-                }
+            if(Values.timeDifferenceThunder > 2500){
+                Values.spawnThunder = false;
+                Values.uitLoop2 = 0;
+            }
         }
 
-        // draw meteorite
-        g.drawImage(img13, Values.meteoriteX, Values.meteoriteY, 300, 300, this);
+      //  meteorite.getMeteoriteX() meteorite.getMeteoriteX()
+      //  g.drawImage(img13, Level1.meteorite.getMeteoriteX(), Level1.meteorite.getMeteoriteY() , 300, 300, this);
+        Level1.meteorite.draw(g);
+       // g.drawImage(img13, Values.meteoriteX, Values.meteoriteY , 300, 300, this);
 
         // draw life hearts
         if(Values.lives >= 3) {
@@ -188,7 +194,7 @@ public class Tekenen extends JPanel {
                 R1 = (int)((R1 + 30000)*0.90);
                 int R3 = (int) (R1 * 0.9);
                 R2 = R2 + R3;
-               System.out.println(Values.thunderRandomTime[i]);
+                System.out.println(Values.thunderRandomTime[i]);
             }
         }
     }

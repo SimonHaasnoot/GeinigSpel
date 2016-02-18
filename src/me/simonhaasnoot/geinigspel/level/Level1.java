@@ -1,13 +1,15 @@
 package me.simonhaasnoot.geinigspel.level;
 
+import me.simonhaasnoot.geinigspel.Entiteiten.Meteorite;
 import me.simonhaasnoot.geinigspel.Values;
 
 public class Level1 extends BaseLevel {
 
-    private int                 count;
     private boolean             ThundercountBool = true;
     private int                 shieldDropSpawntime = (int)(Math.random()*50000 + 1000);
     private int                 meteoriteSpawntime = (int)(Math.random()*1000 + 8000);
+
+    public static Meteorite meteorite = new Meteorite();
 
 
 
@@ -24,18 +26,20 @@ public class Level1 extends BaseLevel {
             Values.spawnMeteoriteWarning = true;
         }
 
-        // objectives:
-        // make meteorite array[i] for random spawn -300 - 150 or 0.
-        // make meteorite come from the left side too.
-
         if(Values.timeDifference >= meteoriteSpawntime - 50 && Values.timeDifference <= meteoriteSpawntime){
             Values.spawnMeteorite = true;
 
         }
         if(Values.spawnMeteorite ){
             Values.spawnMeteoriteWarning = false;
-            Values.meteoriteX = Values.meteoriteX - 6;
-            Values.meteoriteY = Values.meteoriteY + 5;
+            meteorite.decrementMeteoriteX(6);
+            meteorite.incrementMeteoriteY(5);
+
+            System.out.println(meteorite.getMeteoriteX());
+            System.out.println(meteorite.getMeteoriteY());
+
+            //Values.meteoriteX = Values.meteoriteX - 6;
+            //Values.meteoriteY = Values.meteoriteY + 5;
         }
 
     }
