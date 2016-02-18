@@ -1,6 +1,4 @@
 package me.simonhaasnoot.geinigspel.level;
-
-import me.simonhaasnoot.geinigspel.Entiteiten.Meteorite;
 import me.simonhaasnoot.geinigspel.Values;
 
 public class Level1 extends BaseLevel {
@@ -8,10 +6,6 @@ public class Level1 extends BaseLevel {
     private boolean             ThundercountBool = true;
     private int                 shieldDropSpawntime = (int)(Math.random()*50000 + 1000);
     private int                 meteoriteSpawntime = (int)(Math.random()*1000 + 8000);
-
-    public static Meteorite meteorite = new Meteorite();
-
-
 
     public void update() {
 
@@ -32,14 +26,9 @@ public class Level1 extends BaseLevel {
         }
         if(Values.spawnMeteorite ){
             Values.spawnMeteoriteWarning = false;
-            meteorite.decrementMeteoriteX(6);
-            meteorite.incrementMeteoriteY(5);
 
-            System.out.println(meteorite.getMeteoriteX());
-            System.out.println(meteorite.getMeteoriteY());
-
-            //Values.meteoriteX = Values.meteoriteX - 6;
-            //Values.meteoriteY = Values.meteoriteY + 5;
+            Values.meteoriteX = Values.meteoriteX - 6;
+            Values.meteoriteY = Values.meteoriteY + 5;
         }
 
     }

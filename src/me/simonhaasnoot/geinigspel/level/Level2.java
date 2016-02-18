@@ -1,6 +1,7 @@
 package me.simonhaasnoot.geinigspel.level;
 import me.simonhaasnoot.geinigspel.Values;
 
+
 public class Level2 extends BaseLevel {
 
     public void update(){
