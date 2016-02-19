@@ -9,7 +9,7 @@ public class Thunder {
 
     public void collision(){
 
-        if(Values.thunderCollide == true){
+        if(Values.thunderCollide){
 
             if((Values.playerX + 30 > Values.randomXthunderSpawn && Values.playerX < Values.randomXthunderSpawn + 150) &&
                     Values.spawnThunder && (Values.timeDifferenceThunder > 2000 && Values.timeDifferenceThunder < 2400)) {

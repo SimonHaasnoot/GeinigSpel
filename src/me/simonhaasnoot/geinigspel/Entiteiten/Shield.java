@@ -6,10 +6,7 @@ import me.simonhaasnoot.geinigspel.Values;
  */
 public class Shield {
 
-    public Shield() {
-
-    }
-
+    public Shield() { }
 
     public void collision(){
 

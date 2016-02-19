@@ -7,9 +7,7 @@ import me.simonhaasnoot.geinigspel.Values;
  */
 public class Character{
 
-    public Character() {
-
-    }
+    public Character() { }
 
     public void collision() {
 
@@ -17,6 +15,7 @@ public class Character{
         if(Values.playerX >= 1028 -  65){
             Values.playerX = 1028- 65;
         }
+
         // als de player lager gaat dan 10px kan hij niet meer verder
         if(Values.playerX <= 0){
             Values.playerX = 0;

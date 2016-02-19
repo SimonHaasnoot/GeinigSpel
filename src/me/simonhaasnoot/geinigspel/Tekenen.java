@@ -2,8 +2,6 @@ package me.simonhaasnoot.geinigspel;
 import javax.swing.*;
 import java.awt.*;
 
-
-
 public class Tekenen extends JPanel {
 
     private final Image img = Toolkit.getDefaultToolkit().createImage("Images/Landscape/AirB.jpg");
@@ -23,9 +21,7 @@ public class Tekenen extends JPanel {
 
     private long currentTime = 0;
 
-    public Tekenen(){
-
-    }
+    public Tekenen() { }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -134,5 +130,4 @@ public class Tekenen extends JPanel {
         // call methods, they all get filled once.
         repaint();
     }
-    }
-
+}

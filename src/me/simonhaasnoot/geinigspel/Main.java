@@ -65,7 +65,7 @@ public class Main{
             frame.setPreferredSize(new Dimension(Values.frameX, Values.frameY));
             frame.setVisible(true);
             frame.pack();
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
             frame.setLocationRelativeTo(null);
 
             createXarray();
