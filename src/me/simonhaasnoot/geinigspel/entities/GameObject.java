@@ -41,6 +41,15 @@ public class GameObject {
     }
 
     /**
+     * Get the position and size of the game object.
+     *
+     * @return The position and size.
+     */
+    public Rectangle getPosition() {
+        return pos;
+    }
+
+    /**
      * Get the location of the game object on the screen.
      *
      * @return The position.
@@ -111,5 +120,16 @@ public class GameObject {
      */
     public Dimension getSize() {
         return pos.getSize();
+    }
+
+    /**
+     * Check whether this game object has collision with an other game object.
+     *
+     * @param other The other.
+     *
+     * @return True if both objects intersect, false otherwise.
+     */
+    public boolean hasCollision(GameObject other) {
+        return getPosition().intersects(other.getPosition());
     }
 }
