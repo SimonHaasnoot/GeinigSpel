@@ -19,6 +19,20 @@ public class GameStateManager {
     private List<GameObject> gameObjects;
 
     /**
+     * Constructor.
+     */
+    public GameStateManager() { }
+
+    /**
+     * Constructor.
+     *
+     * @param level The level to load.
+     */
+    public GameStateManager(BaseLevel level) {
+        loadLevel(level);
+    }
+
+    /**
      * Get the current level.
      *
      * @return Current level.
@@ -33,6 +47,8 @@ public class GameStateManager {
      * @param level The level to load.
      */
     public void loadLevel(BaseLevel level) {
+        // TODO: Make sure the given level is valid, unload the current level, load this level.
+
         this.level = level;
     }
 
