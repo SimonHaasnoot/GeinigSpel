@@ -55,11 +55,12 @@ public class Timer {
     }
 
     /**
-     * Restart the timer.
+     * Restart the timer, this will reset the timer.
      */
     public void restart() {
-        // Set the start time
-        this.start = System.nanoTime();
+        // Reset and start
+        reset();
+        start();
     }
 
     /**

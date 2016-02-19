@@ -3,6 +3,7 @@ package me.simonhaasnoot.geinigspel.game;
 import me.simonhaasnoot.geinigspel.game.entity.GameObject;
 import me.simonhaasnoot.geinigspel.game.entity.GameObjectTest;
 import me.simonhaasnoot.geinigspel.game.level.BaseLevel;
+import me.simonhaasnoot.geinigspel.game.util.Timer;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -19,6 +20,11 @@ public class GameStateManager {
      * The game objects that are currently loaded.
      */
     private List<GameObject> gameObjects = new ArrayList<>();
+
+    /**
+     * The time that has passed since the current level was started.
+     */
+    private Timer levelTimer = new Timer();
 
     /**
      * Constructor.
@@ -54,7 +60,11 @@ public class GameStateManager {
     public void loadLevel(BaseLevel level) {
         // TODO: Make sure the given level is valid, unload the current level, load this level.
 
+        // Set the loaded level
         this.level = level;
+
+        // Reset and start the level timer
+        this.levelTimer.restart();
     }
 
     /**
