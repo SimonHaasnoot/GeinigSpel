@@ -57,6 +57,40 @@ public class Level1 extends BaseLevel {
     }
 
     public void spawnFireballs(){
+        // The times all the fireballs should be dropped at
+        final int[] fireballTimes = {
+                0,
+                5000,
+                10000,
+                15000,
+                15000,
+                25000,
+                25000,
+                35000,
+                35000,
+                50000,
+                50000,
+                60000,
+                60000,
+                64000,
+                64000,
+                68000,
+                68000,
+                75000,
+                75000,
+                80000,
+                80000,
+                85000,
+                85000,
+                90000,
+                90000,
+                92000,
+                92000,
+                95000,
+                95000,
+                100000,
+                100000,
+        };
 
         Values.yObject[0] = Values.yObject[0] + Values.fallingSpeed[0];
 
