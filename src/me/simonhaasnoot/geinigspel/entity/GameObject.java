@@ -152,4 +152,11 @@ public abstract class GameObject {
      * @return True if something was painted, false if not.
      */
     public abstract boolean paint(Graphics2D g);
+
+    /**
+     * Update the game object.
+     */
+    public void update() {
+        // Intentionally left empty
+    }
 }

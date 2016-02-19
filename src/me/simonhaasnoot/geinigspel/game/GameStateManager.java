@@ -72,4 +72,13 @@ public class GameStateManager {
             obj.paint(g);
         }
     }
+
+    /**
+     * Update.
+     */
+    public void update() {
+        // Update all game objects
+        for(GameObject obj : this.gameObjects)
+            obj.update();
+    }
 }

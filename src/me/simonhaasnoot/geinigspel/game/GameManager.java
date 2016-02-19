@@ -49,7 +49,8 @@ public class GameManager {
      * Update.
      */
     public void update() {
-        // TODO: Update all game objects.
+        // Update all game objects
+        this.gsm.update();
 
         // Force render the game frame
         // TODO: Make sure this works!
