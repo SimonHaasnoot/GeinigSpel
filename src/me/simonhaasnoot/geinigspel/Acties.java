@@ -44,8 +44,7 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
         Values.timeDifference = currentTime - startTime;
     }
 
-    public void keyTyped(KeyEvent e) {
-    }
+    public void keyTyped(KeyEvent e) { }
 
     public void keyPressed(KeyEvent e) {
 
@@ -86,10 +85,8 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
 
                 Values.isPauze = false;
                 startTime = System.currentTimeMillis() - Values.pauseTime;
-                for (int i = 0; i < Values.fallingSpeed.length; i++) {
-                    Values.fallingSpeed[i] = Values.cloneArray[i];
-
-                }
+                // Copy the array
+                System.arraycopy(Values.cloneArray, 0, Values.fallingSpeed, 0, Values.fallingSpeed.length);
                 Values.playerSpeed = 5;
             }
         }
@@ -104,8 +101,5 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
         if(e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D){
             Values.PlayerXright = false;
         }
-
     }
-
-
 }

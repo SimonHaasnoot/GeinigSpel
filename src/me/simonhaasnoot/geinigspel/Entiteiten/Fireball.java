@@ -6,9 +6,7 @@ import me.simonhaasnoot.geinigspel.Values;
  */
 public class Fireball{
 
-    public Fireball(){
-
-    }
+    public Fireball() { }
 
     public void collision(){
 
@@ -31,8 +29,7 @@ public class Fireball{
         // check if an object hits the character.
         for (int i = 0; i < Values.objects; i++) {
             if (Values.yObject[i] <= Values.playerY + 50 && Values.yObject[i] > Values.playerY - 30 &&
-                    (Values.xObject[i] <= Values.playerX + 50 && Values.xObject[i] >= Values.playerX - 15))
-            {
+                    (Values.xObject[i] <= Values.playerX + 50 && Values.xObject[i] >= Values.playerX - 15)) {
 
                 // resets the object that hit the character, you lose 1 life, falling speed randomised from 1 to 5 again. first 30secs.
                 Values.yObject[i] = (int) (Math.random() * -160 - 50);
@@ -51,7 +48,7 @@ public class Fireball{
                     Values.activateShield = false;
                     break;
                 }
-                // lose a life if you dont have shield.
+                // lose a life if you don't have shield.
                 Values.lives -= 1;
 
             }
