@@ -114,6 +114,17 @@ public class GameObject {
     }
 
     /**
+     * Translate (or move) the game object relatively for the given X and Y values.
+     *
+     * @param x Relative X movement.
+     * @param y Relative Y movement.
+     */
+    public void translate(int x, int y) {
+        // TODO: Make sure this translates the game object properly!
+        getPosition().translate(x, y);
+    }
+
+    /**
      * Get the size of the game object.
      *
      * @return The size.
