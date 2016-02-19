@@ -1,4 +1,4 @@
-package me.simonhaasnoot.geinigspel.entities;
+package me.simonhaasnoot.geinigspel.entity;
 
 import java.awt.*;
 
