@@ -3,6 +3,7 @@ package me.simonhaasnoot.geinigspel.game;
 import me.simonhaasnoot.geinigspel.game.entity.GameObject;
 import me.simonhaasnoot.geinigspel.game.entity.GameObjectTest;
 import me.simonhaasnoot.geinigspel.game.level.BaseLevel;
+import me.simonhaasnoot.geinigspel.game.util.FrameTime;
 import me.simonhaasnoot.geinigspel.game.util.Timer;
 
 import java.awt.*;
@@ -82,6 +83,9 @@ public class GameStateManager {
      * @param g The graphics canvas.
      */
     public void paintGameObjects(Graphics2D g) {
+        // Update the frame timer
+        FrameTime.updateFrameTime(levelTimer);
+
         // Loop through all the game objects and paint them
         for(GameObject obj : this.gameObjects) {
             obj.paint(g);

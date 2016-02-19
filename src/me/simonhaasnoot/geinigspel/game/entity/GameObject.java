@@ -1,5 +1,7 @@
 package me.simonhaasnoot.geinigspel.game.entity;
 
+import me.simonhaasnoot.geinigspel.game.util.Rectangle;
+
 import java.awt.*;
 
 public abstract class GameObject {
@@ -36,7 +38,7 @@ public abstract class GameObject {
      * @param width The width of the game object.
      * @param height The height of the game object.
      */
-    public GameObject(int x, int y, int width, int height) {
+    public GameObject(double x, double y, double width, double height) {
         this(new Rectangle(x, y, width, height));
     }
 
@@ -55,7 +57,7 @@ public abstract class GameObject {
      * @return The position.
      */
     public Point getLocation() {
-        return pos.getLocation();
+        return pos.getLocationInt();
     }
 
     /**
@@ -64,7 +66,7 @@ public abstract class GameObject {
      * @param loc The location.
      */
     public void setLocation(Point loc) {
-        this.pos.setLocation(loc);
+        this.pos.setLocationInt(loc);
     }
 
     /**
@@ -73,7 +75,7 @@ public abstract class GameObject {
      * @param x The x coordinate.
      * @param y The y coordinate.
      */
-    public void setLocation(int x, int y) {
+    public void setLocation(double x, double y) {
         this.pos.setLocation(x, y);
     }
 
@@ -82,8 +84,8 @@ public abstract class GameObject {
      *
      * @return The x coordinate.
      */
-    public int getX() {
-        return (int) getLocation().getX();
+    public double getX() {
+        return getLocation().getX();
     }
     
     /**
@@ -91,7 +93,7 @@ public abstract class GameObject {
      *
      * $param x The x coordinate.
      */
-    public void setX(int x) {
+    public void setX(double x) {
         setLocation(x, getY());
     }
 
@@ -100,8 +102,8 @@ public abstract class GameObject {
      *
      * @return The y coordinate.
      */
-    public int getY() {
-        return (int) getLocation().getY();
+    public double getY() {
+        return getLocation().getY();
     }
 
     /**
@@ -109,7 +111,7 @@ public abstract class GameObject {
      *
      * $param y The y coordinate.
      */
-    public void setY(int y) {
+    public void setY(double y) {
         setLocation(getX(), y);
     }
 
@@ -119,9 +121,9 @@ public abstract class GameObject {
      * @param x Relative X movement.
      * @param y Relative Y movement.
      */
-    public void translate(int x, int y) {
-        // TODO: Make sure this translates the game object properly!
-        getPosition().translate(x, y);
+    public void translate(double x, double y) {
+        setX(getX() + x);
+        setY(getY() + y);
     }
 
     /**
@@ -130,7 +132,7 @@ public abstract class GameObject {
      * @return The size.
      */
     public Dimension getSize() {
-        return pos.getSize();
+        return pos.getSizeInt();
     }
 
     /**
