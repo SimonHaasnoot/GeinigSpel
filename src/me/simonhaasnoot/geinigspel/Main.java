@@ -1,4 +1,5 @@
 package me.simonhaasnoot.geinigspel;
+import me.simonhaasnoot.geinigspel.game.GameManager;
 import me.simonhaasnoot.geinigspel.level.Level1;
 
 import javax.sound.sampled.AudioSystem;
@@ -14,6 +15,7 @@ public class Main{
 
 
     public static void main(String[] args) {
+        new GameManager();
 
         new Main();
     }
