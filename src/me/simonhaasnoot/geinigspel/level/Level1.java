@@ -99,7 +99,7 @@ public class Level1 extends BaseLevel {
                 continue;
 
             // Spawn and move the current fireball
-            Values.yObject[i] = Values.yObject[i] + Values.fallingSpeed[i];
+            Values.yObject[i] +=  Values.fallingSpeed[i];
         }
     }
 }
