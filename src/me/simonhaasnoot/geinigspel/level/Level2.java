@@ -1,12 +1,10 @@
 package me.simonhaasnoot.geinigspel.level;
-import me.simonhaasnoot.geinigspel.Values;
 
+import me.simonhaasnoot.geinigspel.Values;
 
 public class Level2 extends BaseLevel {
 
     public void update(){
-
-
         Values.yObject[0] = Values.yObject[0] + Values.fallingSpeed[0];
 
         // After 15 seconds 1 fireball drops
@@ -50,16 +48,4 @@ public class Level2 extends BaseLevel {
 
         }
     }
-
-    @Override
-    public void spawnMeteorite() { }
-
-    @Override
-    public void spawnThunder() { }
-
-    @Override
-    public void dropShield() { }
-
-    @Override
-    public void spawnFireballs() { }
 }
