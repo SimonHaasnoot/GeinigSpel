@@ -3,18 +3,15 @@ import me.simonhaasnoot.geinigspel.Values;
 
 public class Level1 extends BaseLevel {
 
-
-
     public void update() {
-
             dropShield();
             spawnThunder();
             spawnFireballs();
             spawnMeteorite();
         }
 
-    public void spawnMeteorite(){
-
+    @Override
+    public void spawnMeteorite() {
         int meteoriteSpawntime = (int)(Math.random()*1000 + 8000);
 
         if((meteoriteSpawntime - Values.timeDifference) < 5000){
@@ -34,22 +31,23 @@ public class Level1 extends BaseLevel {
 
     }
 
-    public void spawnThunder(){
+    @Override
+    public void spawnThunder() {
+        boolean thundercountBool = true;
 
-        boolean ThundercountBool = true;
-        for (int i = 0; i < Values.thunderRandomTime.length; i++) {
-
+        for(int i = 0; i < Values.thunderRandomTime.length; i++) {
             if(Values.timeDifference >= Values.thunderRandomTime[i] - 50 && Values.timeDifference <= Values.thunderRandomTime[i]){
                 Values.spawnThunder = true;
                 Values.thunderCollide = true;
 
-                if(ThundercountBool){
-                    ThundercountBool = false;
+                if(thundercountBool){
+                    thundercountBool = false;
                 }
             }
         }
     }
 
+    @Override
     public void dropShield() {
 
         int shieldDropSpawntime = (int)(Math.random()*50000 + 1000);
@@ -59,8 +57,8 @@ public class Level1 extends BaseLevel {
         }
     }
 
-    public void spawnFireballs(){
-
+    @Override
+    public void spawnFireballs() {
         Values.yObject[0] = Values.yObject[0] + Values.fallingSpeed[0];
 
         // After 15 seconds 1 fireball drops

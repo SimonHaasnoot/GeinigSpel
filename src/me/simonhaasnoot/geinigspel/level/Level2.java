@@ -50,4 +50,16 @@ public class Level2 extends BaseLevel {
 
         }
     }
+
+    @Override
+    public void spawnMeteorite() { }
+
+    @Override
+    public void spawnThunder() { }
+
+    @Override
+    public void dropShield() { }
+
+    @Override
+    public void spawnFireballs() { }
 }
