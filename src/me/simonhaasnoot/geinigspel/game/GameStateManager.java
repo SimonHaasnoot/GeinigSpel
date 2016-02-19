@@ -1,9 +1,11 @@
 package me.simonhaasnoot.geinigspel.game;
 
 import me.simonhaasnoot.geinigspel.entity.GameObject;
+import me.simonhaasnoot.geinigspel.entity.GameObjectTest;
 import me.simonhaasnoot.geinigspel.level.BaseLevel;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameStateManager {
@@ -16,12 +18,15 @@ public class GameStateManager {
     /**
      * The game objects that are currently loaded.
      */
-    private List<GameObject> gameObjects;
+    private List<GameObject> gameObjects = new ArrayList<>();
 
     /**
      * Constructor.
      */
-    public GameStateManager() { }
+    public GameStateManager() {
+        // Create a game object for testing
+        gameObjects.add(new GameObjectTest(10, 10, 100, 100));
+    }
 
     /**
      * Constructor.
@@ -78,7 +83,6 @@ public class GameStateManager {
      */
     public void update() {
         // Update all game objects
-        for(GameObject obj : this.gameObjects)
-            obj.update();
+        this.gameObjects.forEach(GameObject::update);
     }
 }

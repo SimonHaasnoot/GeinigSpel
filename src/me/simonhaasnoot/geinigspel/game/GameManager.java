@@ -18,13 +18,14 @@ public class GameManager {
      * Constructor.
      */
     public GameManager() {
-        // Initialize the game frame
-        this.gameFrame = new GameFrame(false);
-
         // Initialize the game state manager
         this.gsm = new GameStateManager();
 
-        // TODO: Show the game frame?
+        // Initialize the game frame
+        this.gameFrame = new GameFrame(this.gsm, false);
+
+        // Show the game frame
+        this.gameFrame.setVisible(true);
     }
 
     /**

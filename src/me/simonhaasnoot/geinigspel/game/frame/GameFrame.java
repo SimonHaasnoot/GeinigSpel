@@ -20,32 +20,38 @@ public class GameFrame extends JFrame {
      * @param gsm The game state manager instance.
      */
     public GameFrame(GameStateManager gsm) {
-        this(true);
-
-        // Set the game state manager
-        this.gsm = gsm;
+        this(gsm, true);
     }
 
     /**
      * Constructor.
      *
+     * @param gsm The game state manager instance.
      * @param show True to immediately show the frame after it has been created.
      */
-    public GameFrame(boolean show) {
+    public GameFrame(GameStateManager gsm, boolean show) {
         this.setTitle("Made by Simon Haasnoot");
         this.setResizable(false);
         this.setPreferredSize(new Dimension(Values.frameX, Values.frameY));
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.pack();
         this.setLocationRelativeTo(null);
+
+        // Set the game state manager instance
+        this.gsm = gsm;
+
+        // Build the game frame panel and add it to the
+        this.add(buildGameFramePanel());
     }
 
-    public void buildGameFramePanel() {
-        // Create the game frame panel
-        GameFramePanel panel = new GameFramePanel(this.gsm);
-
-        // Add the panel to the frame
-        this.add(panel);
+    /**
+     * Create the game frame panel.
+     *
+     * @return Game frame panel.
+     */
+    public JPanel buildGameFramePanel() {
+        // Create and return the JPanel that was built
+        return new GameFramePanel(this.gsm);
     }
 
     /**

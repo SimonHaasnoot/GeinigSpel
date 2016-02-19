@@ -15,9 +15,23 @@ public class Main{
 
 
     public static void main(String[] args) {
-        new GameManager();
+        // Create the game manager
+        GameManager gameManager = new GameManager();
 
-        new Main();
+        // Update the game manager
+        //noinspection InfiniteLoopStatement
+        while(true) {
+            gameManager.update();
+
+            // TODO: Configure this
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        //new Main();
     }
 
         public Main() {
