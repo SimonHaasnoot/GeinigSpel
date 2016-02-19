@@ -1,6 +1,6 @@
 package me.simonhaasnoot.geinigspel;
 
-import me.simonhaasnoot.geinigspel.level.BaseLevel;
+import me.simonhaasnoot.geinigspel.game.level.BaseLevel;
 
 public class Values {
 

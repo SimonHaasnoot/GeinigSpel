@@ -1,8 +1,8 @@
 package me.simonhaasnoot.geinigspel.game;
 
-import me.simonhaasnoot.geinigspel.entity.GameObject;
-import me.simonhaasnoot.geinigspel.entity.GameObjectTest;
-import me.simonhaasnoot.geinigspel.level.BaseLevel;
+import me.simonhaasnoot.geinigspel.game.entity.GameObject;
+import me.simonhaasnoot.geinigspel.game.entity.GameObjectTest;
+import me.simonhaasnoot.geinigspel.game.level.BaseLevel;
 
 import java.awt.*;
 import java.util.ArrayList;

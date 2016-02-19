@@ -1,4 +1,4 @@
-package me.simonhaasnoot.geinigspel.level;
+package me.simonhaasnoot.geinigspel.game.level;
 
 import me.simonhaasnoot.geinigspel.Values;
 

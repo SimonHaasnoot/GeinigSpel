@@ -1,6 +1,6 @@
 package me.simonhaasnoot.geinigspel;
 import me.simonhaasnoot.geinigspel.game.GameManager;
-import me.simonhaasnoot.geinigspel.level.Level1;
+import me.simonhaasnoot.geinigspel.game.level.Level1;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
