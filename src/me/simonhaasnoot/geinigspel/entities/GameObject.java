@@ -2,7 +2,7 @@ package me.simonhaasnoot.geinigspel.entities;
 
 import java.awt.*;
 
-public class GameObject {
+public abstract class GameObject {
 
     /**
      * The position and size of the game object.
@@ -143,4 +143,13 @@ public class GameObject {
     public boolean hasCollision(GameObject other) {
         return getPosition().intersects(other.getPosition());
     }
+
+    /**
+     * Paint the game object.
+     *
+     * @param g The graphics canvas to render on.
+     *
+     * @return True if something was painted, false if not.
+     */
+    public abstract boolean paint(Graphics2D g);
 }
