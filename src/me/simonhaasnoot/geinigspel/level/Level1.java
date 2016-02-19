@@ -5,10 +5,12 @@ import me.simonhaasnoot.geinigspel.Values;
 public class Level1 extends BaseLevel {
 
     public void update() {
+
         dropShield();
         spawnThunder();
         spawnFireballs();
         spawnMeteorite();
+
     }
 
     public void spawnMeteorite(){

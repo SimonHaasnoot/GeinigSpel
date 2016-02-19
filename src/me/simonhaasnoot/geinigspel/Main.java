@@ -6,7 +6,6 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 
 import javax.swing.*;
-
 import java.awt.*;
 import java.io.File;
 
@@ -27,7 +26,7 @@ public class Main{
             frame.setPreferredSize(new Dimension(Values.frameX, Values.frameY));
             frame.setVisible(true);
             frame.pack();
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
             frame.setLocationRelativeTo(null);
 
             initiateGame(frame);
@@ -117,8 +116,6 @@ public class Main{
                 System.out.println(Values.thunderRandomTime[i]);
             }
     }
-
-
     public static void play() {
         try {
             File file = new File("Songs/sound22.wav");
@@ -132,6 +129,4 @@ public class Main{
             System.err.println(e.getMessage());
         }
     }
-
-
 }
