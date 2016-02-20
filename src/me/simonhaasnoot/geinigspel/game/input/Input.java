@@ -15,7 +15,7 @@ public class Input {
      */
     public static void init() {
         // Flush all inputs
-        flushInputs();
+        flush();
     }
 
     /**
@@ -32,7 +32,7 @@ public class Input {
     /**
      * Flush/reset all the input states.
      */
-    public static void flushInputs() {
+    public static void flush() {
         // Flush the pressed keys
         pressedKeys.clear();
     }
