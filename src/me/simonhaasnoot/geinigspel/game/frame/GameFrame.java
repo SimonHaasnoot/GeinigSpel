@@ -43,6 +43,7 @@ public class GameFrame extends JFrame {
 
         // Build the game frame panel and add it to the
         this.add(buildGameFramePanel());
+
     }
 
     /**

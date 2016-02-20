@@ -1,5 +1,4 @@
 package me.simonhaasnoot.geinigspel.game.level;
-
 import me.simonhaasnoot.geinigspel.game.GameManager;
 import me.simonhaasnoot.geinigspel.game.GameStateManager;
 import me.simonhaasnoot.geinigspel.game.entity.CharachterObject;
@@ -16,7 +15,6 @@ public class Level1 extends BaseLevel {
         // Set the frame background
         GameManager.getGameStateManager().setBackgroundImage(Toolkit.getDefaultToolkit().createImage("Images/Landscape/1028x768BB.png"));
 
-        // draw one character
         gsm.addGameObject(new CharachterObject(479, 595));
     }
 

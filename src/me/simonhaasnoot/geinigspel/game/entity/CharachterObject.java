@@ -1,8 +1,5 @@
 package me.simonhaasnoot.geinigspel.game.entity;
 
-import me.simonhaasnoot.geinigspel.Entiteiten.Character;
-import me.simonhaasnoot.geinigspel.game.GameManager;
-
 import java.awt.*;
 
 public class CharachterObject extends ImageObject {
@@ -19,21 +16,23 @@ public class CharachterObject extends ImageObject {
 
 
     /**
-     * The X of the character.
+     * The Speed of the character.
      */
 
     public static double SPEED_NORMAL = 200;
 
     /**
-     * The Y of the character.
+     * the supersonic character OP speed.
      */
 
-    public static double SPEED_HIGH = 50;
+    public static double SPEED_MAX = 600;
 
     /**
      * character image.
      */
     public static Image characterImg;
+
+
     /**
      *
      * @param x set x position for Character.
@@ -44,14 +43,18 @@ public class CharachterObject extends ImageObject {
 
     }
 
-
+    /**
+     *
+     * @param x
+     * @param y
+     * @param width
+     * @param height
+     * @param img
+     */
     public CharachterObject(double x, double y, double width, double height, Image img) {
         super(x, y, width, height, img);
 
-
-        //FIXME just a test speed, replace with actual memes.
-        setSpeedX(SPEED_NORMAL);
-
+        setSpeedX(5);
     }
 
     /**

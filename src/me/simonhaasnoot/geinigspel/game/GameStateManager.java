@@ -135,10 +135,13 @@ public class GameStateManager {
         // Update all game objects
         this.gameObjects.forEach(GameObject::update);
 
+
         // Destroy all the game objects in the 'to destroy' list
         for(GameObject g : this.gameObjectsToDestroy)
             this.gameObjects.remove(g);
         this.gameObjectsToDestroy.clear();
+
+
     }
 
     /**
