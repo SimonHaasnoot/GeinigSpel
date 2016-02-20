@@ -23,17 +23,16 @@ public class CharachterObject extends ImageObject {
     public static double SPEED_NORMAL = 250;
 
     /**
-     * the supersonic character OP speed.
+     * The supersonic character OP speed.
      */
     public static double SPEED_MAX = 600;
 
     /**
-     * character image.
+     * Character image.
      */
     public static Image characterImg;
 
     /**
-     *
      * @param x set x position for Character.
      * @param y set y position for Character.
      */

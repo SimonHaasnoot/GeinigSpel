@@ -12,10 +12,10 @@ public class ImageObject extends GameObject {
     /**
      * Constructor.
      *
-     * @param x
-     * @param y
-     * @param width
-     * @param height
+     * @param x The X coordinate of the object.
+     * @param y The X coordinate of the object.
+     * @param width The width of the object.
+     * @param height The height of the object.
      */
     public ImageObject(double x, double y, double width, double height) {
         super(x, y, width, height);
@@ -24,15 +24,18 @@ public class ImageObject extends GameObject {
     /**
      * Constructor.
      *
-     * @param x
-     * @param y
-     * @param width
-     * @param height
-     * @param img
+     * @param x The X coordinate of the object.
+     * @param y The X coordinate of the object.
+     * @param width The width of the object.
+     * @param height The height of the object.
+     * @param img The image.
      */
     public ImageObject(double x, double y, double width, double height, Image img) {
+        // Use the main constructor
         this(x, y, width, height);
-        this.img = img;
+
+        // Set the image
+        setImage(img);
     }
 
     /**
