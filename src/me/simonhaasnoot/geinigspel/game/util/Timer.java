@@ -97,7 +97,7 @@ public class Timer {
      * @return Number of nanoseconds.
      */
     public long getElapsedNano() {
-        return (this.start != -1 ? System.nanoTime() - this.start : 0) + Math.max(this.start, 0);
+        return (this.start != -1 ? System.nanoTime() - this.start : 0) + Math.max(this.elapsed, 0);
     }
 
     /**
