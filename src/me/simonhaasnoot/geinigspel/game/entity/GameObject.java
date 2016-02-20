@@ -1,5 +1,6 @@
 package me.simonhaasnoot.geinigspel.game.entity;
 
+import me.simonhaasnoot.geinigspel.game.util.FrameTime;
 import me.simonhaasnoot.geinigspel.game.util.Rectangle;
 
 import java.awt.*;
@@ -10,6 +11,16 @@ public abstract class GameObject {
      * The position and size of the game object.
      */
     private Rectangle pos;
+
+    /**
+     * The speed on the X coordinate, as pixel per second.
+     */
+    private double speedX = 0.0;
+
+    /**
+     * The speed on the Y coordinate, as pixel per second.
+     */
+    private double speedY = 0.0;
 
     /**
      * Constructor.
@@ -159,6 +170,44 @@ public abstract class GameObject {
      * Update the game object.
      */
     public void update() {
-        // Intentionally left empty
+        // Translate the object
+        if(speedX != 0.0 || speedY != 0.0)
+            translate(FrameTime.deltaTime * speedX, FrameTime.deltaTime * speedY);
+    }
+
+    /**
+     * Get the speed on the X coordinate, as pixels per second.
+     *
+     * @return Speed on the X coordinate.
+     */
+    public double getSpeedX() {
+        return speedX;
+    }
+
+    /**
+     * Set the speed on the X coordinate, as pixels per second.
+     *
+     * @param speedX Speed on the X coordinate.
+     */
+    public void setSpeedX(double speedX) {
+        this.speedX = speedX;
+    }
+
+    /**
+     * Get the speed on the Y coordinate, as piYels per second.
+     *
+     * @return Speed on the Y coordinate.
+     */
+    public double getSpeedY() {
+        return speedY;
+    }
+
+    /**
+     * Set the speed on the Y coordinate, as pixels per second.
+     *
+     * @param speedY Speed on the Y coordinate.
+     */
+    public void setSpeedY(double speedY) {
+        this.speedY = speedY;
     }
 }

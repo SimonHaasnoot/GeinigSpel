@@ -1,8 +1,7 @@
 package me.simonhaasnoot.geinigspel.game.entity;
 
-import me.simonhaasnoot.geinigspel.game.util.FrameTime;
-
 import java.awt.*;
+import java.awt.geom.Line2D;
 
 public class GameObjectTest extends GameObject {
 
@@ -12,21 +11,8 @@ public class GameObjectTest extends GameObject {
 
     @Override
     public boolean paint(Graphics2D g) {
-        // Set the font size
-        g.setFont(new Font(g.getFont().getFontName(), Font.PLAIN, 20));
-
-        System.out.println(getX());
-        System.out.println(getY());
-
-        // Draw a test string
-        g.drawString(
-                "This is some test",
-                (int) getX(),
-                (int) getY()
-        );
-
-        translate(0, FrameTime.deltaTime * 35);
-
+        // Draw a line for testing
+        g.draw(new Line2D.Double(getX(), getY(), getX() + 100.0, getY() + 100.0));
         return true;
     }
 }
