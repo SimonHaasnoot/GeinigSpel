@@ -15,13 +15,16 @@ public class Main{
 
 
     public static void main(String[] args) {
-        // Create the game manager
-        GameManager gameManager = new GameManager();
+        // Initialize the game manager
+        GameManager.init();
+
+        // Load a level
+        GameManager.getGameStateManager().loadLevel(new Level1());
 
         // Update the game manager
         //noinspection InfiniteLoopStatement
         while(true) {
-            gameManager.update();
+            GameManager.update();
 
             // TODO: Configure this
             try {

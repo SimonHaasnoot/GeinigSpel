@@ -7,25 +7,25 @@ public class GameManager {
     /**
      * The game frame.
      */
-    private GameFrame gameFrame;
+    private static GameFrame gameFrame;
 
     /**
      * Game state manager.
      */
-    private GameStateManager gsm;
+    private static GameStateManager gsm;
 
     /**
-     * Constructor.
+     * Initialize.
      */
-    public GameManager() {
+    public static void init() {
         // Initialize the game state manager
-        this.gsm = new GameStateManager();
+        gsm = new GameStateManager();
 
         // Initialize the game frame
-        this.gameFrame = new GameFrame(this.gsm, false);
+        gameFrame = new GameFrame(gsm, false);
 
         // Show the game frame
-        this.gameFrame.setVisible(true);
+        gameFrame.setVisible(true);
     }
 
     /**
@@ -33,8 +33,8 @@ public class GameManager {
      *
      * @return Game state manager.
      */
-    public GameStateManager getGameStateManager() {
-        return this.gsm;
+    public static GameStateManager getGameStateManager() {
+        return gsm;
     }
 
     /**
@@ -42,19 +42,21 @@ public class GameManager {
      *
      * @return Game frame.
      */
-    public GameFrame getGameFrame() {
+    public static GameFrame getGameFrame() {
         return gameFrame;
     }
 
     /**
      * Update.
      */
-    public void update() {
+    public static void update() {
         // Update all game objects
-        this.gsm.update();
+        gsm.update();
 
         // Force render the game frame
-        // TODO: Make sure this works!
-        this.gameFrame.repaint();
+        gameFrame.repaint();
+
+        // FIXME: Show the number of alive game objects in the title
+        gameFrame.setTitle("Made by Simon Haasnoot - Game objects: " + getGameStateManager().getGameObjects().size());
     }
 }
