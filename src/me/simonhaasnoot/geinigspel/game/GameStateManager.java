@@ -111,8 +111,8 @@ public class GameStateManager {
      */
     public void update() {
         // TEST: Spawn some fireballs
-        if(Math.random() < 0.1)
-            gameObjects.add(new FireballObject(Math.random() * 800, -64));
+        //if(Math.random() < 0.1)
+        gameObjects.add(new FireballObject(Math.random() * 800, -64));
 
         // Update all game objects
         this.gameObjects.forEach(GameObject::update);

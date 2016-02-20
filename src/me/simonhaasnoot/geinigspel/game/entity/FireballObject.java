@@ -25,6 +25,11 @@ public class FireballObject extends ImageObject {
     public static final double SPEED_MAX = 400.0;
 
     /**
+     * The fireball image.
+     */
+    public static Image fireballImg;
+
+    /**
      * Constructor.
      *
      * @param x X position of the fireball.
@@ -32,9 +37,7 @@ public class FireballObject extends ImageObject {
      */
     public FireballObject(double x, double y) {
         // Construct the fireball
-        // TODO: Move the size into a constant!
-        // TODO: Do not load the fireball image every time it's created!
-        this(x, y, 64, 64,Toolkit.getDefaultToolkit().createImage("Images/Objects/Gifs/FIREBALL.gif"));
+        this(x, y, SIZE_WIDTH, SIZE_HEIGHT, loadFireballImage());
     }
 
     /**
@@ -52,5 +55,23 @@ public class FireballObject extends ImageObject {
 
         // Randomize and set the speed of the fireball
         setSpeedY(Math.random() * (SPEED_MAX - SPEED_MIN) + SPEED_MIN);
+    }
+
+    /**
+     * Load the fireball image.
+     *
+     * @return Fireball image.
+     */
+    public synchronized static Image loadFireballImage() {
+        // Return the fireball image if it's already loaded
+        if(fireballImg != null)
+            return fireballImg;
+
+        // Load the fireball image and return it
+        // TODO: Remove this debug line!
+        System.out.println("Loading fireball image!");
+        // TODO: Move image path into a constant!
+        fireballImg = Toolkit.getDefaultToolkit().createImage("Images/Objects/Gifs/FIREBALL.gif");
+        return fireballImg;
     }
 }
