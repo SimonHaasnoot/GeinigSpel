@@ -2,18 +2,13 @@ package me.simonhaasnoot.geinigspel;
 import me.simonhaasnoot.geinigspel.game.GameManager;
 import me.simonhaasnoot.geinigspel.game.level.Level1;
 
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
-
-import javax.swing.*;
-import java.awt.*;
-import java.io.File;
-
-
 public class Main {
 
-
+    /**
+     * Main method, called on start.
+     *
+     * @param args Start arguments.
+     */
     public static void main(String[] args) {
         // Initialize the game manager
         GameManager.init();
@@ -26,17 +21,15 @@ public class Main {
         while (true) {
             GameManager.update();
 
-            // TODO: Configure this
+            // TODO: Configure this!
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-
-        //new Main();
     }
-
+}
 
 //        public Main() {
 //
@@ -149,4 +142,4 @@ public class Main {
 //            System.err.println(e.getMessage());
 //        }
 //    }
-}
+//}
