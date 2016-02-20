@@ -1,6 +1,7 @@
 package me.simonhaasnoot.geinigspel.game;
 
 import me.simonhaasnoot.geinigspel.game.frame.GameFrame;
+import me.simonhaasnoot.geinigspel.game.input.Input;
 
 public class GameManager {
 
@@ -20,6 +21,9 @@ public class GameManager {
     public static void init() {
         // Initialize the game state manager
         gsm = new GameStateManager();
+
+        // Initialize the input manager
+        Input.init();
 
         // Initialize the game frame
         gameFrame = new GameFrame(gsm, false);
