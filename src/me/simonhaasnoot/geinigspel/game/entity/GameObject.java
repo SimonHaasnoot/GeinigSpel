@@ -1,5 +1,6 @@
 package me.simonhaasnoot.geinigspel.game.entity;
 
+import me.simonhaasnoot.geinigspel.game.GameManager;
 import me.simonhaasnoot.geinigspel.game.util.FrameTime;
 import me.simonhaasnoot.geinigspel.game.util.Rectangle;
 
@@ -22,10 +23,20 @@ public abstract class GameObject {
      */
     private double speedY = 0.0;
 
+    /**
+     * True to destroy the game object if it goes off screen. This is useful for performance reasons.
+     */
+    private boolean destroyOffScreen = true;
 
+    /**
+     * True to only destroy the game object when it goes off screen if it was visible once.
+     */
+    private boolean destroyOffScreenSoft = true;
 
-    //public boolean destroy
-
+    /**
+     * This defines whether the game object has been visible on the screen once (if destroy off screen is enabled).
+     */
+    private boolean wasVisible = false;
 
     /**
      * Constructor.
@@ -204,9 +215,18 @@ public abstract class GameObject {
      * Update the game object.
      */
     public void update() {
-        // Translate the object
+        // Translate the object if it has any speed
         if(speedX != 0.0 || speedY != 0.0)
             translate(FrameTime.deltaTime * speedX, FrameTime.deltaTime * speedY);
+
+        // Destroy the object if it's outside the window
+        if(destroyOffScreen) {
+            if(destroyOffScreenSoft && !wasVisible)
+                wasVisible = hasCollision(GameManager.getGameFrame().getFrameRectangle());
+
+            else if(!hasCollision(GameManager.getGameFrame().getFrameRectangle()))
+                destroy();
+        }
     }
 
     /**
@@ -243,5 +263,48 @@ public abstract class GameObject {
      */
     public void setSpeedY(double speedY) {
         this.speedY = speedY;
+    }
+
+    /**
+     * Destroy this game object.
+     */
+    public void destroy() {
+        GameManager.getGameStateManager().destroyGameObject(this);
+    }
+
+    /**
+     * Check whether this game object will be destroyed when it goes off screen.
+     *
+     * @return True if it will be destroyed, false if not.
+     */
+    public boolean isDestroyOffScreen() {
+        return destroyOffScreen;
+    }
+
+    /**
+     * Set whether this game object will be destroyed when it goes off screen.
+     *
+     * @param destroyOffScreen True if it must be destroyed, false if not.
+     */
+    public void setDestroyOffScreen(boolean destroyOffScreen) {
+        this.destroyOffScreen = destroyOffScreen;
+    }
+
+    /**
+     * Check whether this game object will only be destroyed if it goes off screen if it was visible once.
+     *
+     * @return True if it will be destroyed, false if not.
+     */
+    public boolean isDestroyOffScreenSoft() {
+        return destroyOffScreenSoft;
+    }
+
+    /**
+     * Set whether this game object will only be destroyed if it goes off the screen if it was visible once.
+     *
+     * @param destroyOffScreenSoft True if it must be destroyed, false if not.
+     */
+    public void setDestroyOffScreenSoft(boolean destroyOffScreenSoft) {
+        this.destroyOffScreenSoft = destroyOffScreenSoft;
     }
 }

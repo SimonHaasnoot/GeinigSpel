@@ -2,9 +2,10 @@ package me.simonhaasnoot.geinigspel.game.frame;
 
 import me.simonhaasnoot.geinigspel.Values;
 import me.simonhaasnoot.geinigspel.game.GameStateManager;
+import me.simonhaasnoot.geinigspel.game.util.Rectangle;
 
 import javax.swing.*;
-import java.awt.*;
+import java.awt.Dimension;
 
 public class GameFrame extends JFrame {
 
