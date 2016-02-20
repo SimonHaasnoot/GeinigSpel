@@ -22,6 +22,8 @@ public class FrameTime {
      */
     public static long deltaTimeNano = 0;
 
+    private static boolean isFirst = true;
+
     /**
      * Update the frame times.
      *
@@ -37,7 +39,14 @@ public class FrameTime {
         timeNano = t.getElapsedNano();
 
         // Calculate the delta times
-        deltaTime = time - lastTime;
-        deltaTimeNano = timeNano - lastTimeNano;
+        if(!isFirst) {
+            deltaTime = time - lastTime;
+            deltaTimeNano = timeNano - lastTimeNano;
+
+        } else {
+            deltaTime = 0;
+            deltaTimeNano = 0;
+            isFirst = false;
+        }
     }
 }

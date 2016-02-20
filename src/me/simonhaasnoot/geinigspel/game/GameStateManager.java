@@ -31,8 +31,13 @@ public class GameStateManager {
      * Constructor.
      */
     public GameStateManager() {
+
+        // FIXME: THIS IS SOME TEST CODE!
         // Create a game object for testing
         gameObjects.add(new GameObjectTest(10, 10, 100, 100));
+
+        // Start the timer
+        this.levelTimer.restart();
     }
 
     /**

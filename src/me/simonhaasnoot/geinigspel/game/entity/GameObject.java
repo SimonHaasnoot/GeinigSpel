@@ -85,7 +85,7 @@ public abstract class GameObject {
      * @return The x coordinate.
      */
     public double getX() {
-        return getLocation().getX();
+        return this.pos.getX();
     }
     
     /**
@@ -103,7 +103,7 @@ public abstract class GameObject {
      * @return The y coordinate.
      */
     public double getY() {
-        return getLocation().getY();
+        return this.pos.getY();
     }
 
     /**

@@ -13,7 +13,7 @@ public class Rectangle extends java.awt.Rectangle.Double {
      * @param height The height of the game object.
      */
     public Rectangle(double x, double y, double width, double height) {
-
+        super(x, y, width, height);
     }
 
     /**

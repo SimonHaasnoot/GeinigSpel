@@ -1,5 +1,7 @@
 package me.simonhaasnoot.geinigspel.game.entity;
 
+import me.simonhaasnoot.geinigspel.game.util.FrameTime;
+
 import java.awt.*;
 
 public class GameObjectTest extends GameObject {
@@ -13,8 +15,17 @@ public class GameObjectTest extends GameObject {
         // Set the font size
         g.setFont(new Font(g.getFont().getFontName(), Font.PLAIN, 20));
 
+        System.out.println(getX());
+        System.out.println(getY());
+
         // Draw a test string
-        g.drawString("This is some test", 10, 30);
+        g.drawString(
+                "This is some test",
+                (int) getX(),
+                (int) getY()
+        );
+
+        translate(0, FrameTime.deltaTime * 35);
 
         return true;
     }
