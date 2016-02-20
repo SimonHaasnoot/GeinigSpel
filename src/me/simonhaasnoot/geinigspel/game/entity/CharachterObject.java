@@ -21,13 +21,11 @@ public class CharachterObject extends ImageObject {
     /**
      * The Speed of the character.
      */
-
-    public static double SPEED_NORMAL = 200;
+    public static double SPEED_NORMAL = 250;
 
     /**
      * the supersonic character OP speed.
      */
-
     public static double SPEED_MAX = 600;
 
     /**
@@ -77,5 +75,23 @@ public class CharachterObject extends ImageObject {
         // TODO: Move image path into a constant!
         characterImg = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
         return characterImg;
+    }
+
+    @Override
+    public void update() {
+        // Call the super
+        super.update();
+
+        // Create a variable for the horizontal speed of the character
+        int speed = 0;
+
+        // Configure the speed based on the pressed keys
+        if(Input.isPressed(KeyEvent.VK_LEFT) || Input.isPressed(KeyEvent.VK_A))
+            speed -= SPEED_NORMAL;
+        if(Input.isPressed(KeyEvent.VK_RIGHT) || Input.isPressed(KeyEvent.VK_D))
+            speed += SPEED_NORMAL;
+
+        // Set the speed of the character
+        setSpeedX(speed);
     }
 }
