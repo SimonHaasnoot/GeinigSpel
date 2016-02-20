@@ -127,6 +127,24 @@ public abstract class GameObject {
     }
 
     /**
+     * Get the width of the game object.
+     *
+     * @return Width of the game object.
+     */
+    public double getWidth() {
+        return this.pos.getWidth();
+    }
+
+    /**
+     * Get the height of the game object.
+     *
+     * @return Height of the game object.
+     */
+    public double getHeight() {
+        return this.pos.getHeight();
+    }
+
+    /**
      * Translate (or move) the game object relatively for the given X and Y values.
      *
      * @param x Relative X movement.
