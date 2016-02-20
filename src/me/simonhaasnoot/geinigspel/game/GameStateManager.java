@@ -24,6 +24,11 @@ public class GameStateManager {
     private List<GameObject> gameObjects = new ArrayList<>();
 
     /**
+     * The game objects that have to be destroyed when possible.
+     */
+    private List<GameObject> gameObjectsToDestroy = new ArrayList<>();
+
+    /**
      * The time that has passed since the current level was started.
      */
     private Timer levelTimer = new Timer();
@@ -108,13 +113,18 @@ public class GameStateManager {
     /**
      * Update.
      */
-    public void update() {
+    public synchronized void update() {
         // Update the level if it's loaded
         if(level != null)
             level.update(this);
 
         // Update all game objects
         this.gameObjects.forEach(GameObject::update);
+
+        // Destroy all the game objects in the 'to destroy' list
+        for(GameObject g : this.gameObjectsToDestroy)
+            this.gameObjects.remove(g);
+        this.gameObjectsToDestroy.clear();
     }
 
     /**
@@ -122,5 +132,14 @@ public class GameStateManager {
     */
     public synchronized void addGameObject(GameObject gameObject) {
         this.gameObjects.add(gameObject);
+    }
+
+    /**
+     * Destroy a game object.
+     *
+     * @param gameObject Game object to destroy.
+     */
+    public synchronized void destroyGameObject(GameObject gameObject) {
+        this.gameObjectsToDestroy.add(gameObject);
     }
 }
