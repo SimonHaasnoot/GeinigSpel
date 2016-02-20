@@ -1,11 +1,9 @@
 package me.simonhaasnoot.geinigspel.game;
 
 import me.simonhaasnoot.geinigspel.game.entity.GameObject;
-import me.simonhaasnoot.geinigspel.game.entity.GameObjectTest;
-import me.simonhaasnoot.geinigspel.game.entity.ImageObject;
 import me.simonhaasnoot.geinigspel.game.level.BaseLevel;
-import me.simonhaasnoot.geinigspel.game.util.FrameTime;
-import me.simonhaasnoot.geinigspel.game.util.Timer;
+import me.simonhaasnoot.geinigspel.game.time.FrameTime;
+import me.simonhaasnoot.geinigspel.game.time.Timer;
 
 import java.awt.*;
 import java.util.ArrayList;

@@ -4,7 +4,7 @@ import me.simonhaasnoot.geinigspel.game.GameManager;
 import me.simonhaasnoot.geinigspel.game.GameStateManager;
 import me.simonhaasnoot.geinigspel.game.entity.CharachterObject;
 import me.simonhaasnoot.geinigspel.game.entity.FireballObject;
-import me.simonhaasnoot.geinigspel.game.util.FrameTime;
+import me.simonhaasnoot.geinigspel.game.time.FrameTime;
 
 import java.awt.*;
 

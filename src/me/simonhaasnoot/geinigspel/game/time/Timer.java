@@ -1,4 +1,4 @@
-package me.simonhaasnoot.geinigspel.game.util;
+package me.simonhaasnoot.geinigspel.game.time;
 
 public class Timer {
 
