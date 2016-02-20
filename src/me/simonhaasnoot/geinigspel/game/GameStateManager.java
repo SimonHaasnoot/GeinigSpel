@@ -1,6 +1,5 @@
 package me.simonhaasnoot.geinigspel.game;
 
-import me.simonhaasnoot.geinigspel.game.entity.FireballObject;
 import me.simonhaasnoot.geinigspel.game.entity.GameObject;
 import me.simonhaasnoot.geinigspel.game.entity.GameObjectTest;
 import me.simonhaasnoot.geinigspel.game.entity.ImageObject;
@@ -37,13 +36,13 @@ public class GameStateManager {
         // TEST: Create a game object
         GameObjectTest got = new GameObjectTest(10, 10, 100, 100);
         got.setSpeedY(10.0);
-        gameObjects.add(got);
+        addGameObject(got);
 
         // TEST: Create a moving wizard
         Image img = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
         ImageObject imgObj = new ImageObject(30, 30, 140 / 2, 181 / 2, img);
         imgObj.setSpeedX(100);
-        gameObjects.add(imgObj);
+        addGameObject(imgObj);
 
         // Start the timer
         this.levelTimer.restart();
@@ -110,11 +109,18 @@ public class GameStateManager {
      * Update.
      */
     public void update() {
-        // TEST: Spawn some fireballs
-        //if(Math.random() < 0.1)
-        gameObjects.add(new FireballObject(Math.random() * 800, -64));
+        // Update the level if it's loaded
+        if(level != null)
+            level.update(this);
 
         // Update all game objects
         this.gameObjects.forEach(GameObject::update);
+    }
+
+    /**
+     * Add a game object.
+    */
+    public synchronized void addGameObject(GameObject gameObject) {
+        this.gameObjects.add(gameObject);
     }
 }

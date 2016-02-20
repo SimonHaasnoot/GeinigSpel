@@ -1,10 +1,11 @@
 package me.simonhaasnoot.geinigspel.game.level;
 
 import me.simonhaasnoot.geinigspel.Values;
+import me.simonhaasnoot.geinigspel.game.GameStateManager;
 
 public class Level2 extends BaseLevel {
 
-    public void update(){
+    public void update(GameStateManager gsm){
         // The times all the fireballs should be dropped at
         final int[] fireballTimes = {
                 0,
