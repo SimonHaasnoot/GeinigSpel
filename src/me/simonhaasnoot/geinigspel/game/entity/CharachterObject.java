@@ -17,7 +17,6 @@ public class CharachterObject extends ImageObject {
      */
     public static final int SIZE_HEIGHT = 90;
 
-
     /**
      * The Speed of the character.
      */
@@ -33,7 +32,6 @@ public class CharachterObject extends ImageObject {
      */
     public static Image characterImg;
 
-
     /**
      *
      * @param x set x position for Character.
@@ -44,7 +42,6 @@ public class CharachterObject extends ImageObject {
     }
 
     /**
-     *
      * @param x
      * @param y
      * @param width
@@ -58,8 +55,6 @@ public class CharachterObject extends ImageObject {
         // Do not destroy the player when it goes out of the screen
         setDestroyOffScreen(false);
         setDestroyOffScreenSoft(false);
-
-        setSpeedX(5);
     }
 
     /**
