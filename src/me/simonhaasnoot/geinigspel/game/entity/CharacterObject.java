@@ -5,7 +5,7 @@ import me.simonhaasnoot.geinigspel.game.input.Input;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-public class CharachterObject extends ImageObject {
+public class CharacterObject extends ImageObject {
 
     /**
      * The width of the character.
@@ -36,7 +36,7 @@ public class CharachterObject extends ImageObject {
      * @param x set x position for Character.
      * @param y set y position for Character.
      */
-    public CharachterObject(double x, double y) {
+    public CharacterObject(double x, double y) {
         this(x, y, SIZE_WIDTH, SIZE_HEIGHT, loadCharacterImage());
     }
 
@@ -47,7 +47,7 @@ public class CharachterObject extends ImageObject {
      * @param height
      * @param img
      */
-    public CharachterObject(double x, double y, double width, double height, Image img) {
+    public CharacterObject(double x, double y, double width, double height, Image img) {
         // Construct the parent
         super(x, y, width, height, img);
 

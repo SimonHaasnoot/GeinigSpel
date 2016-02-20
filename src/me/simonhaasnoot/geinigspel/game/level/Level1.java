@@ -2,7 +2,7 @@ package me.simonhaasnoot.geinigspel.game.level;
 
 import me.simonhaasnoot.geinigspel.game.GameManager;
 import me.simonhaasnoot.geinigspel.game.GameStateManager;
-import me.simonhaasnoot.geinigspel.game.entity.CharachterObject;
+import me.simonhaasnoot.geinigspel.game.entity.CharacterObject;
 import me.simonhaasnoot.geinigspel.game.entity.FireballObject;
 import me.simonhaasnoot.geinigspel.game.time.FrameTime;
 
@@ -16,7 +16,7 @@ public class Level1 extends BaseLevel {
         GameManager.getGameStateManager().setBackgroundImage(Toolkit.getDefaultToolkit().createImage("Images/Landscape/1028x768BB.png"));
 
         // Add the character object
-        gsm.addGameObject(new CharachterObject(479, 595));
+        gsm.addGameObject(new CharacterObject(479, 595));
     }
 
     @Override
