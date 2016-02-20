@@ -34,6 +34,11 @@ public class GameStateManager {
     private Timer levelTimer = new Timer();
 
     /**
+     * The backgroundImg image.
+     */
+    private Image backgroundImg;
+
+    /**
      * Constructor.
      */
     public GameStateManager() {
@@ -84,6 +89,9 @@ public class GameStateManager {
 
         // Reset and start the level timer
         this.levelTimer.restart();
+
+        // Call the start method in the level
+        this.level.start(this);
     }
 
     /**,
@@ -103,6 +111,9 @@ public class GameStateManager {
     public void paintGameObjects(Graphics2D g) {
         // Update the frame timer
         FrameTime.updateFrameTime(levelTimer);
+
+        // draw the sky
+        g.drawImage(this.backgroundImg, 0, 0, GameManager.getGameFrame().getWidth(), GameManager.getGameFrame().getHeight(), null);
 
         // Loop through all the game objects and paint them
         for(GameObject obj : this.gameObjects) {
@@ -141,5 +152,23 @@ public class GameStateManager {
      */
     public synchronized void destroyGameObject(GameObject gameObject) {
         this.gameObjectsToDestroy.add(gameObject);
+    }
+
+    /**
+     * Get the backgroundImg image.
+     *
+     * @return Background image.
+     */
+    public Image getBackgroundImage() {
+        return backgroundImg;
+    }
+
+    /**
+     * Set the backgroundImg image.
+     *
+     * @param background Background image.
+     */
+    public void setBackgroundImage(Image background) {
+        this.backgroundImg = background;
     }
 }

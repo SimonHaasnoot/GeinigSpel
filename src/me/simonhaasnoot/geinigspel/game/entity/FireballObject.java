@@ -7,12 +7,12 @@ public class FireballObject extends ImageObject {
     /**
      * The width of the fireball.
      */
-    public static final int SIZE_WIDTH = 64;
+    public static final int SIZE_WIDTH = 32;
 
     /**
      * The height of the fireball.
      */
-    public static final int SIZE_HEIGHT = 64;
+    public static final int SIZE_HEIGHT = 32;
 
     /**
      * The minimum speed the fireball moves downwards.

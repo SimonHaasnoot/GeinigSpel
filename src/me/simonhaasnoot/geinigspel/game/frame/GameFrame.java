@@ -5,7 +5,7 @@ import me.simonhaasnoot.geinigspel.game.GameStateManager;
 import me.simonhaasnoot.geinigspel.game.util.Rectangle;
 
 import javax.swing.*;
-import java.awt.Dimension;
+import java.awt.*;
 
 public class GameFrame extends JFrame {
 
@@ -32,7 +32,7 @@ public class GameFrame extends JFrame {
      */
     public GameFrame(GameStateManager gsm, boolean show) {
         this.setTitle("Made by Simon Haasnoot");
-        this.setResizable(false);
+        this.setResizable(true);
         this.setPreferredSize(new Dimension(Values.frameX, Values.frameY));
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.pack();
