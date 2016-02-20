@@ -85,6 +85,12 @@ public class CharacterObject extends ImageObject {
         if(Input.isPressed(KeyEvent.VK_RIGHT) || Input.isPressed(KeyEvent.VK_D))
             speed += SPEED_NORMAL;
 
+        // Properly flip the character if it's moving left or right
+        if(speed < 0)
+            setFlippedX(true);
+        else if(speed > 0)
+            setFlippedX(false);
+
         // Set the speed of the character
         setSpeedX(speed);
     }
