@@ -19,6 +19,17 @@ public class Input {
     }
 
     /**
+     * Check whether a key is currently pressed.
+     *
+     * @param keyCode The key code to check for, see constants in KeyEvent class.
+     *
+     * @return True if the key is pressed, false if not.
+     */
+    public static boolean isPressed(int keyCode) {
+        return pressedKeys.contains(keyCode);
+    }
+
+    /**
      * Flush/reset all the input states.
      */
     public static void flushInputs() {
