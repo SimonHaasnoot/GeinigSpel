@@ -1,6 +1,8 @@
 package me.simonhaasnoot.geinigspel.Entiteiten;
 import me.simonhaasnoot.geinigspel.Values;
 
+import java.awt.*;
+
 /**
  * Created by Simon on 2/18/2016.
  */

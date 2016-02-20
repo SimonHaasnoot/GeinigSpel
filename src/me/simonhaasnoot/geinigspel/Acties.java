@@ -19,10 +19,10 @@ public class Acties extends Tekenen implements KeyListener, ActionListener{
         // start game loop
         gameLoop();
 
-
         // call level + objects.
-        Values.level.update();
+        //Values.level.update();
         fireball.collision();
+
         shield.collision();
         character.collision();
         character.move();
