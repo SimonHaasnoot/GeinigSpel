@@ -2,6 +2,7 @@ package me.simonhaasnoot.geinigspel.game;
 
 import me.simonhaasnoot.geinigspel.game.entity.GameObject;
 import me.simonhaasnoot.geinigspel.game.entity.GameObjectTest;
+import me.simonhaasnoot.geinigspel.game.entity.ImageObject;
 import me.simonhaasnoot.geinigspel.game.level.BaseLevel;
 import me.simonhaasnoot.geinigspel.game.util.FrameTime;
 import me.simonhaasnoot.geinigspel.game.util.Timer;
@@ -37,6 +38,12 @@ public class GameStateManager {
         GameObjectTest got = new GameObjectTest(10, 10, 100, 100);
         got.setSpeedY(10.0);
         gameObjects.add(got);
+
+        // Create a moving wizard for testing
+        Image img = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
+        ImageObject imgObj = new ImageObject(30, 30, 140 / 2, 181 / 2, img);
+        imgObj.setSpeedX(100);
+        gameObjects.add(imgObj);
 
         // Start the timer
         this.levelTimer.restart();
@@ -75,7 +82,7 @@ public class GameStateManager {
         this.levelTimer.restart();
     }
 
-    /**
+    /**,
      * Get a list of all game objects that are currently loaded.
      *
      * @return Game objects.
