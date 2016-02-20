@@ -44,15 +44,16 @@ public class GameStateManager {
     public GameStateManager() {
         // FIXME: THIS IS SOME TEST CODE!
         // TEST: Create a game object
-        GameObjectTest got = new GameObjectTest(10, 10, 100, 100);
-        got.setSpeedY(10.0);
-        addGameObject(got);
+//        GameObjectTest got = new GameObjectTest(10, 10, 100, 100);
+//        got.setSpeedY(10.0);
+//        addGameObject(got);
 
         // TEST: Create a moving wizard
-        Image img = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
-        ImageObject imgObj = new ImageObject(30, 30, 140 / 2, 181 / 2, img);
-        imgObj.setSpeedX(100);
-        addGameObject(imgObj);
+//        Image img = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
+//        ImageObject imgObj = new ImageObject(30, 30, 140 / 2, 181 / 2, img);
+//        imgObj.setSpeedX(100);
+//        addGameObject(imgObj);
+
 
         // Start the timer
         this.levelTimer.restart();
@@ -119,6 +120,8 @@ public class GameStateManager {
         for(GameObject obj : this.gameObjects) {
             obj.paint(g);
         }
+
+
     }
 
     /**

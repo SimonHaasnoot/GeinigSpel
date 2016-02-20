@@ -67,9 +67,6 @@ public class FireballObject extends ImageObject {
         if(fireballImg != null)
             return fireballImg;
 
-        // Load the fireball image and return it
-        // TODO: Remove this debug line!
-        System.out.println("Loading fireball image!");
         // TODO: Move image path into a constant!
         fireballImg = Toolkit.getDefaultToolkit().createImage("Images/Objects/Gifs/FIREBALL.gif");
         return fireballImg;
