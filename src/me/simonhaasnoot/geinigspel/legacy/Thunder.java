@@ -1,4 +1,4 @@
-package me.simonhaasnoot.geinigspel.Entiteiten;
+package me.simonhaasnoot.geinigspel.legacy;
 
 import me.simonhaasnoot.geinigspel.Values;
 

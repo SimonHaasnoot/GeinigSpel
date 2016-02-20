@@ -1,4 +1,4 @@
-package me.simonhaasnoot.geinigspel.game.util;
+package me.simonhaasnoot.geinigspel.legacy;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
