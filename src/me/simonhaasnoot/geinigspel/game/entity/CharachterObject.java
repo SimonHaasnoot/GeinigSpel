@@ -1,6 +1,9 @@
 package me.simonhaasnoot.geinigspel.game.entity;
 
+import me.simonhaasnoot.geinigspel.game.input.Input;
+
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class CharachterObject extends ImageObject {
 
@@ -40,7 +43,6 @@ public class CharachterObject extends ImageObject {
      */
     public CharachterObject(double x, double y) {
         this(x, y, SIZE_WIDTH, SIZE_HEIGHT, loadCharacterImage());
-
     }
 
     /**
@@ -52,7 +54,12 @@ public class CharachterObject extends ImageObject {
      * @param img
      */
     public CharachterObject(double x, double y, double width, double height, Image img) {
+        // Construct the parent
         super(x, y, width, height, img);
+
+        // Do not destroy the player when it goes out of the screen
+        setDestroyOffScreen(false);
+        setDestroyOffScreenSoft(false);
 
         setSpeedX(5);
     }
@@ -71,6 +78,4 @@ public class CharachterObject extends ImageObject {
         characterImg = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
         return characterImg;
     }
-
-
 }
