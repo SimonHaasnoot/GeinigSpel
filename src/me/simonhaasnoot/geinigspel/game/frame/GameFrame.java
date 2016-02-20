@@ -62,4 +62,13 @@ public class GameFrame extends JFrame {
     public GameStateManager getGameStateManager() {
         return this.gsm;
     }
+
+    /**
+     * Get a rectangle with the size of the frame.
+     *
+     * @return Frame rectangle.
+     */
+    public Rectangle getFrameRectangle() {
+        return new Rectangle(0, 0, getWidth(), getHeight());
+    }
 }

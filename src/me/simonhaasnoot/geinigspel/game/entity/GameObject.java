@@ -22,6 +22,11 @@ public abstract class GameObject {
      */
     private double speedY = 0.0;
 
+
+
+    //public boolean destroy
+
+
     /**
      * Constructor.
      * Because the position of the game object will not be specified, the object will be placed at position (0, 0).
@@ -165,6 +170,17 @@ public abstract class GameObject {
     }
 
     /**
+     * Check whether this game object has collision with another rectangle.
+     *
+     * @param other The other.
+     *
+     * @return True if both objects intersect, false otherwise.
+     */
+    public boolean hasCollision(Rectangle other) {
+        return getPosition().intersects(other);
+    }
+
+    /**
      * Check whether this game object has collision with an other game object.
      *
      * @param other The other.
@@ -172,7 +188,7 @@ public abstract class GameObject {
      * @return True if both objects intersect, false otherwise.
      */
     public boolean hasCollision(GameObject other) {
-        return getPosition().intersects(other.getPosition());
+        return hasCollision(other.getPosition());
     }
 
     /**
