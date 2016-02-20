@@ -10,6 +10,16 @@ public class ImageObject extends GameObject {
     private Image img;
 
     /**
+     * True to flip the image on the X axis.
+     */
+    private boolean flipX = false;
+
+    /**
+     * True to flip the image on the Y axis.
+     */
+    private boolean flipY = false;
+
+    /**
      * Constructor.
      *
      * @param x The X coordinate of the object.
@@ -56,10 +66,64 @@ public class ImageObject extends GameObject {
         this.img = img;
     }
 
+    /**
+     * Check whether this image is flipped on the X axis.
+     *
+     * @return True if flipped on the X axis.
+     */
+    public boolean isFlippedX() {
+        return flipX;
+    }
+
+    /**
+     * Set whether the image is flipped on the X axis.
+     *
+     * @param flipX True if flipped on the X axis.
+     */
+    public void setFlippedX(boolean flipX) {
+        this.flipX = flipX;
+    }
+
+    /**
+     * Check whether this image is flipped on the Y axis.
+     *
+     * @return True if flipped on the Y axis.
+     */
+    public boolean isFlippedY() {
+        return flipY;
+    }
+
+    /**
+     * Set whether the image is flipped on the Y axis.
+     *
+     * @param flipY True if flipped on the Y axis.
+     */
+    public void setFlippedY(boolean flipY) {
+        this.flipY = flipY;
+    }
+
     @Override
     public boolean paint(Graphics2D g) {
+        // Get the position and size of the image
+        int x = (int) getX();
+        int y = (int) getY();
+        int width = (int) getWidth();
+        int height = (int) getHeight();
+
+        // Check whether the image should be flipped on the X axis
+        if(isFlippedX()) {
+            x += width;
+            width *= -1;
+        }
+
+        // Check whether the image should be flipped on the Y axis
+        if(isFlippedY()) {
+            y += height;
+            height *= -1;
+        }
+
         // Draw the image
-        g.drawImage(this.img, (int) getX(), (int) getY(), (int) getWidth(), (int) getHeight(), null);
+        g.drawImage(this.img, x, y, width, height, null);
         return true;
     }
 }
