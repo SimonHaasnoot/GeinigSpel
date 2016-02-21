@@ -1,5 +1,9 @@
 package me.simonhaasnoot.geinigspel.game.entity;
 
+import me.simonhaasnoot.geinigspel.game.GameManager;
+import me.simonhaasnoot.geinigspel.game.GameStateManager;
+import me.simonhaasnoot.geinigspel.game.frame.GameFrame;
+import me.simonhaasnoot.geinigspel.game.frame.GameFramePanel;
 import me.simonhaasnoot.geinigspel.game.input.Input;
 
 import java.awt.*;
@@ -20,7 +24,7 @@ public class CharacterObject extends ImageObject {
     /**
      * The Speed of the character.
      */
-    public static double SPEED_NORMAL = 250;
+    public static double SPEED_NORMAL = 350;
 
     /**
      * The supersonic character OP speed.
@@ -54,6 +58,8 @@ public class CharacterObject extends ImageObject {
         // Do not destroy the player when it goes out of the screen
         setDestroyOffScreen(false);
         setDestroyOffScreenSoft(false);
+
+
     }
 
     /**
@@ -93,5 +99,7 @@ public class CharacterObject extends ImageObject {
 
         // Set the speed of the character
         setSpeedX(speed);
+
+
     }
 }

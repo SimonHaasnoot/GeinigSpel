@@ -24,5 +24,6 @@ public class Level1 extends BaseLevel {
         // Spawn the fireballs
         if(Math.random() < FrameTime.time / (Math.sqrt(FrameTime.time) * 250.0 ))
             gsm.addGameObject(new FireballObject(Math.random() * GameManager.getGameFrame().getWidth() -FireballObject.SIZE_WIDTH, -FireballObject.SIZE_HEIGHT));
+
     }
 }

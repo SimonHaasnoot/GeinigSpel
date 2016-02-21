@@ -1,5 +1,9 @@
 package me.simonhaasnoot.geinigspel.game.entity;
 
+import com.sun.org.apache.regexp.internal.RE;
+import me.simonhaasnoot.geinigspel.legacy.Character;
+import org.w3c.dom.css.Rect;
+
 import java.awt.*;
 
 public class FireballObject extends ImageObject {
@@ -70,5 +74,11 @@ public class FireballObject extends ImageObject {
         // TODO: Move image path into a constant!
         fireballImg = Toolkit.getDefaultToolkit().createImage("Images/Objects/Gifs/FIREBALL.gif");
         return fireballImg;
+    }
+
+    @Override
+    public void update(){
+        super.update();
+
     }
 }
