@@ -100,6 +100,14 @@ public class CharacterObject extends ImageObject {
         // Set the speed of the character
         setSpeedX(speed);
 
+        // Set the Min and Max of the field your playing in.
+        if(GameManager.getGameStateManager().wizardCharacter.getX() > GameFrame.FRAME_WIDTH - getWidth())
+            GameManager.getGameStateManager().wizardCharacter.setX(GameFrame.FRAME_WIDTH - getWidth());
+
+        if(GameManager.getGameStateManager().wizardCharacter.getX() < 0)
+            GameManager.getGameStateManager().wizardCharacter.setX(0);
+
+
 
     }
 }
