@@ -1,44 +1,27 @@
 package me.simonhaasnoot.geinigspel.game.level;
 
-import me.simonhaasnoot.geinigspel.Values;
+import me.simonhaasnoot.geinigspel.game.GameManager;
 import me.simonhaasnoot.geinigspel.game.GameStateManager;
+import me.simonhaasnoot.geinigspel.game.entity.FireballObject;
+import me.simonhaasnoot.geinigspel.game.time.FrameTime;
+
+import java.awt.*;
 
 public class Level2 extends BaseLevel {
 
     @Override
     public void start(GameStateManager gsm) {
 
+        // Set the frame background
+        GameManager.getGameStateManager().setBackgroundImage(Toolkit.getDefaultToolkit().createImage("Images/Landscape/1028x768BB.png"));
+
     }
 
     @Override
-    public void update(GameStateManager gsm){
-        // The times all the fireballs should be dropped at
-        final int[] fireballTimes = {
-                0,
-                5000,
-                10000,
-                10000,
-                10000,
-                10000,
-                10000,
-                10000,
-                10000,
-                10000,
-                10000,
-                10000,
-                10000,
-                10000,
-                10000,
-        };
+    public void update(GameStateManager gsm) {
+        // Spawn the fireballs
+        if(Math.random() < FrameTime.time / (Math.sqrt(FrameTime.time) * 250.0 / 150 ))
+            gsm.addGameObject(new FireballObject(Math.random() * GameManager.getGameFrame().getWidth() -FireballObject.SIZE_WIDTH, -FireballObject.SIZE_HEIGHT));
 
-        // Loop through all the fireball spawn times
-        for(int i = 0; i < fireballTimes.length; i++) {
-            // Make sure this time has passed before spawning and moving the fireball
-            if(Values.timeDifference <= fireballTimes[i])
-                continue;
-
-            // Spawn and move the current fireball
-            Values.yObject[i] += Values.fallingSpeed[i];
-        }
     }
 }

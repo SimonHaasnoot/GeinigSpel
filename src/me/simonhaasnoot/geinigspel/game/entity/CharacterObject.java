@@ -24,12 +24,12 @@ public class CharacterObject extends ImageObject {
     /**
      * The Speed of the character.
      */
-    public static double SPEED_NORMAL = 350;
+    public static double SPEED_NORMAL = 500;
 
     /**
      * The supersonic character OP speed.
      */
-    public static double SPEED_MAX = 600;
+    public static double SPEED_MAX = 1000;
 
     /**
      * Character image.
@@ -100,7 +100,7 @@ public class CharacterObject extends ImageObject {
         // Set the speed of the character
         setSpeedX(speed);
 
-        // Set the Min and Max of the field your playing in.
+        // Set the MIN and MAX of the field your playing in.
         if(GameManager.getGameStateManager().wizardCharacter.getX() > GameFrame.FRAME_WIDTH - getWidth())
             GameManager.getGameStateManager().wizardCharacter.setX(GameFrame.FRAME_WIDTH - getWidth());
 
