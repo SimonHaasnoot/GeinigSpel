@@ -1,4 +1,5 @@
 package me.simonhaasnoot.geinigspel.game;
+import me.simonhaasnoot.geinigspel.game.entity.CharacterObject;
 import me.simonhaasnoot.geinigspel.game.entity.GameObject;
 import me.simonhaasnoot.geinigspel.game.level.BaseLevel;
 import me.simonhaasnoot.geinigspel.game.time.FrameTime;
@@ -35,22 +36,20 @@ public class GameStateManager {
      */
     private Image backgroundImg;
 
+    public CharacterObject wizardCharacter;
+
     /**
      * Constructor.
      */
     public GameStateManager() {
         // FIXME: THIS IS SOME TEST CODE!
-        // TEST: Create a game object
+
 //        GameObjectTest got = new GameObjectTest(10, 10, 100, 100);
-//        got.setSpeedY(10.0);
 //        addGameObject(got);
 
-        // TEST: Create a moving wizard
-//        Image img = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
-//        ImageObject imgObj = new ImageObject(30, 30, 140 / 2, 181 / 2, img);
-//        imgObj.setSpeedX(100);
-//        addGameObject(imgObj);
-
+        // Add the character object
+        wizardCharacter = new CharacterObject(479, 595);
+        addGameObject(wizardCharacter);
 
         // Start the timer
         this.levelTimer.restart();

@@ -15,8 +15,6 @@ public class Level1 extends BaseLevel {
         // Set the frame background
         GameManager.getGameStateManager().setBackgroundImage(Toolkit.getDefaultToolkit().createImage("Images/Landscape/1028x768BB.png"));
 
-        // Add the character object
-        gsm.addGameObject(new CharacterObject(479, 595));
     }
 
     @Override

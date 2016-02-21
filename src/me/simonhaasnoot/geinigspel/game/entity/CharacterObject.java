@@ -14,7 +14,7 @@ public class CharacterObject extends ImageObject {
     /**
      * The width of the character.
      */
-    public static final int SIZE_WIDTH = 70;
+    public static final int SIZE_WIDTH = 65;
 
     /**
      * The height of the character.
