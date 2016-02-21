@@ -1,6 +1,7 @@
 package me.simonhaasnoot.geinigspel.game.entity;
 
 import com.sun.org.apache.regexp.internal.RE;
+import me.simonhaasnoot.geinigspel.game.GameManager;
 import me.simonhaasnoot.geinigspel.legacy.Character;
 import org.w3c.dom.css.Rect;
 
@@ -80,5 +81,8 @@ public class FireballObject extends ImageObject {
     public void update(){
         super.update();
 
+//        if(hasCollision(GameObject)){
+//            GameManager.getGameStateManager().destroyGameObject(this);
+//        }
     }
 }
