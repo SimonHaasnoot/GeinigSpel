@@ -1,7 +1,7 @@
 package me.simonhaasnoot.geinigspel.game.entity;
 
 import me.simonhaasnoot.geinigspel.game.GameManager;
-import me.simonhaasnoot.geinigspel.game.util.FrameTime;
+import me.simonhaasnoot.geinigspel.game.time.FrameTime;
 import me.simonhaasnoot.geinigspel.game.util.Rectangle;
 
 import java.awt.*;
