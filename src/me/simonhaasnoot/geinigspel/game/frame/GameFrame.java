@@ -16,6 +16,16 @@ public class GameFrame extends JFrame {
     private GameStateManager gsm;
 
     /**
+     * Width of the frame.
+     */
+    public static int FRAME_WIDTH = 1028;
+
+    /**
+     * Height of the frame.
+     */
+    public static int FRAME_HEIGHT = 768;
+
+    /**
      * Constructor.
      * This immediately shows the game frame as soon as it has been created.
      *
@@ -34,7 +44,7 @@ public class GameFrame extends JFrame {
     public GameFrame(GameStateManager gsm, boolean show) {
         this.setTitle("Made by Simon Haasnoot");
         this.setResizable(true);
-        this.setPreferredSize(new Dimension(Values.frameX, Values.frameY));
+        this.setPreferredSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.pack();
         this.setLocationRelativeTo(null);
