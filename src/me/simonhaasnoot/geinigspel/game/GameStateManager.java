@@ -109,11 +109,9 @@ public class GameStateManager {
         // draw the sky
         g.drawImage(this.backgroundImg, 0, 0, GameManager.getGameFrame().getWidth(), GameManager.getGameFrame().getHeight(), null);
 
-        //FIXME might improve stuff here
+        //FIXME might move this to level?
         if(FrameTime.time > 5 && FrameTime.time < 60) {
-            Font font = new Font("TimesRoman", Font.PLAIN, 26);
-            g.setFont(font);
-            g.setColor(Color.RED);
+            Font font = new Font("TimesRoman", Font.PLAIN, 26); g.setFont(font); g.setColor(Color.RED);
             g.drawString("WARNING! " + " Incoming meteorites detected!", GameFrame.WIDTH / 2 + GameFrame.FRAME_HEIGHT / 4, GameFrame.FRAME_HEIGHT / 4);
         }
 

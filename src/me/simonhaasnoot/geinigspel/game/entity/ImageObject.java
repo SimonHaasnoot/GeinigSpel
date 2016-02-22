@@ -102,7 +102,6 @@ public class ImageObject extends GameObject {
         this.flipY = flipY;
     }
 
-    @Override
     public boolean paint(Graphics2D g) {
         // Get the position and size of the image
         int x = (int) getX();

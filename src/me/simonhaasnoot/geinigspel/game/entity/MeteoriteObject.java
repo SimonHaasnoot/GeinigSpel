@@ -73,5 +73,4 @@ public class MeteoriteObject extends ImageObject{
             this.destroy();
         }
     }
-
 }

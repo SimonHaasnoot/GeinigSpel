@@ -2,8 +2,6 @@ package me.simonhaasnoot.geinigspel.game.level;
 
 import me.simonhaasnoot.geinigspel.game.GameStateManager;
 
-import java.awt.*;
-
 public abstract class BaseLevel {
 
     /**

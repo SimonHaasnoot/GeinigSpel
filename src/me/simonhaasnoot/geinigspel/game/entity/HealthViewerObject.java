@@ -1,9 +1,10 @@
 package me.simonhaasnoot.geinigspel.game.entity;
-
+import me.simonhaasnoot.geinigspel.game.GameManager;
+import me.simonhaasnoot.geinigspel.game.frame.GameFrame;
 
 import java.awt.*;
 
-public class HeartObject extends ImageObject{
+public class HealthViewerObject extends ImageObject{
 
     /**
      * Define the Width of the hearts.
@@ -23,7 +24,7 @@ public class HeartObject extends ImageObject{
     /**
      * Define the current hearts.
      */
-    public static final int CURRENT_HEARTS = 3;
+    public static int CURRENT_HEARTS = 3;
 
     /**
      * Define the maximum hearts u can get.
@@ -40,7 +41,7 @@ public class HeartObject extends ImageObject{
      * @param x position of the heart.
      * @param y position of the heart.
      */
-    public HeartObject(double x, double y) {
+    public HealthViewerObject(double x, double y) {
         this(x, y, SIZE_WIDTH, SIZE_HEIGHT, loadHeartImage());
     }
 
@@ -52,9 +53,11 @@ public class HeartObject extends ImageObject{
      * @param height
      * @param img
      */
-    public HeartObject(double x, double y, double width, double height, Image img) {
+    public HealthViewerObject(double x, double y, double width, double height, Image img) {
         super(x, y, width, height, img);
     }
+
+
 
     /**
      *
@@ -70,9 +73,19 @@ public class HeartObject extends ImageObject{
         return heartImg;
     }
 
+    @Override
     public void update(){
         super.update();
+    }
 
+    @Override
+    public boolean paint(Graphics2D g) {
+        super.paint(g);
+        if(CURRENT_HEARTS >= 3){
+            g.drawImage(HealthViewerObject.loadHeartImage(), GameManager.getGameFrame().getWidth() - 70, GameFrame.HEIGHT +
+                    HealthViewerObject.SIZE_HEIGHT/4, HealthViewerObject.SIZE_WIDTH, HealthViewerObject.SIZE_HEIGHT, null);
+        }
+        return true;
     }
 
 }
