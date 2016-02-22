@@ -43,13 +43,9 @@ public class GameStateManager {
      * Constructor.
      */
     public GameStateManager() {
-        // FIXME: THIS IS SOME TEST CODE!
-
-//        GameObjectTest got = new GameObjectTest(10, 10, 100, 100);
-//        addGameObject(got);
 
         // Add the character object
-        wizardCharacter = new CharacterObject(479, 595);
+        wizardCharacter = new CharacterObject(GameFrame.FRAME_WIDTH/2, GameFrame.FRAME_HEIGHT - CharacterObject.SIZE_HEIGHT*1.85);
         addGameObject(wizardCharacter);
 
         // Start the timer
@@ -113,18 +109,18 @@ public class GameStateManager {
         // draw the sky
         g.drawImage(this.backgroundImg, 0, 0, GameManager.getGameFrame().getWidth(), GameManager.getGameFrame().getHeight(), null);
 
-        //FIXME draw warning after 60 seconds
-        // Font font = new Font("Times new roman", Font.PLAIN, 26);
-        String string = new String("haahahahahaahah");
-        g.drawString(string, 200, 150);
-
+        //FIXME might improve stuff here
+        if(FrameTime.time > 5 && FrameTime.time < 60) {
+            Font font = new Font("TimesRoman", Font.PLAIN, 26);
+            g.setFont(font);
+            g.setColor(Color.RED);
+            g.drawString("WARNING! " + " Incoming meteorites detected!", GameFrame.WIDTH / 2 + GameFrame.FRAME_HEIGHT / 4, GameFrame.FRAME_HEIGHT / 4);
+        }
 
         // Loop through all the game objects and paint them
         for(GameObject obj : this.gameObjects) {
             obj.paint(g);
         }
-
-
     }
 
     /**
@@ -137,7 +133,6 @@ public class GameStateManager {
 
         // Update all game objects
         this.gameObjects.forEach(GameObject::update);
-
 
         // Destroy all the game objects in the 'to destroy' list
         for(GameObject g : this.gameObjectsToDestroy)

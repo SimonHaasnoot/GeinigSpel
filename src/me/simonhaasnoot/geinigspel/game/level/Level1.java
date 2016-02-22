@@ -4,18 +4,27 @@ import me.simonhaasnoot.geinigspel.game.GameManager;
 import me.simonhaasnoot.geinigspel.game.GameStateManager;
 import me.simonhaasnoot.geinigspel.game.entity.CharacterObject;
 import me.simonhaasnoot.geinigspel.game.entity.FireballObject;
+import me.simonhaasnoot.geinigspel.game.entity.HeartObject;
 import me.simonhaasnoot.geinigspel.game.entity.MeteoriteObject;
+import me.simonhaasnoot.geinigspel.game.frame.GameFrame;
 import me.simonhaasnoot.geinigspel.game.time.FrameTime;
 
 import java.awt.*;
 
 public class Level1 extends BaseLevel {
 
+    public static int hearthPosition = 80;
+
     @Override
     public void start(GameStateManager gsm) {
         // Set the frame background
         GameManager.getGameStateManager().setBackgroundImage(Toolkit.getDefaultToolkit().createImage("Images/Landscape/1028x768BB.png"));
 
+        //FIXME this logic needs to be somewhere else
+        for (int i = 0; i < HeartObject.CURRENT_HEARTS; i++) {
+            GameManager.getGameStateManager().addGameObject(new HeartObject(GameManager.getGameFrame().getWidth() - hearthPosition, GameFrame.HEIGHT + HeartObject.SIZE_HEIGHT/4));
+            hearthPosition += 60;
+        }
     }
 
     @Override
@@ -25,9 +34,11 @@ public class Level1 extends BaseLevel {
             gsm.addGameObject(new FireballObject(Math.random() * GameManager.getGameFrame().getWidth() -FireballObject.SIZE_WIDTH, -FireballObject.SIZE_HEIGHT));
 
 
-        if(FrameTime.time > 60) {
+        if(FrameTime.time > 0) {
             if (Math.random() < FrameTime.time / ((Math.sqrt(FrameTime.time) *5) * 1000.0))
                 gsm.addGameObject(new MeteoriteObject(-300, -300));
-        }
+            }
     }
 }
+
+

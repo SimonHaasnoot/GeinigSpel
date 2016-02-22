@@ -1,5 +1,7 @@
 package me.simonhaasnoot.geinigspel.game.entity;
 
+import me.simonhaasnoot.geinigspel.game.GameManager;
+
 import java.awt.*;
 
 
@@ -60,12 +62,16 @@ public class MeteoriteObject extends ImageObject{
             return meteoriteImg;
 
         // TODO: Move image path into a constant!
-        meteoriteImg = Toolkit.getDefaultToolkit().createImage("Images/Objects/meteoriteLeft.png");
+        meteoriteImg = Toolkit.getDefaultToolkit().createImage("Images/Objects/Gifs/MeteoriteGif100ms.gif");
         return meteoriteImg;
     }
 
     public void update(){
-        super.update();;
+        super.update();
+
+        if(hasCollision(GameManager.getGameStateManager().wizardCharacter)){
+            this.destroy();
+        }
     }
 
 }

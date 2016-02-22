@@ -20,8 +20,8 @@ public class Level2 extends BaseLevel {
     @Override
     public void update(GameStateManager gsm) {
         // Spawn the fireballs
-        if(Math.random() < FrameTime.time / (Math.sqrt(FrameTime.time) * 250.0 / 150 ))
-            gsm.addGameObject(new FireballObject(Math.random() * GameManager.getGameFrame().getWidth() -FireballObject.SIZE_WIDTH, -FireballObject.SIZE_HEIGHT));
+        if (Math.random() < FrameTime.time / (Math.sqrt(FrameTime.time) * 250.0 / 150))
+            gsm.addGameObject(new FireballObject(Math.random() * GameManager.getGameFrame().getWidth() - FireballObject.SIZE_WIDTH, -FireballObject.SIZE_HEIGHT));
 
     }
 }
