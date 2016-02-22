@@ -4,6 +4,7 @@ import me.simonhaasnoot.geinigspel.game.GameManager;
 import me.simonhaasnoot.geinigspel.game.GameStateManager;
 import me.simonhaasnoot.geinigspel.game.entity.CharacterObject;
 import me.simonhaasnoot.geinigspel.game.entity.FireballObject;
+import me.simonhaasnoot.geinigspel.game.entity.MeteoriteObject;
 import me.simonhaasnoot.geinigspel.game.time.FrameTime;
 
 import java.awt.*;
@@ -23,5 +24,8 @@ public class Level1 extends BaseLevel {
         if(Math.random() < FrameTime.time / (Math.sqrt(FrameTime.time) * 250.0 ))
             gsm.addGameObject(new FireballObject(Math.random() * GameManager.getGameFrame().getWidth() -FireballObject.SIZE_WIDTH, -FireballObject.SIZE_HEIGHT));
 
+
+        if(Math.random() < FrameTime.time / (Math.sqrt(FrameTime.time) * 1000.0 ))
+            gsm.addGameObject(new MeteoriteObject(-300, -300));
     }
 }

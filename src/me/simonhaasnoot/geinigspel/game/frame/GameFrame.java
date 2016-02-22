@@ -1,6 +1,5 @@
 package me.simonhaasnoot.geinigspel.game.frame;
 
-import me.simonhaasnoot.geinigspel.Values;
 import me.simonhaasnoot.geinigspel.game.GameStateManager;
 import me.simonhaasnoot.geinigspel.game.input.key.InputKeyListener;
 import me.simonhaasnoot.geinigspel.game.util.Rectangle;

@@ -1,6 +1,4 @@
-package me.simonhaasnoot.geinigspel;
-import me.simonhaasnoot.geinigspel.legacy.*;
-import me.simonhaasnoot.geinigspel.legacy.Character;
+package me.simonhaasnoot.geinigspel.legacy;
 
 import java.awt.event.*;
 

@@ -1,4 +1,4 @@
-package me.simonhaasnoot.geinigspel;
+package me.simonhaasnoot.geinigspel.legacy;
 
 import me.simonhaasnoot.geinigspel.game.level.BaseLevel;
 

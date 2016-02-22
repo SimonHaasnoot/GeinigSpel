@@ -1,7 +1,5 @@
 package me.simonhaasnoot.geinigspel.legacy;
 
-import me.simonhaasnoot.geinigspel.Values;
-
 /**
  * Created by Simon on 2/18/2016.
  */
