@@ -25,7 +25,9 @@ public class Level1 extends BaseLevel {
             gsm.addGameObject(new FireballObject(Math.random() * GameManager.getGameFrame().getWidth() -FireballObject.SIZE_WIDTH, -FireballObject.SIZE_HEIGHT));
 
 
-        if(Math.random() < FrameTime.time / (Math.sqrt(FrameTime.time) * 1000.0 ))
-            gsm.addGameObject(new MeteoriteObject(-300, -300));
+        if(FrameTime.time > 60) {
+            if (Math.random() < FrameTime.time / ((Math.sqrt(FrameTime.time) *5) * 1000.0))
+                gsm.addGameObject(new MeteoriteObject(-300, -300));
+        }
     }
 }

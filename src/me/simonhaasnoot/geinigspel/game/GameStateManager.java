@@ -1,6 +1,7 @@
 package me.simonhaasnoot.geinigspel.game;
 import me.simonhaasnoot.geinigspel.game.entity.CharacterObject;
 import me.simonhaasnoot.geinigspel.game.entity.GameObject;
+import me.simonhaasnoot.geinigspel.game.frame.GameFrame;
 import me.simonhaasnoot.geinigspel.game.level.BaseLevel;
 import me.simonhaasnoot.geinigspel.game.time.FrameTime;
 import me.simonhaasnoot.geinigspel.game.time.Timer;
@@ -111,6 +112,12 @@ public class GameStateManager {
 
         // draw the sky
         g.drawImage(this.backgroundImg, 0, 0, GameManager.getGameFrame().getWidth(), GameManager.getGameFrame().getHeight(), null);
+
+        //FIXME draw warning after 60 seconds
+        // Font font = new Font("Times new roman", Font.PLAIN, 26);
+        String string = new String("haahahahahaahah");
+        g.drawString(string, 200, 150);
+
 
         // Loop through all the game objects and paint them
         for(GameObject obj : this.gameObjects) {
