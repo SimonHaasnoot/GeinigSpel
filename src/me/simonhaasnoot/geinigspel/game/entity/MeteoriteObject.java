@@ -1,7 +1,6 @@
 package me.simonhaasnoot.geinigspel.game.entity;
 
 import me.simonhaasnoot.geinigspel.game.GameManager;
-
 import java.awt.*;
 
 
@@ -25,12 +24,12 @@ public class MeteoriteObject extends ImageObject{
     /**
      * Set MIN speed.
      */
-    public static final int SPEED_MIN = 300;
+    public static final int SPEED_MIN = 200;
     /**
 
      * SET MAX SPEED
      */
-    public static final int SPEED_MAX = 600;
+    public static final int SPEED_MAX = 500;
 
     /**
      *
@@ -71,6 +70,7 @@ public class MeteoriteObject extends ImageObject{
 
         if(hasCollision(GameManager.getGameStateManager().wizardCharacter)){
             this.destroy();
+            HealthViewerObject.CURRENT_HEARTS -= 2;
         }
     }
 }

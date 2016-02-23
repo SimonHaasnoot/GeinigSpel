@@ -3,6 +3,7 @@ package me.simonhaasnoot.geinigspel.game.level;
 import me.simonhaasnoot.geinigspel.game.GameManager;
 import me.simonhaasnoot.geinigspel.game.GameStateManager;
 import me.simonhaasnoot.geinigspel.game.entity.FireballObject;
+import me.simonhaasnoot.geinigspel.game.entity.FreezeFireballObject;
 import me.simonhaasnoot.geinigspel.game.entity.MeteoriteObject;
 import me.simonhaasnoot.geinigspel.game.time.FrameTime;
 
@@ -22,13 +23,18 @@ public class Level1 extends BaseLevel {
         if(Math.random() < FrameTime.time / (Math.sqrt(FrameTime.time) * 250.0 ))
             gsm.addGameObject(new FireballObject(Math.random() * GameManager.getGameFrame().getWidth() -FireballObject.SIZE_WIDTH, -FireballObject.SIZE_HEIGHT));
 
+        if(Math.random() < FrameTime.time / ((Math.sqrt(FrameTime.time)*8) * 250.0 ))
+            gsm.addGameObject(new FreezeFireballObject(Math.random() * GameManager.getGameFrame().getWidth() -FireballObject.SIZE_WIDTH, -FireballObject.SIZE_HEIGHT));
 
-        if(FrameTime.time > 0) {
-            if (Math.random() < FrameTime.time / ((Math.sqrt(FrameTime.time) *5) * 1000.0))
+
+        if(FrameTime.time > 60) {
+            if (Math.random() < FrameTime.time / ((Math.sqrt(FrameTime.time) *8) * 1000.0))
                 gsm.addGameObject(new MeteoriteObject(-300, -300));
             }
 
     }
+
+
 }
 
 

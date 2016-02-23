@@ -110,9 +110,10 @@ public class GameStateManager {
         g.drawImage(this.backgroundImg, 0, 0, GameManager.getGameFrame().getWidth(), GameManager.getGameFrame().getHeight(), null);
 
         //FIXME might move this to level?
-        if(FrameTime.time > 5 && FrameTime.time < 60) {
+        if(FrameTime.time > 55 && FrameTime.time < 60) {
             Font font = new Font("TimesRoman", Font.PLAIN, 26); g.setFont(font); g.setColor(Color.RED);
-            g.drawString("WARNING! " + " Incoming meteorites detected!", GameFrame.WIDTH / 2 + GameFrame.FRAME_HEIGHT / 4, GameFrame.FRAME_HEIGHT / 4);
+            g.drawString("WARNING! " + " Incoming meteorites detected!", GameFrame.WIDTH / 2 + GameFrame.FRAME_HEIGHT / 3, GameFrame.FRAME_HEIGHT / 4);
+
         }
 
         // Loop through all the game objects and paint them

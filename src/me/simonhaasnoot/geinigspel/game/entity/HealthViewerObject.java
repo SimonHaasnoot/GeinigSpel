@@ -1,6 +1,4 @@
 package me.simonhaasnoot.geinigspel.game.entity;
-import me.simonhaasnoot.geinigspel.game.GameManager;
-import me.simonhaasnoot.geinigspel.game.frame.GameFrame;
 
 import java.awt.*;
 
@@ -76,16 +74,6 @@ public class HealthViewerObject extends ImageObject{
     @Override
     public void update(){
         super.update();
-    }
-
-    @Override
-    public boolean paint(Graphics2D g) {
-        super.paint(g);
-        if(CURRENT_HEARTS >= 3){
-            g.drawImage(HealthViewerObject.loadHeartImage(), GameManager.getGameFrame().getWidth() - 70, GameFrame.HEIGHT +
-                    HealthViewerObject.SIZE_HEIGHT/4, HealthViewerObject.SIZE_WIDTH, HealthViewerObject.SIZE_HEIGHT, null);
-        }
-        return true;
     }
 
 }
