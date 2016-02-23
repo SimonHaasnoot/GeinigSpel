@@ -30,7 +30,7 @@ public class GameStateManager {
     /**
      * The time that has passed since the current level was started.
      */
-    private Timer levelTimer = new Timer();
+    public Timer levelTimer = new Timer();
 
     /**
      * The backgroundImg image.

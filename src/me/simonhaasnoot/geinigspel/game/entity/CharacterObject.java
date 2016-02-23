@@ -1,10 +1,9 @@
 package me.simonhaasnoot.geinigspel.game.entity;
 
 import me.simonhaasnoot.geinigspel.game.GameManager;
-import me.simonhaasnoot.geinigspel.game.GameStateManager;
 import me.simonhaasnoot.geinigspel.game.frame.GameFrame;
-import me.simonhaasnoot.geinigspel.game.frame.GameFramePanel;
 import me.simonhaasnoot.geinigspel.game.input.Input;
+import me.simonhaasnoot.geinigspel.game.time.FrameTime;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -30,6 +29,17 @@ public class CharacterObject extends ImageObject {
      * The supersonic character OP speed.
      */
     public static double SPEED_MAX = 1000;
+
+
+    /**
+     * Timer to count time of being frozen.
+     */
+    public static double StartFrozenTime;
+
+    /**
+     * Define if the character is frozen.
+     */
+    public static boolean isFrozen = false;
 
     /**
      * Character image.
@@ -66,14 +76,20 @@ public class CharacterObject extends ImageObject {
      * Load Character image.
      * @return character image.
      */
-
     public synchronized static Image loadCharacterImage() {
-        // Return the fireball image if it's already loaded
-        if(characterImg != null)
-            return characterImg;
 
-        // TODO: Move image path into a constant!
-        characterImg = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
+        if(!isFrozen) {
+            characterImg = Toolkit.getDefaultToolkit().createImage("Images/Characters/Wizard.png");
+            SPEED_NORMAL = 500;
+        }
+
+        if(isFrozen){
+            StartFrozenTime = FrameTime.time;
+            SPEED_NORMAL = 0;
+            characterImg = Toolkit.getDefaultToolkit().createImage("Images/Characters/FrozenCharacter.png");
+            GameManager.getGameStateManager().wizardCharacter.setImage(characterImg);
+        }
+
         return characterImg;
     }
 
@@ -107,7 +123,13 @@ public class CharacterObject extends ImageObject {
         if(GameManager.getGameStateManager().wizardCharacter.getX() < 0)
             GameManager.getGameStateManager().wizardCharacter.setX(0);
 
-
+        // what to do when frozen and unfrozen
+        if(isFrozen)
+        if(FrameTime.time - StartFrozenTime > 1){
+            isFrozen = false;
+            loadCharacterImage();
+            GameManager.getGameStateManager().wizardCharacter.setImage(characterImg);
+        }
 
     }
 }

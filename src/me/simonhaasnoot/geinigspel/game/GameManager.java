@@ -63,6 +63,6 @@ public class GameManager {
         gameFrame.repaint();
 
         // FIXME: Show the number of alive game objects in the title
-        gameFrame.setTitle("Made by Simon Haasnoot - Game objects: " + getGameStateManager().getGameObjects().size()+ " - Lives: " + HealthViewerObject.CURRENT_HEARTS +  " - Frame time: " + FrameTime.time);
+        gameFrame.setTitle("Made by Simon Haasnoot & Tim Visee - Game objects: " + getGameStateManager().getGameObjects().size()+ " - Lives: " + HealthViewerObject.CURRENT_HEARTS +  " - Frame time: " + FrameTime.time);
     }
 }

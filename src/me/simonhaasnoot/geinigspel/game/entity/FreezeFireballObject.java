@@ -80,8 +80,12 @@ public class FreezeFireballObject extends ImageObject{
     public void update(){
         super.update();
 
+        // this happens if the iceball collides with the character.
         if(hasCollision(GameManager.getGameStateManager().wizardCharacter)){
             this.destroy();
+                CharacterObject.isFrozen = true;
+                CharacterObject.loadCharacterImage();
+                System.out.println("You have been frozen!");
         }
     }
 }
