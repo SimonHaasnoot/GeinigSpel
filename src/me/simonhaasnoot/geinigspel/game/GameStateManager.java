@@ -86,6 +86,7 @@ public class GameStateManager {
 
         // Call the start method in the level
         this.level.start(this);
+
     }
 
     /**,

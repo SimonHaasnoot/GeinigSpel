@@ -85,7 +85,7 @@ public class FreezeFireballObject extends ImageObject{
             this.destroy();
                 CharacterObject.isFrozen = true;
                 CharacterObject.loadCharacterImage();
-                System.out.println("You have been frozen!");
+                System.out.println("You're frozen!");
         }
     }
 }

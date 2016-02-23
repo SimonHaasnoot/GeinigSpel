@@ -30,11 +30,8 @@ public class Level1 extends BaseLevel {
         if(FrameTime.time > 60) {
             if (Math.random() < FrameTime.time / ((Math.sqrt(FrameTime.time) *8) * 1000.0))
                 gsm.addGameObject(new MeteoriteObject(-300, -300));
-            }
-
+        }
     }
-
-
 }
 
 

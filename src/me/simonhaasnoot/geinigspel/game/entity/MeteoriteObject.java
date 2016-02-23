@@ -14,12 +14,12 @@ public class MeteoriteObject extends ImageObject{
     /**
      * The Width of the Meteorite object.
      */
-    public static final double SIZE_WIDTH = 300;
+    public static final double SIZE_WIDTH = 175;
 
     /**
      * The height of the meteorite object.
      */
-    public static final double SIZE_HEIGHT = 300;
+    public static final double SIZE_HEIGHT = 175;
 
     /**
      * Set MIN speed.
