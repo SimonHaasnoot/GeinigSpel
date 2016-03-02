@@ -139,6 +139,8 @@ public class GameStateManager {
             this.gameObjects.remove(g);
         this.gameObjectsToDestroy.clear();
 
+        //FIXME fix me kappa
+        //this.level.paint();
     }
 
     /**
