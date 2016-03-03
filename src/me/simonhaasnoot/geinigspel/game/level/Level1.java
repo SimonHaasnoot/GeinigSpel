@@ -2,10 +2,7 @@ package me.simonhaasnoot.geinigspel.game.level;
 
 import me.simonhaasnoot.geinigspel.game.GameManager;
 import me.simonhaasnoot.geinigspel.game.GameStateManager;
-import me.simonhaasnoot.geinigspel.game.entity.FireballObject;
-import me.simonhaasnoot.geinigspel.game.entity.FreezeFireballObject;
-import me.simonhaasnoot.geinigspel.game.entity.MeteoriteObject;
-import me.simonhaasnoot.geinigspel.game.entity.ThunderObject;
+import me.simonhaasnoot.geinigspel.game.entity.*;
 import me.simonhaasnoot.geinigspel.game.time.FrameTime;
 
 import java.awt.*;
@@ -14,10 +11,14 @@ public class Level1 extends BaseLevel {
 
     @Override
     public void start(GameStateManager gsm) {
+        // Get the game state manager
+        GameStateManager gameStateManager = GameManager.getGameStateManager();
 
         // Set the frame background
-        GameManager.getGameStateManager().setBackgroundImage(Toolkit.getDefaultToolkit().createImage("Images/Landscape/1028x768BB.png"));
+        gameStateManager.setBackgroundImage(Toolkit.getDefaultToolkit().createImage("Images/Landscape/1028x768BB.png"));
 
+        // Create the health object
+        gameStateManager.addGameObject(new HealthViewerObject(0, 0));
     }
 
     @Override
@@ -34,7 +35,7 @@ public class Level1 extends BaseLevel {
 
 
         // spawn thunder clouds
-        if(Math.random() < FrameTime.time / ((Math.sqrt(FrameTime.time)*6) * 250.0 ))
+        if(Math.random() < FrameTime.time / ((Math.sqrt(FrameTime.time)*2) * 250.0 ))
             gsm.addGameObject(new ThunderObject(Math.random() * GameManager.getGameFrame().getWidth() - ThunderObject.SIZE_WIDTH, 150));
 
 

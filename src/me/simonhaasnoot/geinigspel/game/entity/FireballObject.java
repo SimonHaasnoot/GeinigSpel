@@ -80,7 +80,7 @@ public class FireballObject extends ImageObject {
 
         if(hasCollision(GameManager.getGameStateManager().wizardCharacter)){
             this.destroy();
-            HealthViewerObject.CURRENT_HEARTS--;
+            CharacterObject.currentHearts--;
         }
     }
 }

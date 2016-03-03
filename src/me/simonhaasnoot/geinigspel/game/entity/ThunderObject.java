@@ -28,7 +28,7 @@ public class ThunderObject extends ImageObject {
     /**
      * Define the time the cloud will last.
      */
-    public double startFrozenTime;
+    private double startFrozenTime;
 
     /**
      *
@@ -45,7 +45,7 @@ public class ThunderObject extends ImageObject {
         startFrozenTime = FrameTime.time;
     }
 
-    public static Image loadThunderImage(){
+    public static synchronized Image loadThunderImage(){
 
         // TODO: Move image path into a constant!
         thunderImg = Toolkit.getDefaultToolkit().createImage("Images/Objects/Gifs/ThunderwithCloudgif.gif");
@@ -57,7 +57,7 @@ public class ThunderObject extends ImageObject {
 
 
         if(hasCollision(GameManager.getGameStateManager().wizardCharacter)){
-            HealthViewerObject.CURRENT_HEARTS -= 1;
+            CharacterObject.currentHearts -= 1;
         }
         if(FrameTime.time - startFrozenTime > 1.5){
             this.destroy();

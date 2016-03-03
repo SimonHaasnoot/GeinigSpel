@@ -1,8 +1,5 @@
 package me.simonhaasnoot.geinigspel.game.entity;
 
-import me.simonhaasnoot.geinigspel.game.GameManager;
-import me.simonhaasnoot.geinigspel.game.frame.GameFrame;
-
 import java.awt.*;
 
 public class ImageObject extends GameObject {
@@ -105,6 +102,13 @@ public class ImageObject extends GameObject {
         this.flipY = flipY;
     }
 
+    /**
+     * Paint the game object.
+     *
+     * @param g The graphics canvas to render on.
+     *
+     * @return True if succeed, false if not.
+     */
     public boolean paint(Graphics2D g) {
         // Get the position and size of the image
         int x = (int) getX();
@@ -122,19 +126,6 @@ public class ImageObject extends GameObject {
         if(isFlippedY()) {
             y += height;
             height *= -1;
-        }
-        //FIXME this needs to be replaced
-        if(HealthViewerObject.CURRENT_HEARTS >= 1){
-            g.drawImage(HealthViewerObject.loadHeartImage(), GameManager.getGameFrame().getWidth() - 70, GameFrame.HEIGHT +
-                    HealthViewerObject.SIZE_HEIGHT/4, HealthViewerObject.SIZE_WIDTH, HealthViewerObject.SIZE_HEIGHT, null);
-        }
-        if(HealthViewerObject.CURRENT_HEARTS >= 2){
-            g.drawImage(HealthViewerObject.loadHeartImage(), GameManager.getGameFrame().getWidth() - 130, GameFrame.HEIGHT +
-                    HealthViewerObject.SIZE_HEIGHT/4, HealthViewerObject.SIZE_WIDTH, HealthViewerObject.SIZE_HEIGHT, null);
-        }
-        if(HealthViewerObject.CURRENT_HEARTS >= 3){
-            g.drawImage(HealthViewerObject.loadHeartImage(), GameManager.getGameFrame().getWidth() - 190, GameFrame.HEIGHT +
-                    HealthViewerObject.SIZE_HEIGHT/4, HealthViewerObject.SIZE_WIDTH, HealthViewerObject.SIZE_HEIGHT, null);
         }
 
         // Draw the image

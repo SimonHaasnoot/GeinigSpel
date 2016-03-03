@@ -1,6 +1,6 @@
 package me.simonhaasnoot.geinigspel.game;
 
-import me.simonhaasnoot.geinigspel.game.entity.HealthViewerObject;
+import me.simonhaasnoot.geinigspel.game.entity.CharacterObject;
 import me.simonhaasnoot.geinigspel.game.frame.GameFrame;
 import me.simonhaasnoot.geinigspel.game.input.Input;
 import me.simonhaasnoot.geinigspel.game.time.FrameTime;
@@ -63,6 +63,6 @@ public class GameManager {
         gameFrame.repaint();
 
         // FIXME: Show the number of alive game objects in the title
-        gameFrame.setTitle("Made by Simon Haasnoot & Tim Visee - Game objects: " + getGameStateManager().getGameObjects().size()+ " - Lives: " + HealthViewerObject.CURRENT_HEARTS +  " - Frame time: " + FrameTime.time);
+        gameFrame.setTitle("Made by Simon Haasnoot & Tim Visee - Game objects: " + getGameStateManager().getGameObjects().size()+ " - Lives: " + CharacterObject.currentHearts +  " - Frame time: " + FrameTime.time);
     }
 }

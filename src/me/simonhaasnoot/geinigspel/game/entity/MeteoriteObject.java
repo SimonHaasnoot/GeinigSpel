@@ -70,7 +70,7 @@ public class MeteoriteObject extends ImageObject{
 
         if(hasCollision(GameManager.getGameStateManager().wizardCharacter)){
             this.destroy();
-            HealthViewerObject.CURRENT_HEARTS -= 2;
+            CharacterObject.currentHearts -= 2;
         }
     }
 }

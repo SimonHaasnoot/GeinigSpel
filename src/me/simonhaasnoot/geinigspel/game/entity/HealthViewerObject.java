@@ -1,5 +1,8 @@
 package me.simonhaasnoot.geinigspel.game.entity;
 
+import me.simonhaasnoot.geinigspel.game.GameManager;
+import me.simonhaasnoot.geinigspel.game.frame.GameFrame;
+
 import java.awt.*;
 
 public class HealthViewerObject extends ImageObject{
@@ -18,11 +21,6 @@ public class HealthViewerObject extends ImageObject{
      * Define the minimum lives u can have.
      */
     public static final int MIN_HEARTS = 1;
-
-    /**
-     * Define the current hearts.
-     */
-    public static int CURRENT_HEARTS = 3;
 
     /**
      * Define the maximum hearts u can get.
@@ -55,8 +53,6 @@ public class HealthViewerObject extends ImageObject{
         super(x, y, width, height, img);
     }
 
-
-
     /**
      *
      * @return heartImg;
@@ -71,9 +67,19 @@ public class HealthViewerObject extends ImageObject{
         return heartImg;
     }
 
-    @Override
-    public void update(){
-        super.update();
-    }
+    /**
+     * Paint the health.
+     *
+     * @param g The graphics canvas to render on.
+     *
+     * @return True if succeed, false if not.
+     */
+    public boolean paint(Graphics2D g) {
+        // Draw the health
+        for(int i = 0; i < CharacterObject.currentHearts; i++)
+            g.drawImage(HealthViewerObject.loadHeartImage(), GameManager.getGameFrame().getWidth() - (i * 60) - 70, GameFrame.HEIGHT +
+                    HealthViewerObject.SIZE_HEIGHT/4, HealthViewerObject.SIZE_WIDTH, HealthViewerObject.SIZE_HEIGHT, null);
 
+        return true;
+    }
 }

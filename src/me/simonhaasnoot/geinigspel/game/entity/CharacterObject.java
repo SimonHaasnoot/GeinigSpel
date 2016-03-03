@@ -47,6 +47,11 @@ public class CharacterObject extends ImageObject {
     public static Image characterImg;
 
     /**
+     * Define the current hearts.
+     */
+    public static int currentHearts = 3;
+
+    /**
      * @param x set x position for Character.
      * @param y set y position for Character.
      */
@@ -68,8 +73,6 @@ public class CharacterObject extends ImageObject {
         // Do not destroy the player when it goes out of the screen
         setDestroyOffScreen(false);
         setDestroyOffScreenSoft(false);
-
-
     }
 
     /**
@@ -130,6 +133,5 @@ public class CharacterObject extends ImageObject {
             loadCharacterImage();
             GameManager.getGameStateManager().wizardCharacter.setImage(characterImg);
         }
-
     }
 }
