@@ -78,9 +78,9 @@ public class FireballObject extends ImageObject {
     public void update(){
         super.update();
 
-        if(hasCollision(GameManager.getGameStateManager().wizardCharacter)){
+        if(hasCollision(GameManager.getGameStateManager().getLevel().getCharacter())){
             this.destroy();
-            CharacterObject.currentHearts--;
+            GameManager.getGameStateManager().setCharacterDamageTaken(1);
         }
     }
 }

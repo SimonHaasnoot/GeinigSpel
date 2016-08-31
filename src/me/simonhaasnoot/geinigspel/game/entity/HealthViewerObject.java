@@ -18,16 +18,6 @@ public class HealthViewerObject extends ImageObject{
     public static final int SIZE_HEIGHT = 50;
 
     /**
-     * Define the minimum lives u can have.
-     */
-    public static final int MIN_HEARTS = 1;
-
-    /**
-     * Define the maximum hearts u can get.
-     */
-    public static final int MAX_HEARTS = 6;
-
-    /**
      * The Heart image.
      */
     public static Image heartImg;
@@ -76,7 +66,7 @@ public class HealthViewerObject extends ImageObject{
      */
     public boolean paint(Graphics2D g) {
         // Draw the health
-        for(int i = 0; i < CharacterObject.currentHearts; i++)
+        for(int i = 0; i < GameManager.getGameStateManager().getLevel().getCharacter().getCurrentHearts(); i++)
             g.drawImage(HealthViewerObject.loadHeartImage(), GameManager.getGameFrame().getWidth() - (i * 60) - 70, GameFrame.HEIGHT +
                     HealthViewerObject.SIZE_HEIGHT/4, HealthViewerObject.SIZE_WIDTH, HealthViewerObject.SIZE_HEIGHT, null);
 

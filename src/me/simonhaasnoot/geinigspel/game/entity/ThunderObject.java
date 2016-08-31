@@ -56,8 +56,8 @@ public class ThunderObject extends ImageObject {
         super.update();
 
 
-        if(hasCollision(GameManager.getGameStateManager().wizardCharacter)){
-            CharacterObject.currentHearts -= 1;
+        if(hasCollision(GameManager.getGameStateManager().getLevel().getCharacter())){
+            GameManager.getGameStateManager().setCharacterDamageTaken(2);
         }
         if(FrameTime.time - startFrozenTime > 1.5){
             this.destroy();

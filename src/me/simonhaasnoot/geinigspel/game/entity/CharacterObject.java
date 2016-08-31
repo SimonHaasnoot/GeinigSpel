@@ -49,7 +49,7 @@ public class CharacterObject extends ImageObject {
     /**
      * Define the current hearts.
      */
-    public static int currentHearts = 3;
+    public int currentHearts = 3;
 
     /**
      * @param x set x position for Character.
@@ -59,13 +59,6 @@ public class CharacterObject extends ImageObject {
         this(x, y, SIZE_WIDTH, SIZE_HEIGHT, loadCharacterImage());
     }
 
-    /**
-     * @param x
-     * @param y
-     * @param width
-     * @param height
-     * @param img
-     */
     public CharacterObject(double x, double y, double width, double height, Image img) {
         // Construct the parent
         super(x, y, width, height, img);
@@ -90,16 +83,28 @@ public class CharacterObject extends ImageObject {
             StartFrozenTime = FrameTime.time;
             SPEED_NORMAL = 0;
             characterImg = Toolkit.getDefaultToolkit().createImage("Images/Characters/FrozenCharacter.png");
-            GameManager.getGameStateManager().wizardCharacter.setImage(characterImg);
+            GameManager.getGameStateManager().getLevel().getCharacter().setImage(characterImg);
         }
 
         return characterImg;
+    }
+
+    public int getCurrentHearts() {
+        return currentHearts;
+    }
+
+    public void setCurrentHearts(int currentHearts) {
+        this.currentHearts = currentHearts;
     }
 
     @Override
     public void update() {
         // Call the super
         super.update();
+
+        if(this == null){
+            isFrozen = false;
+        }
 
         // Create a variable for the horizontal speed of the character
         int speed = 0;
@@ -120,18 +125,18 @@ public class CharacterObject extends ImageObject {
         setSpeedX(speed);
 
         // Set the MIN and MAX of the field your playing in.
-        if(GameManager.getGameStateManager().wizardCharacter.getX() > GameFrame.FRAME_WIDTH - getWidth())
-            GameManager.getGameStateManager().wizardCharacter.setX(GameFrame.FRAME_WIDTH - getWidth());
+        if(GameManager.getGameStateManager().getLevel().getCharacter().getX() > GameFrame.FRAME_WIDTH - getWidth())
+            GameManager.getGameStateManager().getLevel().getCharacter().setX(GameFrame.FRAME_WIDTH - getWidth());
 
-        if(GameManager.getGameStateManager().wizardCharacter.getX() < 0)
-            GameManager.getGameStateManager().wizardCharacter.setX(0);
+        if(GameManager.getGameStateManager().getLevel().getCharacter().getX() < 0)
+            GameManager.getGameStateManager().getLevel().getCharacter().setX(0);
 
         // what to do when frozen and unfrozen
         if(isFrozen)
         if(FrameTime.time - StartFrozenTime > 1){
             isFrozen = false;
             loadCharacterImage();
-            GameManager.getGameStateManager().wizardCharacter.setImage(characterImg);
+            GameManager.getGameStateManager().getLevel().getCharacter().setImage(characterImg);
         }
     }
 }

@@ -2,6 +2,7 @@ package me.simonhaasnoot.geinigspel.game.level;
 
 import me.simonhaasnoot.geinigspel.game.GameManager;
 import me.simonhaasnoot.geinigspel.game.GameStateManager;
+import me.simonhaasnoot.geinigspel.game.entity.CharacterObject;
 import me.simonhaasnoot.geinigspel.game.entity.FireballObject;
 import me.simonhaasnoot.geinigspel.game.time.FrameTime;
 
@@ -24,4 +25,15 @@ public class Level2 extends BaseLevel {
             gsm.addGameObject(new FireballObject(Math.random() * GameManager.getGameFrame().getWidth() - FireballObject.SIZE_WIDTH, -FireballObject.SIZE_HEIGHT));
 
     }
+
+    @Override
+    public CharacterObject getCharacter() {
+        return null;
+    }
+
+    @Override
+    public void registerKeys() {
+
+    }
+
 }

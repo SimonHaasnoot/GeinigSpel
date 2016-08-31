@@ -1,4 +1,5 @@
 package me.simonhaasnoot.geinigspel.game;
+
 import me.simonhaasnoot.geinigspel.game.entity.CharacterObject;
 import me.simonhaasnoot.geinigspel.game.entity.GameObject;
 import me.simonhaasnoot.geinigspel.game.frame.GameFrame;
@@ -8,6 +9,7 @@ import me.simonhaasnoot.geinigspel.game.time.Timer;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 
 public class GameStateManager {
@@ -37,16 +39,12 @@ public class GameStateManager {
      */
     private Image backgroundImg;
 
-    public CharacterObject wizardCharacter;
-
     /**
      * Constructor.
      */
     public GameStateManager() {
 
         // Add the character object
-        wizardCharacter = new CharacterObject(GameFrame.FRAME_WIDTH/2, GameFrame.FRAME_HEIGHT - CharacterObject.SIZE_HEIGHT*1.85);
-        addGameObject(wizardCharacter);
 
         // Start the timer
         this.levelTimer.restart();
@@ -76,9 +74,15 @@ public class GameStateManager {
      * @param level The level to load.
      */
     public void loadLevel(BaseLevel level) {
-        // TODO: Make sure the given level is valid, unload the current level, load this level.
 
-        // Set the loaded level
+        // make sure to delete all game objects, clear the gameObject list.
+        gameObjects.clear();
+        gameObjectsToDestroy.clear();
+
+        // if frozen and you restart you'll get a nullpointer exception, so you have to tell java that frozen is false upon restarting.
+        CharacterObject.isFrozen = false;
+
+        // load the new level
         this.level = level;
 
         // Reset and start the level timer
@@ -96,6 +100,18 @@ public class GameStateManager {
      */
     public List<GameObject> getGameObjects() {
         return gameObjects;
+    }
+
+    public int getHeartCount(){
+        return getLevel().getCharacter().getCurrentHearts();
+    }
+
+    public void setCharacterDamageTaken(int damage){
+        getLevel().getCharacter().setCurrentHearts(getHeartCount() - damage);
+    }
+
+    public void pickedUpLifeheart(int heart){
+        getLevel().getCharacter().setCurrentHearts(getHeartCount() + heart);
     }
 
     /**
@@ -119,9 +135,13 @@ public class GameStateManager {
         }
 
         {
-            //noinspection ForLoopReplaceableByForEach
-            for(int i = 0; i < this.gameObjects.size(); i++)
-                this.gameObjects.get(i).paint(g);
+            try {
+                for (GameObject go : gameObjects) {
+                    go.paint(g);
+                }
+            } catch(ConcurrentModificationException e){
+                e.printStackTrace();
+             }
         }
     }
 
@@ -141,8 +161,9 @@ public class GameStateManager {
             this.gameObjects.remove(g);
         this.gameObjectsToDestroy.clear();
 
-        //FIXME fix me kappa
-        //this.level.paint();
+        if(getHeartCount() <= 0){
+            loadLevel(level);
+        }
     }
 
     /**

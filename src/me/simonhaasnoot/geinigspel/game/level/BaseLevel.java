@@ -1,8 +1,7 @@
 package me.simonhaasnoot.geinigspel.game.level;
 
 import me.simonhaasnoot.geinigspel.game.GameStateManager;
-
-import java.awt.*;
+import me.simonhaasnoot.geinigspel.game.entity.CharacterObject;
 
 public abstract class BaseLevel {
 
@@ -20,5 +19,15 @@ public abstract class BaseLevel {
      */
     public abstract void update(GameStateManager gsm);
 
-  //  public abstract void paint(Graphics g);
+
+    /**
+     *
+     * @return wizardObject. (the playable character).
+     */
+    public abstract CharacterObject getCharacter();
+
+    /**
+     * register all keys pressed.
+     */
+    public abstract void registerKeys();
 }

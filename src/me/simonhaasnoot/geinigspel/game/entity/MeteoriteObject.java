@@ -68,9 +68,9 @@ public class MeteoriteObject extends ImageObject{
     public void update(){
         super.update();
 
-        if(hasCollision(GameManager.getGameStateManager().wizardCharacter)){
+        if(hasCollision(GameManager.getGameStateManager().getLevel().getCharacter())){
             this.destroy();
-            CharacterObject.currentHearts -= 2;
+            GameManager.getGameStateManager().setCharacterDamageTaken(2);
         }
     }
 }
