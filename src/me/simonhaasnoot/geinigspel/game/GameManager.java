@@ -2,7 +2,6 @@ package me.simonhaasnoot.geinigspel.game;
 
 import me.simonhaasnoot.geinigspel.game.frame.GameFrame;
 import me.simonhaasnoot.geinigspel.game.input.Input;
-import me.simonhaasnoot.geinigspel.game.time.FrameTime;
 
 public class GameManager {
 
@@ -69,6 +68,6 @@ public class GameManager {
                 getGameStateManager().getGameObjects().size() +
                 " - Lives: " +
                 GameManager.getGameStateManager().getLevel().getCharacter().getCurrentHearts() +
-                " - Frame time: " + FrameTime.time);
+                " - Frame time: " + GameManager.getGameStateManager().levelTimer.getElapsedTime());
     }
 }

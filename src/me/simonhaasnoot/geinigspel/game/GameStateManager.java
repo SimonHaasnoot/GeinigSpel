@@ -120,8 +120,6 @@ public class GameStateManager {
      * @param g The graphics canvas.
      */
     public void paintGameObjects(Graphics2D g) {
-        // Update the frame timer
-        FrameTime.updateFrameTime(levelTimer);
 
         // draw the sky
         g.drawImage(this.backgroundImg, 0, 0, GameManager.getGameFrame().getWidth(), GameManager.getGameFrame().getHeight(), null);
@@ -149,6 +147,9 @@ public class GameStateManager {
      * Update.
      */
     public synchronized void update() {
+
+        FrameTime.updateFrameTime(levelTimer);
+
         // Update the level if it's loaded
         if(level != null)
             level.update(this);

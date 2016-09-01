@@ -69,7 +69,6 @@ public class FireballObject extends ImageObject {
         if(fireballImg != null)
             return fireballImg;
 
-        // TODO: Move image path into a constant!
         fireballImg = Toolkit.getDefaultToolkit().createImage("Images/Objects/Gifs/FIREBALL.gif");
         return fireballImg;
     }
