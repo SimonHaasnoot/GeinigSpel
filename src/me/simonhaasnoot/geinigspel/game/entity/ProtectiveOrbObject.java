@@ -11,7 +11,7 @@ public class ProtectiveOrbObject extends ImageObject {
     public static final int SIZE_WIDTH = 40;
     public static final int SIZE_HEIGHT = 40;
 
-    public static Image orbImage;
+    private static Image orbImage;
 
     private boolean orbObtained = false;
 
@@ -24,9 +24,7 @@ public class ProtectiveOrbObject extends ImageObject {
     }
     
     public boolean isOrbObtained(){
-        if(orbObtained)
-            return true;
-            else return false;
+        return orbObtained;
     }
 
     public synchronized static Image loadOrbImage(){
