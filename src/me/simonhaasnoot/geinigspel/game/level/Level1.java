@@ -13,6 +13,8 @@ public class Level1 extends BaseLevel {
 
     private CharacterObject wizardCharacter;
 
+    private Image portraitImage;
+
     @Override
     public void start(GameStateManager gsm) {
         // Get the game state manager
@@ -21,8 +23,11 @@ public class Level1 extends BaseLevel {
         if(gsm.getBackgroundImage() == null)
             gsm.setBackgroundImage(Toolkit.getDefaultToolkit().createImage("Images/Landscape/1028x768BB.png"));
 
+        portraitImage = Toolkit.getDefaultToolkit().createImage("Images/Portraits/itemPortrait.png");
+
         // Create the health object
         gsm.addGameObject(new HealthViewerObject(0, 0));
+
 
         // create the player
         gsm.addGameObject(wizardCharacter = new CharacterObject(GameFrame.FRAME_WIDTH/2, GameFrame.FRAME_HEIGHT - CharacterObject.SIZE_HEIGHT*1.85));
@@ -31,17 +36,17 @@ public class Level1 extends BaseLevel {
     @Override
     public void update(GameStateManager gsm) {
 
-        // Spawn the fireballs
+        // Spawn the fireball
         if(Math.random() < gsm.levelTimer.getElapsedTime() / (Math.sqrt(gsm.levelTimer.getElapsedTime()) * 250.0 ))
             gsm.addGameObject(new FireballObject(Math.random() * GameManager.getGameFrame().getWidth() -FireballObject.SIZE_WIDTH, -FireballObject.SIZE_HEIGHT));
 
 
-        // spawn freezeballs
+        // spawn freeze
         if(Math.random() < gsm.levelTimer.getElapsedTime() / ((Math.sqrt(gsm.levelTimer.getElapsedTime())*8) * 250.0 ))
             gsm.addGameObject(new FreezeFireballObject(Math.random() * GameManager.getGameFrame().getWidth() -FireballObject.SIZE_WIDTH, -FireballObject.SIZE_HEIGHT));
 
 
-        // spawn thunder clouds
+        // spawn thunder cloud
 //        if(Math.random() < FrameTime.time / ((Math.sqrt(FrameTime.time)*20) * 250.0 ))
 //            gsm.addGameObject(new ThunderObject(Math.random() * GameManager.getGameFrame().getWidth() - ThunderObject.SIZE_WIDTH, 150));
 
@@ -52,9 +57,16 @@ public class Level1 extends BaseLevel {
                 gsm.addGameObject(new MeteoriteObject(-300, -300));
         }
 
-        //spawn lifehearts
-        if(Math.random() < gsm.levelTimer.getElapsedTime() / ((Math.sqrt(gsm.levelTimer.getElapsedTime()) *60) * 250.0)) {
-            gsm.addGameObject(new LifeheartObject(Math.random() * GameManager.getGameFrame().getWidth() - LifeheartObject.SIZE_WIDTH, GameFrame.FRAME_HEIGHT - LifeheartObject.SIZE_HEIGHT * 3.2));
+        //spawn lifeheart
+        if(Math.random() < gsm.levelTimer.getElapsedTime() / ((Math.sqrt(gsm.levelTimer.getElapsedTime()) *80) * 250.0)) {
+            gsm.addGameObject(new LifeheartObject((Math.random() * GameManager.getGameFrame().getWidth() - LifeheartObject.SIZE_WIDTH)
+                    + LifeheartObject.SIZE_WIDTH , GameFrame.FRAME_HEIGHT - LifeheartObject.SIZE_HEIGHT * 3.2));
+        }
+
+        // spawn protective orb
+        if(Math.random() < gsm.levelTimer.getElapsedTime() / ((Math.sqrt(gsm.levelTimer.getElapsedTime())* 60) * 250.0)) {
+            gsm.addGameObject(new ProtectiveOrbObject(Math.random() * GameManager.getGameFrame().getWidth() - ProtectiveOrbObject.SIZE_WIDTH,
+                    GameFrame.FRAME_HEIGHT - ProtectiveOrbObject.SIZE_HEIGHT * 3.2));
         }
 
     }
@@ -79,6 +91,10 @@ public class Level1 extends BaseLevel {
             g.setColor(Color.RED);
             g.drawString("WARNING! Incoming meteorites detected!", GameFrame.WIDTH / 2 + GameFrame.FRAME_HEIGHT / 3, GameFrame.FRAME_HEIGHT / 4);
         }
+
+
+        g.drawImage(portraitImage, GameManager.getGameFrame().getWidth()  - 70, GameFrame.HEIGHT +
+                HealthViewerObject.SIZE_HEIGHT + HealthViewerObject.SIZE_HEIGHT/2, 50, 50, null);
     }
 
     @Override

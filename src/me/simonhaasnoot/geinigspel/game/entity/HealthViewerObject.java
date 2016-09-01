@@ -68,7 +68,7 @@ public class HealthViewerObject extends ImageObject{
         // Draw the health
         for(int i = 0; i < GameManager.getGameStateManager().getLevel().getCharacter().getCurrentHearts(); i++)
             g.drawImage(HealthViewerObject.loadHeartImage(), GameManager.getGameFrame().getWidth() - (i * 60) - 70, GameFrame.HEIGHT +
-                    HealthViewerObject.SIZE_HEIGHT/4, HealthViewerObject.SIZE_WIDTH, HealthViewerObject.SIZE_HEIGHT, null);
+                    HealthViewerObject.SIZE_HEIGHT/4, SIZE_WIDTH, SIZE_HEIGHT, null);
 
         return true;
     }
