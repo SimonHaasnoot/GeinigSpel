@@ -3,7 +3,6 @@ package me.simonhaasnoot.geinigspel.game.entity;
 import me.simonhaasnoot.geinigspel.game.GameManager;
 import me.simonhaasnoot.geinigspel.game.frame.GameFrame;
 import me.simonhaasnoot.geinigspel.game.input.Input;
-import me.simonhaasnoot.geinigspel.game.time.FrameTime;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -80,7 +79,7 @@ public class CharacterObject extends ImageObject {
         }
 
         if(isFrozen){
-            StartFrozenTime = FrameTime.time;
+            StartFrozenTime = GameManager.getGameStateManager().levelTimer.getElapsedTime();
             SPEED_NORMAL = 0;
             characterImg = Toolkit.getDefaultToolkit().createImage("Images/Characters/FrozenCharacter.png");
             GameManager.getGameStateManager().getLevel().getCharacter().setImage(characterImg);
@@ -102,29 +101,20 @@ public class CharacterObject extends ImageObject {
         // Call the super
         super.update();
 
-        if(this == null){
-            isFrozen = false;
-        }
-
-        // Create a variable for the horizontal speed of the character
-        int speed = 0;
-
+        setSpeedX(0);
         // Configure the speed based on the pressed keys
         if(Input.isPressed(KeyEvent.VK_LEFT) || Input.isPressed(KeyEvent.VK_A))
-            speed -= SPEED_NORMAL;
+            setSpeedX(-SPEED_NORMAL);
         if(Input.isPressed(KeyEvent.VK_RIGHT) || Input.isPressed(KeyEvent.VK_D))
-            speed += SPEED_NORMAL;
+            setSpeedX(SPEED_NORMAL);
 
         // Properly flip the character if it's moving left or right
-
         if(GameManager.getGameStateManager().levelTimer.isRunning()) {
-            if (speed < 0)
+            if (getSpeedX() < 0)
                 setFlippedX(true);
-            else if (speed > 0)
+            else if (getSpeedX() > 0)
                 setFlippedX(false);
         }
-        // Set the speed of the character
-        setSpeedX(speed);
 
         // Set the MIN and MAX of the field your playing in.
         if(GameManager.getGameStateManager().getLevel().getCharacter().getX() > GameFrame.FRAME_WIDTH - getWidth())
@@ -134,11 +124,12 @@ public class CharacterObject extends ImageObject {
             GameManager.getGameStateManager().getLevel().getCharacter().setX(0);
 
         // what to do when frozen and unfrozen
-        if(isFrozen)
-        if(FrameTime.time - StartFrozenTime > 1){
+        if(isFrozen){
+            if(GameManager.getGameStateManager().levelTimer.getElapsedTime() - StartFrozenTime > 1) {
             isFrozen = false;
             loadCharacterImage();
             GameManager.getGameStateManager().getLevel().getCharacter().setImage(characterImg);
+            }
         }
     }
 }
