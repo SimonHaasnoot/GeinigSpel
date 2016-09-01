@@ -13,6 +13,8 @@ public class Level1 extends BaseLevel {
 
     private CharacterObject wizardCharacter;
 
+    private boolean isStarted = true;
+
     @Override
     public void start(GameStateManager gsm) {
         // Get the game state manager
@@ -24,9 +26,8 @@ public class Level1 extends BaseLevel {
         // Create the health object
         gsm.addGameObject(new HealthViewerObject(0, 0));
 
-        wizardCharacter = new CharacterObject(GameFrame.FRAME_WIDTH/2, GameFrame.FRAME_HEIGHT - CharacterObject.SIZE_HEIGHT*1.85);
-        gsm.addGameObject(wizardCharacter);
-
+        // create the player
+        gsm.addGameObject(wizardCharacter = new CharacterObject(GameFrame.FRAME_WIDTH/2, GameFrame.FRAME_HEIGHT - CharacterObject.SIZE_HEIGHT*1.85));
     }
 
     @Override
@@ -61,22 +62,27 @@ public class Level1 extends BaseLevel {
     }
 
     @Override
-    public CharacterObject getCharacter() {
-        return wizardCharacter;
+    public void registerKeys() {
+
+        if(Input.isPressedOnce(KeyEvent.VK_ESCAPE) || Input.isPressed(KeyEvent.VK_R))
+            GameManager.getGameStateManager().loadLevel(new Level1());
+
+        if(Input.isPressedOnce(KeyEvent.VK_P)) {
+            if(isStarted) {
+                wizardCharacter.setSpeedX(0);
+                GameManager.getGameStateManager().levelTimer.stop();
+                isStarted = false;
+            }
+            else{
+                GameManager.getGameStateManager().levelTimer.start();
+                isStarted = true;
+            }
+        }
     }
 
     @Override
-    public void registerKeys() {
-        if(Input.isPressed(KeyEvent.VK_ESCAPE) || Input.isPressed(KeyEvent.VK_R))
-            GameManager.getGameStateManager().loadLevel(new Level1());
-
-        if(Input.isPressed(KeyEvent.VK_P)) {
-            wizardCharacter.setSpeedX(0);
-            //GameManager.getGameStateManager().levelTimer.
-
-
-        }
-
+    public CharacterObject getCharacter() {
+        return wizardCharacter;
     }
 
 }

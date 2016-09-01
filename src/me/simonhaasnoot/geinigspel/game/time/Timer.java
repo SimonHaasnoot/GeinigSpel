@@ -50,10 +50,9 @@ public class Timer {
             return;
 
         // Calculate the elapsed time, store it in the elapsed field and reset the start field
-        this.elapsed += System.nanoTime() - this.start;
-        this.start = -1;
+        this.elapsed += (System.nanoTime() - this.start);
+        start = -1;
     }
-
     /**
      * Restart the timer, this will reset the timer.
      */
