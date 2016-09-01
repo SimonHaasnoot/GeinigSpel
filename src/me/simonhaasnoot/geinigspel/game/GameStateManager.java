@@ -2,7 +2,6 @@ package me.simonhaasnoot.geinigspel.game;
 
 import me.simonhaasnoot.geinigspel.game.entity.CharacterObject;
 import me.simonhaasnoot.geinigspel.game.entity.GameObject;
-import me.simonhaasnoot.geinigspel.game.frame.GameFrame;
 import me.simonhaasnoot.geinigspel.game.level.BaseLevel;
 import me.simonhaasnoot.geinigspel.game.time.FrameTime;
 import me.simonhaasnoot.geinigspel.game.time.Timer;
@@ -40,12 +39,14 @@ public class GameStateManager {
     private Image backgroundImg;
 
     /**
+     * variable for keeping track of the game pause state.
+     */
+    private boolean isGamePaused = false;
+
+    /**
      * Constructor.
      */
     public GameStateManager() {
-
-        // Add the character object
-
         // Start the timer
         this.levelTimer.restart();
     }
@@ -79,6 +80,9 @@ public class GameStateManager {
         gameObjects.clear();
         gameObjectsToDestroy.clear();
 
+        // game is not paused upon loading a new level, just implemented to ensure.
+        isGamePaused = false;
+
         // if frozen and you restart you'll get a nullpointer exception, so you have to tell java that frozen is false upon restarting.
         CharacterObject.isFrozen = false;
 
@@ -91,6 +95,25 @@ public class GameStateManager {
         // Call the start method in the level
         this.level.start(this);
 
+    }
+
+    public void pauseGame(){
+        if(!isGamePaused){
+
+            // pause the timer
+            levelTimer.stop();
+
+            // set the character speed to 0
+            if(getLevel().getCharacter() != null)
+            getLevel().getCharacter().setSpeedX(0);
+
+            // set the variable to true again
+            isGamePaused = true;
+
+        } else{
+          levelTimer.start();
+            isGamePaused = false;
+        }
     }
 
     /**,
@@ -124,15 +147,8 @@ public class GameStateManager {
         // draw the sky
         g.drawImage(this.backgroundImg, 0, 0, GameManager.getGameFrame().getWidth(), GameManager.getGameFrame().getHeight(), null);
 
-        //FIXME might move this to level?
-        if(FrameTime.time > 55 && FrameTime.time < 60) {
-            Font font = new Font("TimesRoman", Font.PLAIN, 26);
-            g.setFont(font);
-            g.setColor(Color.RED);
-            g.drawString("WARNING! Incoming meteorites detected!", GameFrame.WIDTH / 2 + GameFrame.FRAME_HEIGHT / 3, GameFrame.FRAME_HEIGHT / 4);
-        }
+        level.paint(g);
 
-        {
             try {
                 for (GameObject go : gameObjects) {
                     go.paint(g);
@@ -140,7 +156,6 @@ public class GameStateManager {
             } catch(ConcurrentModificationException e){
                 e.printStackTrace();
              }
-        }
     }
 
     /**
@@ -151,9 +166,10 @@ public class GameStateManager {
         FrameTime.updateFrameTime(levelTimer);
 
         // Update the level if it's loaded
-        if(level != null)
-            level.update(this);
-
+        if(!isGamePaused) {
+            if (level != null)
+                level.update(this);
+        }
         // Update all game objects
         this.gameObjects.forEach(GameObject::update);
 

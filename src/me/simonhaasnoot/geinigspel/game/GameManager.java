@@ -54,11 +54,10 @@ public class GameManager {
         // Update all game objects
         gsm.update();
 
-        gsm.getLevel().registerKeys();
+        gsm.getLevel().registerKeys(gsm);
 
         // Force render the game frame
         gameFrame.repaint();
-
 
         gameFrame.setTitle("Made by Simon Haasnoot - Game objects: " +
                 getGameStateManager().getGameObjects().size() +
