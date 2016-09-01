@@ -32,7 +32,12 @@ public class Level2 extends BaseLevel {
     }
 
     @Override
-    public void registerKeys() {
+    public void registerKeys(GameStateManager gsm) {
+
+    }
+
+    @Override
+    public void paint(Graphics2D g) {
 
     }
 

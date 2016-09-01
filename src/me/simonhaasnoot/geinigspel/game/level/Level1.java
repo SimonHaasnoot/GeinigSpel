@@ -13,8 +13,6 @@ public class Level1 extends BaseLevel {
 
     private CharacterObject wizardCharacter;
 
-    private boolean isStarted = true;
-
     @Override
     public void start(GameStateManager gsm) {
         // Get the game state manager
@@ -62,21 +60,24 @@ public class Level1 extends BaseLevel {
     }
 
     @Override
-    public void registerKeys() {
+    public void registerKeys(GameStateManager gsm) {
 
         if(Input.isPressedOnce(KeyEvent.VK_ESCAPE) || Input.isPressed(KeyEvent.VK_R))
-            GameManager.getGameStateManager().loadLevel(new Level1());
+            gsm.loadLevel(new Level1());
 
-        if(Input.isPressedOnce(KeyEvent.VK_P)) {
-            if(isStarted) {
-                wizardCharacter.setSpeedX(0);
-                GameManager.getGameStateManager().levelTimer.stop();
-                isStarted = false;
-            }
-            else{
-                GameManager.getGameStateManager().levelTimer.start();
-                isStarted = true;
-            }
+        if(Input.isPressedOnce(KeyEvent.VK_P))
+        gsm.pauseGame();
+    }
+
+    @Override
+    public void paint(Graphics2D g) {
+
+        // warning message for incoming meteorites
+        if(GameManager.getGameStateManager().levelTimer.getElapsedTime() > 55 && GameManager.getGameStateManager().levelTimer.getElapsedTime() < 60) {
+            Font font = new Font("Calibri", Font.PLAIN, 26);
+            g.setFont(font);
+            g.setColor(Color.RED);
+            g.drawString("WARNING! Incoming meteorites detected!", GameFrame.WIDTH / 2 + GameFrame.FRAME_HEIGHT / 3, GameFrame.FRAME_HEIGHT / 4);
         }
     }
 
