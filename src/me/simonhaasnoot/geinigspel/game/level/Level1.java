@@ -89,7 +89,7 @@ public class Level1 extends BaseLevel {
             Font font = new Font("Calibri", Font.PLAIN, 26);
             g.setFont(font);
             g.setColor(Color.RED);
-            g.drawString("WARNING! Incoming meteorites detected!", GameFrame.WIDTH / 2 + GameFrame.FRAME_HEIGHT / 3, GameFrame.FRAME_HEIGHT / 4);
+            g.drawString("WARNING! Incoming meteorites detected!", GameFrame.FRAME_HEIGHT / 3, GameFrame.FRAME_HEIGHT / 4);
         }
 
 
