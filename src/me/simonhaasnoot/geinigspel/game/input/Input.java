@@ -58,8 +58,8 @@ public class Input {
                 if(!pressedKeys.contains(keyCode)) {
                     pressedKeys.add(keyCode);
                     pressedOnceKeys.add(keyCode);
-                    break;
                 }
+                break;
 
             case RELEASED:
                 // Remove the key from the list if it's currently in the list
