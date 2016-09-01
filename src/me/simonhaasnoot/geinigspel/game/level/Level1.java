@@ -62,11 +62,11 @@ public class Level1 extends BaseLevel {
     @Override
     public void registerKeys(GameStateManager gsm) {
 
-        if(Input.isPressedOnce(KeyEvent.VK_ESCAPE) || Input.isPressed(KeyEvent.VK_R))
+        if(Input.isPressed(KeyEvent.VK_R))
             gsm.loadLevel(new Level1());
 
-        if(Input.isPressedOnce(KeyEvent.VK_P))
-        gsm.pauseGame();
+        if(Input.isPressedOnce(KeyEvent.VK_ESCAPE) || Input.isPressedOnce(KeyEvent.VK_P))
+            gsm.pauseGame();
     }
 
     @Override
