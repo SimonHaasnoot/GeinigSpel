@@ -42,7 +42,7 @@ public class GameFrame extends JFrame {
      */
     public GameFrame(GameStateManager gsm, boolean show) {
         this.setTitle("Made by Simon Haasnoot");
-        this.setResizable(true);
+        this.setResizable(false);
         this.setPreferredSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.pack();
