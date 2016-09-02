@@ -21,7 +21,6 @@ public class Level1 extends BaseLevel {
         // Get the game state manager
 
         // Set the frame background
-        if(gsm.getBackgroundImage() == null)
             gsm.setBackgroundImage(Toolkit.getDefaultToolkit().createImage("Images/Landscape/1028x768BB.png"));
 
         if(portraitImage == null)
@@ -62,13 +61,13 @@ public class Level1 extends BaseLevel {
         //spawn lifeheart
         if(Math.random() < gsm.levelTimer.getElapsedTime() / ((Math.sqrt(gsm.levelTimer.getElapsedTime()) *80) * 250.0)) {
             gsm.addGameObject(new LifeheartObject((Math.random() * GameManager.getGameFrame().getWidth() - LifeheartObject.SIZE_WIDTH)
-                    + LifeheartObject.SIZE_WIDTH , GameFrame.FRAME_HEIGHT - LifeheartObject.SIZE_HEIGHT * 3.2));
+                    + LifeheartObject.SIZE_WIDTH , GameManager.getGameFrame().getHeight() - (GameManager.getGameFrame().getHeight()/19.2) * 3.2));
         }
 
         // spawn protective orb
-        if(Math.random() < gsm.levelTimer.getElapsedTime() / ((Math.sqrt(gsm.levelTimer.getElapsedTime())* 60) * 250.0)) {
+        if(Math.random() < gsm.levelTimer.getElapsedTime() / ((Math.sqrt(gsm.levelTimer.getElapsedTime())* 1) * 250.0)) {
             gsm.addGameObject(new ProtectiveOrbObject(Math.random() * GameManager.getGameFrame().getWidth() - ProtectiveOrbObject.SIZE_WIDTH,
-                    GameFrame.FRAME_HEIGHT - ProtectiveOrbObject.SIZE_HEIGHT * 3.2));
+                    GameManager.getGameFrame().getHeight() - (GameManager.getGameFrame().getHeight()/19.2) * 3.2));
         }
 
     }
@@ -76,11 +75,16 @@ public class Level1 extends BaseLevel {
     @Override
     public void registerKeys(GameStateManager gsm) {
 
+        // reset the level
         if(Input.isPressed(KeyEvent.VK_R))
             gsm.loadLevel(new Level1());
 
+        // pause the game
         if(Input.isPressedOnce(KeyEvent.VK_ESCAPE) || Input.isPressedOnce(KeyEvent.VK_P))
             gsm.pauseGame();
+
+        // use your item
+        if(Input.isPressedOnce(KeyEvent.VK_SPACE)) ;
     }
 
     @Override
@@ -95,8 +99,8 @@ public class Level1 extends BaseLevel {
         }
 
 
-        g.drawImage(portraitImage, GameManager.getGameFrame().getWidth()  - 70, GameFrame.HEIGHT +
-                HealthViewerObject.SIZE_HEIGHT + HealthViewerObject.SIZE_HEIGHT/2, 50, 50, null);
+        g.drawImage(portraitImage, GameManager.getGameFrame().getWidth()  - 120, GameFrame.HEIGHT +
+                HealthViewerObject.SIZE_HEIGHT + HealthViewerObject.SIZE_HEIGHT/2, 100, 100, null);
     }
 
     @Override

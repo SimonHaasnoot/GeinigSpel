@@ -1,4 +1,4 @@
-package me.simonhaasnoot.geinigspel.game.frame;
+package me.simonhaasnoot.geinigspel.game.level;
 
 
 import me.simonhaasnoot.geinigspel.game.GameManager;
@@ -10,11 +10,11 @@ import java.awt.event.KeyEvent;
 public class PauseMenu {
 
 
-    private String [] menuOptions = {"Resume", "Options", "Save", "Exit"};
-
-    private Image image = Toolkit.getDefaultToolkit().createImage("Images/Portraits/woodBg.png");
+    private String [] menuOptions = {"Resume", "Options", "Menu", "Exit"};
 
     private int currentChoice = 0;
+
+    private Image image = Toolkit.getDefaultToolkit().createImage("Images/Portraits/woodBg.png");
 
     public void init(){
 
@@ -51,8 +51,7 @@ public class PauseMenu {
 
         //TODO choice
         if(currentChoice == 2);
-
-        //TODO choice
+        GameManager.getGameStateManager().loadLevel(new MainMenu());
         if(currentChoice == 3)
             System.exit(0);
     }

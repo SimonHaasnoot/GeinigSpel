@@ -1,6 +1,6 @@
 package me.simonhaasnoot.geinigspel.game.Main;
 import me.simonhaasnoot.geinigspel.game.GameManager;
-import me.simonhaasnoot.geinigspel.game.level.Level1;
+import me.simonhaasnoot.geinigspel.game.level.MainMenu;
 
 public class Main {
 
@@ -14,7 +14,7 @@ public class Main {
         GameManager.init();
 
         // Load a level
-        GameManager.getGameStateManager().loadLevel(new Level1());
+        GameManager.getGameStateManager().loadLevel(new MainMenu());
 
         // Update the game manager
         //noinspection InfiniteLoopStatement

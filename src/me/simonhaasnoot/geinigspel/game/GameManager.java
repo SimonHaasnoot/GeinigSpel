@@ -61,11 +61,7 @@ public class GameManager {
             gsm.getLevel().registerKeys(gsm);
 
 
-            gameFrame.setTitle("Made by Simon Haasnoot - Game objects: " +
-                    getGameStateManager().getGameObjects().size() +
-                    " - Lives: " +
-                    GameManager.getGameStateManager().getLevel().getCharacter().getCurrentHearts() +
-                    " - Frame time: " + GameManager.getGameStateManager().levelTimer.getElapsedTime());
+            gameFrame.setTitle("Made by Simon Haasnoot - Game objects: " + getGameStateManager().getGameObjects().size() + " - Frame time: " + GameManager.getGameStateManager().levelTimer.getElapsedTime());
         }
         else{
             //register pause-menu keys
