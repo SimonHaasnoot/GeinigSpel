@@ -13,6 +13,7 @@ public class Level1 extends BaseLevel {
 
     private CharacterObject wizardCharacter;
 
+    //// TODO: 1-9-2016 Make make a portrait object
     private Image portraitImage;
 
     @Override
@@ -23,6 +24,7 @@ public class Level1 extends BaseLevel {
         if(gsm.getBackgroundImage() == null)
             gsm.setBackgroundImage(Toolkit.getDefaultToolkit().createImage("Images/Landscape/1028x768BB.png"));
 
+        if(portraitImage == null)
         portraitImage = Toolkit.getDefaultToolkit().createImage("Images/Portraits/itemPortrait.png");
 
         // Create the health object

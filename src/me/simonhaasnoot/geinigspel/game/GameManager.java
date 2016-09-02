@@ -51,18 +51,26 @@ public class GameManager {
      */
     public static void update() {
 
-        // Update all game objects
-        gsm.update();
+        // if game isn't paused run the game
+        if(!gsm.isGamePaused()) {
 
-        gsm.getLevel().registerKeys(gsm);
+            // Update all game objects
+            gsm.update();
 
+            //register ingame keys
+            gsm.getLevel().registerKeys(gsm);
+
+
+            gameFrame.setTitle("Made by Simon Haasnoot - Game objects: " +
+                    getGameStateManager().getGameObjects().size() +
+                    " - Lives: " +
+                    GameManager.getGameStateManager().getLevel().getCharacter().getCurrentHearts() +
+                    " - Frame time: " + GameManager.getGameStateManager().levelTimer.getElapsedTime());
+        }
+        else{
+            gsm.getPauseMenu().registerKeys();
+        }
         // Force render the game frame
         gameFrame.repaint();
-
-        gameFrame.setTitle("Made by Simon Haasnoot - Game objects: " +
-                getGameStateManager().getGameObjects().size() +
-                " - Lives: " +
-                GameManager.getGameStateManager().getLevel().getCharacter().getCurrentHearts() +
-                " - Frame time: " + GameManager.getGameStateManager().levelTimer.getElapsedTime());
     }
 }

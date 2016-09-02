@@ -5,10 +5,10 @@ import me.simonhaasnoot.geinigspel.game.entity.GameObject;
 import me.simonhaasnoot.geinigspel.game.level.BaseLevel;
 import me.simonhaasnoot.geinigspel.game.time.FrameTime;
 import me.simonhaasnoot.geinigspel.game.time.Timer;
+import me.simonhaasnoot.geinigspel.game.util.PauseMenu;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
 import java.util.List;
 
 public class GameStateManager {
@@ -17,6 +17,12 @@ public class GameStateManager {
      * The level that is currently loaded.
      */
     private BaseLevel level;
+
+    /**
+     *
+     * The menu that is loaded upon pausing.
+     */
+    private PauseMenu pauseMenu;
 
     /**
      * The game objects that are currently loaded.
@@ -116,6 +122,10 @@ public class GameStateManager {
         }
     }
 
+    public boolean isGamePaused(){
+        return isGamePaused;
+    }
+
     /**,
      * Get a list of all game objects that are currently loaded.
      *
@@ -147,15 +157,23 @@ public class GameStateManager {
         // draw the sky
         g.drawImage(this.backgroundImg, 0, 0, GameManager.getGameFrame().getWidth(), GameManager.getGameFrame().getHeight(), null);
 
+        // draw level components
         level.paint(g);
 
-            try {
-                for (GameObject go : gameObjects) {
-                    go.paint(g);
-                }
-            } catch(ConcurrentModificationException e){
-                e.printStackTrace();
-             }
+        // draw all gameObjects
+        for (GameObject go : gameObjects)
+            go.paint(g);
+
+        if(isGamePaused()){
+            if(pauseMenu == null)
+            pauseMenu = new PauseMenu();
+
+            pauseMenu.paint(g);
+        }
+    }
+
+    public PauseMenu getPauseMenu() {
+        return this.pauseMenu;
     }
 
     /**
@@ -166,10 +184,9 @@ public class GameStateManager {
         FrameTime.updateFrameTime(levelTimer);
 
         // Update the level if it's loaded
-        if(!isGamePaused) {
             if (level != null)
                 level.update(this);
-        }
+
         // Update all game objects
         this.gameObjects.forEach(GameObject::update);
 
