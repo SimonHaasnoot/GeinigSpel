@@ -32,7 +32,7 @@ public class Level1 extends BaseLevel {
 
 
         // create the player
-        gsm.addGameObject(wizardCharacter = new CharacterObject(GameFrame.FRAME_WIDTH/2, GameFrame.FRAME_HEIGHT - CharacterObject.SIZE_HEIGHT*1.85));
+        gsm.addGameObject(wizardCharacter = new CharacterObject(GameManager.getGameFrame().getWidth()/2, 0));
     }
 
     @Override

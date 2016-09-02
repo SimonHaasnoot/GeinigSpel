@@ -15,14 +15,14 @@ public class GameFrame extends JFrame {
     private GameStateManager gsm;
 
     /**
-     * Width of the frame.
-     */
-    public static int FRAME_WIDTH = 1028;
-
-    /**
      * Height of the frame.
      */
     public static int FRAME_HEIGHT = 768;
+
+    /**
+     * Width of the frame.
+     */
+    public static int FRAME_WIDTH = (int) (768*1.3385);
 
     /**
      * Constructor.
@@ -42,7 +42,7 @@ public class GameFrame extends JFrame {
      */
     public GameFrame(GameStateManager gsm, boolean show) {
         this.setTitle("Made by Simon Haasnoot");
-        this.setResizable(false);
+        this.setResizable(true);
         this.setPreferredSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.pack();
@@ -85,4 +85,5 @@ public class GameFrame extends JFrame {
     public Rectangle getFrameRectangle() {
         return new Rectangle(0, 0, getWidth(), getHeight());
     }
+
 }

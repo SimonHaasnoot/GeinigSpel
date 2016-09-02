@@ -1,7 +1,6 @@
 package me.simonhaasnoot.geinigspel.game.entity;
 
 import me.simonhaasnoot.geinigspel.game.GameManager;
-import me.simonhaasnoot.geinigspel.game.frame.GameFrame;
 import me.simonhaasnoot.geinigspel.game.input.Input;
 
 import java.awt.*;
@@ -12,12 +11,12 @@ public class CharacterObject extends ImageObject {
     /**
      * The width of the character.
      */
-    public static final int SIZE_WIDTH = 65;
+    public static int SIZE_WIDTH = (int)(GameManager.getGameFrame().getWidth()/15.815);
 
     /**
      * The height of the character.
      */
-    public static final int SIZE_HEIGHT = 90;
+    public static int SIZE_HEIGHT = (int) (GameManager.getGameFrame().getHeight()/8.533);
 
     /**
      * The Speed of the character.
@@ -88,6 +87,12 @@ public class CharacterObject extends ImageObject {
         return characterImg;
     }
 
+    public void maintainAspect(){
+        this.setHeight((int)(GameManager.getGameFrame().getHeight()/8.533));
+        this.setWidth((int)(GameManager.getGameFrame().getWidth()/15.815));
+        this.setY(GameManager.getGameFrame().getHeight() - ((int)(GameManager.getGameFrame().getHeight()/8.533)*1.85));
+    }
+
     public int getCurrentHearts() {
         return currentHearts;
     }
@@ -116,9 +121,11 @@ public class CharacterObject extends ImageObject {
                 setFlippedX(false);
         }
 
+        this.setY(GameManager.getGameFrame().getHeight() - SIZE_HEIGHT*1.85);
+
         // Set the MIN and MAX of the field your playing in.
-        if(GameManager.getGameStateManager().getLevel().getCharacter().getX() > GameFrame.FRAME_WIDTH - getWidth())
-            GameManager.getGameStateManager().getLevel().getCharacter().setX(GameFrame.FRAME_WIDTH - getWidth());
+        if(this.getX() > GameManager.getGameFrame().getWidth() - getWidth())
+            this.setX(GameManager.getGameFrame().getWidth() - getWidth());
 
         if(GameManager.getGameStateManager().getLevel().getCharacter().getX() < 0)
             GameManager.getGameStateManager().getLevel().getCharacter().setX(0);
@@ -131,5 +138,7 @@ public class CharacterObject extends ImageObject {
             GameManager.getGameStateManager().getLevel().getCharacter().setImage(characterImg);
             }
         }
+
+        maintainAspect();
     }
 }

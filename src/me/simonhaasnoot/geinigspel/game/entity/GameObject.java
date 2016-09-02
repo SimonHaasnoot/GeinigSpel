@@ -160,6 +160,14 @@ public abstract class GameObject {
         return this.pos.getHeight();
     }
 
+    public void setHeight(int height){
+        this.pos.height = height;
+    }
+
+    public void setWidth(int width){
+        this.pos.width = width;
+    }
+
     /**
      * Translate (or move) the game object relatively for the given X and Y values.
      *
