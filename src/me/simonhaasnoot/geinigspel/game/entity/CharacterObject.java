@@ -121,8 +121,6 @@ public class CharacterObject extends ImageObject {
                 setFlippedX(false);
         }
 
-        this.setY(GameManager.getGameFrame().getHeight() - SIZE_HEIGHT*1.85);
-
         // Set the MIN and MAX of the field your playing in.
         if(this.getX() > GameManager.getGameFrame().getWidth() - getWidth())
             this.setX(GameManager.getGameFrame().getWidth() - getWidth());

@@ -22,7 +22,7 @@ public class GameFrame extends JFrame {
     /**
      * Width of the frame.
      */
-    public static int FRAME_WIDTH = (int) (768*1.3385);
+    public static int FRAME_WIDTH = 1028;
 
     /**
      * Constructor.

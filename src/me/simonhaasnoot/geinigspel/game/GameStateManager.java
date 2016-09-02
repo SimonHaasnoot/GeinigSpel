@@ -5,7 +5,7 @@ import me.simonhaasnoot.geinigspel.game.entity.GameObject;
 import me.simonhaasnoot.geinigspel.game.level.BaseLevel;
 import me.simonhaasnoot.geinigspel.game.time.FrameTime;
 import me.simonhaasnoot.geinigspel.game.time.Timer;
-import me.simonhaasnoot.geinigspel.game.util.PauseMenu;
+import me.simonhaasnoot.geinigspel.game.frame.PauseMenu;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -158,18 +158,19 @@ public class GameStateManager {
         g.drawImage(this.backgroundImg, 0, 0, GameManager.getGameFrame().getWidth(), GameManager.getGameFrame().getHeight(), null);
 
         // draw level components
-        level.paint(g);
 
         // draw all gameObjects
         for (GameObject go : gameObjects)
             go.paint(g);
 
         if(isGamePaused()){
-            if(pauseMenu == null)
-            pauseMenu = new PauseMenu();
-
+            if(pauseMenu == null) {
+                pauseMenu = new PauseMenu();
+            }
             pauseMenu.paint(g);
         }
+
+        level.paint(g);
     }
 
     public PauseMenu getPauseMenu() {

@@ -1,4 +1,4 @@
-package me.simonhaasnoot.geinigspel.game.util;
+package me.simonhaasnoot.geinigspel.game.frame;
 
 
 import me.simonhaasnoot.geinigspel.game.GameManager;
@@ -15,6 +15,11 @@ public class PauseMenu {
     private Image image = Toolkit.getDefaultToolkit().createImage("Images/Portraits/woodBg.png");
 
     private int currentChoice = 0;
+
+    public void init(){
+
+        registerKeys();
+    }
 
     public void paint(Graphics2D g){
 

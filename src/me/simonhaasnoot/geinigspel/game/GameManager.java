@@ -57,7 +57,7 @@ public class GameManager {
             // Update all game objects
             gsm.update();
 
-            //register ingame keys
+            //register in-game keys
             gsm.getLevel().registerKeys(gsm);
 
 
@@ -68,7 +68,8 @@ public class GameManager {
                     " - Frame time: " + GameManager.getGameStateManager().levelTimer.getElapsedTime());
         }
         else{
-            gsm.getPauseMenu().registerKeys();
+            //register pause-menu keys
+            gsm.getPauseMenu().init();
         }
         // Force render the game frame
         gameFrame.repaint();
