@@ -8,20 +8,37 @@ import me.simonhaasnoot.geinigspel.game.input.Input;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-
-public class MainMenu extends BaseLevel {
-
-    private String [] menuOptions = {"Start", "Select level", "Options", "Exit"};
+public class SelectMenu extends BaseLevel {
 
     private int currentChoice = 0;
+
+    private String [] menuOptions = {"Level 1", "Level 2", "Level 3", "Level 4"} ;
 
     @Override
     public void start(GameStateManager gsm) {
 
         gsm.setBackgroundImage(Toolkit.getDefaultToolkit().createImage("Images/Landscape/1028x768B.png"));
+
     }
 
-    @Override
+    public void select() {
+
+        if(currentChoice == 0)
+            GameManager.getGameStateManager().loadLevel(new Level1());
+
+        if(currentChoice == 1)
+            GameManager.getGameStateManager().loadLevel(new Level2());
+
+        if(currentChoice == 0)
+            GameManager.getGameStateManager().loadLevel(new Level1());
+
+        if(currentChoice == 0)
+            GameManager.getGameStateManager().loadLevel(new Level1());
+
+    }
+
+
+        @Override
     public void update(GameStateManager gsm) {
 
     }
@@ -53,21 +70,6 @@ public class MainMenu extends BaseLevel {
             select();
     }
 
-    public void select(){
-
-        if(currentChoice == 0)
-            GameManager.getGameStateManager().loadLevel(new Level1());
-
-        //TODO choice
-        if(currentChoice == 1);
-        GameManager.getGameStateManager().loadLevel(new SelectMenu());
-        //TODO choice
-        if(currentChoice == 2);
-
-        if(currentChoice == 3)
-            System.exit(0);
-    }
-
     @Override
     public void paint(Graphics2D g) {
 
@@ -80,7 +82,7 @@ public class MainMenu extends BaseLevel {
                 g.setColor(Color.black);
 
             g.drawString(menuOptions[i], (int)(GameManager.getGameFrame().getWidth()/4) + (int)(GameManager.getGameFrame().getWidth()/10.28),
-                    GameManager.getGameFrame().getHeight()/3 + (i * (int)(GameManager.getGameFrame().getHeight()/10)));
+                    GameManager.getGameFrame().getHeight()/4 + (i * (int)(GameManager.getGameFrame().getHeight()/10)));
 
         }
     }

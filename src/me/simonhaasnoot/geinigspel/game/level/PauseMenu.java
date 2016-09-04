@@ -50,8 +50,9 @@ public class PauseMenu {
         if(currentChoice == 1);
 
         //TODO choice
-        if(currentChoice == 2);
+        if(currentChoice == 2)
         GameManager.getGameStateManager().loadLevel(new MainMenu());
+
         if(currentChoice == 3)
             System.exit(0);
     }
@@ -73,7 +74,7 @@ public class PauseMenu {
             currentChoice--;
 
         // select the user's choice
-        if(Input.isPressedOnce(KeyEvent.VK_ENTER))
+        if(Input.isPressedOnce(KeyEvent.VK_ENTER) || Input.isPressedOnce(KeyEvent.VK_SPACE))
             select();
     }
 
